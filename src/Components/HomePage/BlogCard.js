@@ -1,154 +1,96 @@
 import React from "react";
 
-const InfoCards = () => {
-  const cardsData = [
+const RelatedBlogSection = () => {
+  const blogs = [
     {
       id: 1,
-      badge: "WWW.SEARCH",
-      title: "Trademark Registration Fees",
-      subtitle: "TM filing starts at just ₹4999 + Govt fees",
-      image: "TM",
+      badge: "GSTR + Govt fees",
+      title: "Trademark Registration Fees in India: Complete Fees Structure",
       description:
-        "The official trademark registration fees in India vary depending on the applicant",
-      link: "Read Details",
-      bgColor: "from-red-900 to-red-950",
-      mainColor: "red",
+        "The official trademark registration fees in India vary depending on the applicant...",
+      imageUrl:
+        "https://vakilsearch.com/_next/image?url=https%3A%2F%2Fvakilsearch.com%2Fblog%2Fwp-content%2Fuploads%2F2022%2F12%2Ftrademark-registration-fees.webp&w=384&q=75",
+      buttonText: "Read Details",
+      bgColor: "bg-yellow-50",
+      titleColor: "text-gray-900",
     },
     {
       id: 2,
-      badge: "GOLD SCHEME",
-      title: "GST on Gold",
-      subtitle: "GST Rates on Gold, Jewellery, Ornaments, ETFs and Coin",
+      badge: "GST Guide",
+      title: "GST on Gold: 18, 22, 24 Carat Jewellery Rates & Ornaments",
       description:
-        "Under the current GST regime in India, all gold transactions—whether for jewellery,",
-      link: "Read Details",
-      bgColor: "from-[#4a0e0e] to-[#2d0a0a]",
-      mainColor: "red",
+        "Under the current GST regime in India, all gold transactions—whether for jewellery...",
+      imageUrl:
+        "https://vakilsearch.com/_next/image?url=https%3A%2F%2Fvakilsearch.com%2Fblog%2Fwp-content%2Fuploads%2F2025%2F03%2Fgst-on-gold.webp&w=384&q=75",
+      buttonText: "Read Details",
+      bgColor: "bg-purple-900",
+      titleColor: "text-white",
     },
     {
       id: 3,
-      badge: "WWW.SEARCH",
-      title: "Eway Bill Limit",
-      subtitle: "Basic, Max, List & Threshold",
+      badge: "E-Way Bill Guide",
+      title: "Eway Bill Limit 2025: State-Wise List & Thresholds",
       description:
-        "The e-way bill system mandates an electronic document for transporting goods over",
-      link: "Read Details",
-      bgColor: "from-red-800 to-red-900",
-      mainColor: "red",
+        "The e-way bill system mandates an electronic document for transporting goods over...",
+      imageUrl:
+        "https://vakilsearch.com/_next/image?url=https%3A%2F%2Fvakilsearch.com%2Fblog%2Fwp-content%2Fuploads%2F2025%2F03%2Feway-bill-limit.webp&w=384&q=75",
+      buttonText: "Read Details",
+      bgColor: "bg-gray-100",
+      titleColor: "text-gray-900",
     },
   ];
 
   return (
-    <div className="bg-gradient-to-br from-[#4a0e0e] via-[#2d0a0a] to-[#1a0505] py-12 px-4 sm:px-6 lg:px-8">
+    <div className="bg-gradient-to-br from-[#4a0e0e] via-[#2d0a0a] to-[#1a0505] py-12 md:py-16 px-4 sm:px-6 lg:px-8">
       <div className="max-w-7xl mx-auto">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {cardsData.map((card) => (
+        {/* Header */}
+        <div className="text-center mb-12">
+          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-2">
+            Here are some related blog
+          </h2>
+        </div>
+
+        {/* Blog Cards */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
+          {blogs.map((blog) => (
             <div
-              key={card.id}
-              className="bg-gradient-to-br from-red-950 to-black rounded-lg shadow-lg hover:shadow-2xl hover:shadow-red-900/50 transition-all duration-300 overflow-hidden border border-red-900/30"
+              key={blog.id}
+              className="bg-white rounded-lg shadow-lg hover:shadow-2xl transition-all duration-300 overflow-hidden border-2 border-gray-200 hover:border-red-500 hover:scale-105"
             >
-              {/* Card Image/Header Section */}
-              <div
-                className={`relative h-48 bg-gradient-to-br ${card.bgColor} p-6 flex flex-col justify-between`}
-              >
+              {/* Blog Image */}
+              <div className={`${blog.bgColor} h-48 relative overflow-hidden`}>
+                <img
+                  src={blog.imageUrl}
+                  alt={blog.title}
+                  className="w-full h-full object-cover"
+                />
                 {/* Badge */}
-                <div className="flex justify-between items-start">
-                  <span className="inline-block px-3 py-1 text-xs font-bold bg-red-500 text-white rounded-full">
-                    {card.badge}
-                  </span>
+                <div className="absolute top-4 left-4 bg-blue-900 text-white px-3 py-1 rounded-full text-xs font-semibold">
+                  {blog.badge}
                 </div>
-
-                {/* Title Section */}
-                <div className="text-white">
-                  <h3 className="text-2xl font-bold mb-2">{card.title}</h3>
-                  <p className="text-sm opacity-90">{card.subtitle}</p>
-
-                  {/* Decorative dots for card 2 */}
-                  {card.id === 2 && (
-                    <div className="flex gap-1 mt-4">
-                      {[...Array(7)].map((_, i) => (
-                        <div
-                          key={i}
-                          className={`w-1.5 h-1.5 rounded-full ${
-                            i === 3 ? "bg-red-500" : "bg-white"
-                          }`}
-                        />
-                      ))}
-                    </div>
-                  )}
-                </div>
-
-                {/* Icon/Image placeholder */}
-                {card.id === 1 && (
-                  <div className="absolute right-6 top-1/2 transform -translate-y-1/2">
-                    <div className="w-24 h-24 bg-red-500 rounded-full flex items-center justify-center border-4 border-white">
-                      <span className="text-3xl font-bold text-white">
-                        {card.image}
-                      </span>
-                    </div>
-                  </div>
-                )}
-
-                {card.id === 2 && (
-                  <div className="absolute right-6 top-6">
-                    <div className="w-32 h-32 relative">
-                      {/* Decorative jewelry image placeholder */}
-                      <div className="absolute inset-0 flex items-center justify-center">
-                        <div className="w-24 h-24 border-8 border-red-500 rounded-full"></div>
-                      </div>
-                    </div>
-                  </div>
-                )}
-
-                {card.id === 3 && (
-                  <div className="absolute right-6 top-1/2 transform -translate-y-1/2">
-                    <div className="relative">
-                      <div className="text-6xl">📦</div>
-                      <div className="absolute -top-2 -right-2 bg-red-500 text-white font-bold text-xs px-2 py-1 rounded">
-                        E-Way Bill Limit
-                      </div>
-                    </div>
-                  </div>
-                )}
               </div>
 
-              {/* Card Content */}
-              <div className="p-6 bg-gradient-to-br from-red-950/50 to-black/80">
-                <h4 className="text-lg font-bold text-white mb-2">
-                  {card.title}: {card.subtitle.split(":")[0]}
-                </h4>
-                <p className="text-gray-300 text-sm mb-4 line-clamp-2">
-                  {card.description}
-                </p>
-                <a
-                  href="#"
-                  className="inline-flex items-center text-sm font-semibold text-red-400 hover:text-red-300 transition-colors"
+              {/* Blog Content */}
+              <div className="p-6">
+                <h3
+                  className={`text-lg md:text-xl font-bold ${blog.titleColor} mb-3`}
                 >
-                  {card.link}
-                  <svg
-                    className="w-4 h-4 ml-1"
-                    fill="none"
-                    stroke="currentColor"
-                    viewBox="0 0 24 24"
-                  >
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      strokeWidth={2}
-                      d="M9 5l7 7-7 7"
-                    />
-                  </svg>
-                </a>
+                  {blog.title}
+                </h3>
+                <p className="text-gray-600 text-sm mb-4 leading-relaxed">
+                  {blog.description}
+                </p>
+                <button className="text-blue-600 hover:text-blue-800 font-semibold text-sm transition-colors duration-300 flex items-center gap-1">
+                  {blog.buttonText}
+                  <span>→</span>
+                </button>
               </div>
             </div>
           ))}
         </div>
       </div>
-
-      {/* Refer a Friend Button (Fixed position) */}
-      <div className="fixed right-0 top-1/2 transform -translate-y-1/2 z-50"></div>
     </div>
   );
 };
 
-export default InfoCards;
+export default RelatedBlogSection;

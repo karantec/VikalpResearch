@@ -15,6 +15,10 @@ const ProfessionalSupportSection = () => {
       count: "205+ Lawyers",
       icon: "⚖️",
       buttonText: "Consult Now",
+      bgGradient: "from-blue-50 to-blue-100",
+      iconBg: "bg-green-500",
+      imageUrl:
+        "https://vakilsearch.com/_next/image?url=https%3A%2F%2Fassets.vakilsearch.com%2Fic-lawyers-expert.png&w=256&q=75",
     },
     {
       id: 2,
@@ -23,6 +27,10 @@ const ProfessionalSupportSection = () => {
       count: "256+ CAs",
       icon: "💼",
       buttonText: "Consult Now",
+      bgGradient: "from-green-50 to-green-100",
+      iconBg: "bg-green-500",
+      imageUrl:
+        "https://vakilsearch.com/_next/image?url=https%3A%2F%2Fassets.vakilsearch.com%2Fic-ca-expert.png&w=256&q=75",
     },
     {
       id: 3,
@@ -31,6 +39,10 @@ const ProfessionalSupportSection = () => {
       count: "200+ CS",
       icon: "📋",
       buttonText: "Consult Now",
+      bgGradient: "from-purple-50 to-purple-100",
+      iconBg: "bg-green-500",
+      imageUrl:
+        "https://vakilsearch.com/_next/image?url=https%3A%2F%2Fassets.vakilsearch.com%2Fic-cs-expert.png&w=256&q=75",
     },
   ];
 
@@ -73,24 +85,26 @@ const ProfessionalSupportSection = () => {
 
               {/* Professional Image Section */}
               <div className="relative p-6">
-                <div className="bg-gradient-to-br from-gray-100 to-gray-200 rounded-lg overflow-hidden h-48 flex items-center justify-center relative">
-                  {/* Placeholder for professional image */}
-                  <div className="text-center">
-                    <div className="text-6xl mb-2">{professional.icon}</div>
-                    <div className="absolute bottom-4 left-4 bg-green-500 text-white px-3 py-1 rounded-full text-xs font-semibold flex items-center gap-1 shadow-md">
-                      <span className="w-2 h-2 bg-white rounded-full animate-pulse"></span>
-                      {professional.count}
-                    </div>
+                <div
+                  className={`bg-gradient-to-br ${professional.bgGradient} rounded-lg overflow-hidden h-48 flex items-center justify-center relative`}
+                >
+                  {/* Professional Image */}
+                  <img
+                    src={professional.imageUrl}
+                    alt={professional.title}
+                    className="w-auto h-full object-contain"
+                  />
+                  <div
+                    className={`absolute bottom-4 left-4 ${professional.iconBg} text-white px-3 py-1 rounded-full text-xs font-semibold flex items-center gap-1 shadow-md`}
+                  >
+                    <span className="w-2 h-2 bg-white rounded-full animate-pulse"></span>
+                    {professional.count}
                   </div>
                 </div>
               </div>
             </div>
           ))}
         </div>
-
-        {/* Bottom Border Line */}
-
-        {/* Refer a Friend Button (Fixed position) */}
       </div>
     </div>
   );

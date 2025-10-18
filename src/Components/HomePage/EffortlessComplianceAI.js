@@ -1,158 +1,130 @@
 import React from "react";
+import { Sparkles } from "lucide-react";
 
-const EffortlessComplianceAI = () => {
-  const sectionData = {
-    title: "Effortless Compliance Backed by Smart AI",
-    subtitle:
-      "Get AI-powered tools, smarter insights, draft, and search for all your business needs",
-  };
-
-  const tools = [
-    {
-      id: 1,
-      title: "Business Name Generator",
-      description: "Generate creative and unique business names that stand out",
-      icon: "💼",
-    },
-    {
-      id: 2,
-      title: "Document Generator",
-      description:
-        "Automatically create legal documents, contracts, and agreements",
-      icon: "📄",
-    },
-  ];
-
-  const aiAssistant = {
-    name: "Zenus AI",
-    message:
-      "Not sure where to begin with your legal, tax, or compliance journey?",
-    subMessage:
-      "Have a question? Just ask, and I'll guide you through every step!",
-    badge: "Zenus Giga",
-  };
-
+export default function ComplianceSection() {
   return (
-    <div className="bg-gradient-to-br from-gray-50 to-gray-100 py-12 md:py-16 px-4 sm:px-6 lg:px-8">
+    <div className="min-h-screen bg-gradient-to-br from-[#4a0e0e] via-[#2d0a0a] to-[#1a0505] py-16 px-4">
       <div className="max-w-7xl mx-auto">
         {/* Header */}
-        <div className="text-center mb-12">
-          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 mb-3">
-            {sectionData.title}
-          </h2>
-          <p className="text-gray-600 text-sm md:text-base">
-            {sectionData.subtitle}
+        <div className="text-center mb-16">
+          <h1 className="text-4xl md:text-5xl font-bold text-white mb-4">
+            Effortless Compliance Backed by Smart AI
+          </h1>
+          <p className="text-white text-lg">
+            Our AI-powered tools makes Compliance simple, swift, and seamless
+            for all your business needs.
           </p>
         </div>
 
-        {/* Main Content */}
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 md:gap-12 items-center">
-          {/* Left Side - Tools */}
-          <div className="space-y-6">
-            {tools.map((tool) => (
-              <div
-                key={tool.id}
-                className="bg-white rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 p-6 border-2 border-gray-200 hover:border-red-500 group"
-              >
-                <div className="flex items-start gap-4">
-                  {/* Mobile/Device Mockup */}
-                  <div className="flex-shrink-0">
-                    <div className="relative">
-                      <div className="w-32 h-40 bg-gradient-to-br from-gray-800 to-gray-900 rounded-lg border-4 border-gray-700 shadow-xl overflow-hidden">
-                        {/* Phone Screen */}
-                        <div className="w-full h-full bg-white p-2">
-                          <div className="w-full h-full bg-gradient-to-br from-red-50 to-red-100 rounded flex flex-col items-center justify-center p-2">
-                            <span className="text-3xl mb-2">{tool.icon}</span>
-                            <div className="w-full space-y-1">
-                              <div className="h-2 bg-red-300 rounded"></div>
-                              <div className="h-2 bg-red-200 rounded w-3/4"></div>
-                              <div className="h-2 bg-red-200 rounded w-1/2"></div>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                      {/* Floating Label */}
-                      <div className="absolute -left-6 top-4 bg-white px-3 py-2 rounded shadow-md border border-gray-200">
-                        <p className="text-xs font-semibold text-gray-700">
-                          {tool.title}
-                        </p>
-                        <p className="text-xs text-gray-500 mt-1">
-                          Click to generate
-                        </p>
-                      </div>
-                    </div>
-                  </div>
-
-                  {/* Content */}
-                  <div className="flex-1">
-                    <h3 className="text-xl font-bold text-gray-900 mb-2">
-                      {tool.title}
-                    </h3>
-                    <p className="text-sm text-gray-600">{tool.description}</p>
-                  </div>
-                </div>
-              </div>
-            ))}
-          </div>
-
-          {/* Right Side - AI Assistant */}
-          <div className="relative">
-            <div className="bg-white rounded-lg shadow-2xl p-6 md:p-8 border-2 border-red-500">
-              {/* Zenus AI Badge */}
-              <div className="absolute -top-4 left-1/2 transform -translate-x-1/2">
-                <div className="bg-gradient-to-r from-red-600 to-red-700 text-white px-6 py-2 rounded-full shadow-lg border-2 border-white">
-                  <span className="font-bold">{aiAssistant.name}</span>
-                </div>
-              </div>
-
-              {/* AI Character */}
-              <div className="flex flex-col items-center mt-8">
-                <div className="relative mb-6">
-                  {/* Character Circle */}
-                  <div className="w-32 h-32 bg-gradient-to-br from-red-100 to-red-200 rounded-full flex items-center justify-center border-4 border-red-500 shadow-lg">
-                    <div className="text-6xl">🤖</div>
-                  </div>
-                  {/* Decorative Elements */}
-                  <div className="absolute -top-2 -right-2 w-8 h-8 bg-red-400 rounded-full animate-pulse"></div>
-                  <div className="absolute -bottom-2 -left-2 w-6 h-6 bg-red-300 rounded-full animate-pulse delay-75"></div>
-                </div>
-
-                {/* Message */}
-                <div className="text-center space-y-4">
-                  <h3 className="text-lg md:text-xl font-bold text-gray-900">
-                    {aiAssistant.message}
+        {/* Main Grid Layout */}
+        <div className="grid lg:grid-cols-2 gap-6  items-start">
+          {/* Left Column - Business Name & Document Generator */}
+          <div className="space-y-6 ">
+            {/* Business Name Generator */}
+            <div className="bg-gradient-to-br from-blue-50 to-indigo-50 rounded-3xl p-6 relative ">
+              <div className="flex items-start gap-4">
+                <div className="flex-1">
+                  <Sparkles className="w-6 h-6 text-amber-400 mb-3" />
+                  <h3 className="text-xl font-bold text-gray-900 mb-2">
+                    Business Name
+                    <br />
+                    Generator
                   </h3>
-                  <p className="text-sm text-gray-600">
-                    {aiAssistant.subMessage}
+                  <p className="text-gray-600 text-xs leading-relaxed">
+                    Find the perfect MCA-compliant name for your business in
+                    just a click.
                   </p>
-
-                  {/* Badge */}
-                  <div className="inline-block">
-                    <div className="bg-gradient-to-r from-red-600 to-red-700 text-white px-4 py-2 rounded-full shadow-md text-sm font-semibold">
-                      {aiAssistant.badge}
-                    </div>
-                  </div>
-
-                  {/* CTA Button */}
-                  <div className="pt-4">
-                    <button className="bg-gradient-to-r from-red-600 to-red-700 hover:from-red-700 hover:to-red-800 text-white font-bold py-3 px-8 rounded-lg transition-all duration-300 shadow-lg hover:shadow-xl">
-                      Ask Zenus AI
-                    </button>
-                  </div>
+                </div>
+                <div className="flex-shrink-0">
+                  <img
+                    src="https://vakilsearch.com/_next/image?url=https%3A%2F%2Fassets.vakilsearch.com%2Fic-zen-search.png&w=640&q=75"
+                    alt="Business Name Generator"
+                    className="w-40 rounded-xl shadow-2xl"
+                  />
                 </div>
               </div>
             </div>
 
-            {/* Decorative Background Elements */}
-            <div className="absolute -z-10 top-10 -right-10 w-40 h-40 bg-red-200 rounded-full opacity-20 blur-3xl"></div>
-            <div className="absolute -z-10 -bottom-10 -left-10 w-32 h-32 bg-red-300 rounded-full opacity-20 blur-3xl"></div>
+            {/* Document Generator */}
+            <div className="bg-gradient-to-br from-purple-50 to-pink-50 rounded-3xl p-6 relative">
+              <div className="flex items-start gap-4">
+                <div className="flex-1">
+                  <Sparkles className="w-6 h-6 text-amber-400 mb-3" />
+                  <h3 className="text-xl font-bold text-gray-900 mb-2">
+                    Document
+                    <br />
+                    Generator
+                  </h3>
+                  <p className="text-gray-600 text-xs leading-relaxed">
+                    Create expert-vetted legal documents instantly tailored to
+                    your needs, no legal jargon, no delays.
+                  </p>
+                </div>
+                <div className="flex-shrink-0">
+                  <img
+                    src="https://vakilsearch.com/_next/image?url=https%3A%2F%2Fassets.vakilsearch.com%2Fic-zen-doc.png&w=640&q=75"
+                    alt="Document Generator"
+                    className="w-40 rounded-xl shadow-2xl"
+                  />
+                </div>
+              </div>
+            </div>
+          </div>
+
+          {/* Right Column - Zenius AI */}
+          <div className="bg-gradient-to-br from-cyan-50 to-blue-50 rounded-3xl p-8 h-full flex flex-col justify-between">
+            <div>
+              <div className="inline-flex items-center gap-2 bg-white rounded-full px-4 py-2 shadow-md mb-6">
+                <Sparkles className="w-4 h-4 text-purple-500" />
+                <span className="font-semibold text-gray-900 text-sm">
+                  Zenius Ai
+                </span>
+              </div>
+
+              <div className="mb-6">
+                <p className="text-xs text-gray-600 mb-1.5">
+                  How to claim GST input credit?
+                </p>
+                <p className="text-xs text-gray-600 mb-1.5">
+                  Penalty for late ITR filing?
+                </p>
+                <p className="text-xs text-gray-600 mb-1.5">
+                  How to file GST returns online?
+                </p>
+              </div>
+            </div>
+
+            <div className="flex flex-col items-center">
+              <img
+                src="https://vakilsearch.com/_next/image?url=https%3A%2F%2Fassets.vakilsearch.com%2Fic-zen-man.png&w=384&q=75"
+                alt="Zenius AI Assistant"
+                className="w-52 mb-4"
+              />
+
+              <h3 className="text-xl font-bold text-gray-900 mb-2 text-center">
+                Not sure where to begin with your
+                <br />
+                legal, tax, or compliance journey?
+              </h3>
+
+              <p className="text-gray-600 text-sm text-center mb-4">
+                Zenius is your AI-powered legal assistant here to guide you
+                through
+                <br />
+                every step of your journey.
+              </p>
+
+              <div className="inline-flex items-center gap-2 bg-white rounded-full px-5 py-2 shadow-md border-2 border-cyan-400">
+                <span className="font-semibold text-gray-900 text-xs">
+                  COMING
+                  <br />
+                  SOON
+                </span>
+              </div>
+            </div>
           </div>
         </div>
-
-        {/* Refer a Friend Button (Fixed position) */}
       </div>
     </div>
   );
-};
-
-export default EffortlessComplianceAI;
+}

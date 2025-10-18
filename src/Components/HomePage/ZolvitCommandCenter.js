@@ -1,6 +1,8 @@
-import React from "react";
+import React, { useState } from "react";
 
 const Zolvit360CommandCenter = () => {
+  const [activeFeature, setActiveFeature] = useState(2);
+
   const sectionData = {
     title: "Zolvit 360 - Your Command Centre for Compliance",
     subtitle:
@@ -12,6 +14,10 @@ const Zolvit360CommandCenter = () => {
       id: 1,
       icon: "📊",
       title: "Unified Dashboard",
+      description:
+        "Get a comprehensive view of all your compliance activities in one centralized location.",
+      image:
+        "https://via.placeholder.com/800x600/1e3a8a/ffffff?text=Unified+Dashboard",
       expanded: false,
     },
     {
@@ -20,18 +26,28 @@ const Zolvit360CommandCenter = () => {
       title: "Automated Compliance",
       description:
         "Stay ahead with smart alerts and automatically manage filings to avoid missed deadlines.",
+      image:
+        "https://via.placeholder.com/800x600/dc2626/ffffff?text=Automated+Compliance",
       expanded: true,
     },
     {
       id: 3,
       icon: "🔒",
       title: "Secure Document Vault",
+      description:
+        "Store and organize all your compliance documents safely with enterprise-grade security.",
+      image:
+        "https://via.placeholder.com/800x600/059669/ffffff?text=Secure+Document+Vault",
       expanded: false,
     },
     {
       id: 4,
       icon: "👥",
       title: "Expert Connect",
+      description:
+        "Get instant access to compliance experts for guidance and support whenever you need it.",
+      image:
+        "https://via.placeholder.com/800x600/7c3aed/ffffff?text=Expert+Connect",
       expanded: false,
     },
   ];

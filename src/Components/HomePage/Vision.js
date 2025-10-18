@@ -27,7 +27,6 @@ const ValidatedVisionSection = () => {
     <div className="bg-gradient-to-br from-[#4a0e0e] via-[#2d0a0a] to-[#1a0505] py-16 px-4 sm:px-6 lg:px-8">
       <div className="max-w-7xl mx-auto">
         {/* Top Blue Border */}
-        <div className="w-full h-1 bg-gradient-to-r from-blue-600 via-blue-500 to-blue-600 mb-12"></div>
 
         {/* Validated Vision Section */}
         <div className="text-center mb-16">

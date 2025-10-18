@@ -1,6 +1,8 @@
-import React from "react";
+import React, { useEffect, useRef } from "react";
 
 const SuccessPrioritySection = () => {
+  const scrollContainerRef = useRef(null);
+
   const sectionData = {
     title: "Your success is our priority",
     quote:
@@ -53,6 +55,52 @@ const SuccessPrioritySection = () => {
     },
   ];
 
+  // Duplicate testimonials for seamless loop
+  const duplicatedTestimonials = [...testimonials, ...testimonials];
+
+  useEffect(() => {
+    const scrollContainer = scrollContainerRef.current;
+    if (!scrollContainer) return;
+
+    let scrollInterval;
+    let isPaused = false;
+
+    const startScrolling = () => {
+      scrollInterval = setInterval(() => {
+        if (!isPaused && scrollContainer) {
+          scrollContainer.scrollTop += 1;
+
+          // Reset to top when reached halfway (seamless loop)
+          if (scrollContainer.scrollTop >= scrollContainer.scrollHeight / 2) {
+            scrollContainer.scrollTop = 0;
+          }
+        }
+      }, 30);
+    };
+
+    startScrolling();
+
+    // Pause on hover
+    const handleMouseEnter = () => {
+      isPaused = true;
+    };
+
+    const handleMouseLeave = () => {
+      isPaused = false;
+    };
+
+    scrollContainer.addEventListener("mouseenter", handleMouseEnter);
+    scrollContainer.addEventListener("mouseleave", handleMouseLeave);
+
+    return () => {
+      clearInterval(scrollInterval);
+      if (scrollContainer) {
+        scrollContainer.removeEventListener("mouseenter", handleMouseEnter);
+        scrollContainer.removeEventListener("mouseleave", handleMouseLeave);
+      }
+    };
+  }, []);
+
   return (
     <div className="bg-gradient-to-br from-[#4a0e0e] via-[#2d0a0a] to-[#1a0505] py-12 md:py-16 px-4 sm:px-6 lg:px-8">
       <div className="max-w-7xl mx-auto">
@@ -80,12 +128,16 @@ const SuccessPrioritySection = () => {
             </div>
           </div>
 
-          {/* Right Section - Testimonials */}
-          <div className="relative">
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 max-h-[600px] overflow-y-auto pr-2 custom-scrollbar">
-              {testimonials.map((testimonial) => (
+          {/* Right Section - Auto-Scrolling Testimonials */}
+          <div className="relative overflow-hidden">
+            <div
+              ref={scrollContainerRef}
+              className="grid grid-cols-1 sm:grid-cols-2 gap-4 max-h-[600px] overflow-hidden"
+              style={{ scrollBehavior: "auto" }}
+            >
+              {duplicatedTestimonials.map((testimonial, index) => (
                 <div
-                  key={testimonial.id}
+                  key={`${testimonial.id}-${index}`}
                   className="bg-white rounded-lg p-4 shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105 border-2 border-transparent hover:border-red-500"
                 >
                   {testimonial.name && (
@@ -107,8 +159,6 @@ const SuccessPrioritySection = () => {
             </div>
           </div>
         </div>
-
-        {/* Refer a Friend Button (Fixed position) */}
       </div>
 
       <style jsx>{`
