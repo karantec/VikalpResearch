@@ -1,7 +1,8 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 
 const Zolvit360CommandCenter = () => {
-  const [activeFeature, setActiveFeature] = useState(2);
+  const [activeFeature, setActiveFeature] = useState(0);
+  const [progress, setProgress] = useState(0);
 
   const sectionData = {
     title: "Zolvit 360 - Your Command Centre for Compliance",
@@ -16,9 +17,7 @@ const Zolvit360CommandCenter = () => {
       title: "Unified Dashboard",
       description:
         "Get a comprehensive view of all your compliance activities in one centralized location.",
-      image:
-        "https://via.placeholder.com/800x600/1e3a8a/ffffff?text=Unified+Dashboard",
-      expanded: false,
+      image: "https://assets.vakilsearch.com/ic-platform-benefits-md-1.png",
     },
     {
       id: 2,
@@ -26,9 +25,7 @@ const Zolvit360CommandCenter = () => {
       title: "Automated Compliance",
       description:
         "Stay ahead with smart alerts and automatically manage filings to avoid missed deadlines.",
-      image:
-        "https://via.placeholder.com/800x600/dc2626/ffffff?text=Automated+Compliance",
-      expanded: true,
+      image: "https://assets.vakilsearch.com/ic-platform-benefits-md-2.png",
     },
     {
       id: 3,
@@ -36,9 +33,7 @@ const Zolvit360CommandCenter = () => {
       title: "Secure Document Vault",
       description:
         "Store and organize all your compliance documents safely with enterprise-grade security.",
-      image:
-        "https://via.placeholder.com/800x600/059669/ffffff?text=Secure+Document+Vault",
-      expanded: false,
+      image: "https://assets.vakilsearch.com/ic-platform-benefits-md-3.png",
     },
     {
       id: 4,
@@ -46,9 +41,7 @@ const Zolvit360CommandCenter = () => {
       title: "Expert Connect",
       description:
         "Get instant access to compliance experts for guidance and support whenever you need it.",
-      image:
-        "https://via.placeholder.com/800x600/7c3aed/ffffff?text=Expert+Connect",
-      expanded: false,
+      image: "https://assets.vakilsearch.com/ic-platform-benefits-md-4.png",
     },
   ];
 
@@ -82,166 +75,107 @@ const Zolvit360CommandCenter = () => {
 
   const buttonText = "Signup for Zolvit 360";
 
+  // Auto-progress effect
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setProgress((prev) => {
+        if (prev >= 100) {
+          // Move to next feature
+          setActiveFeature((current) => (current + 1) % features.length);
+          return 0;
+        }
+        return prev + 2;
+      });
+    }, 50);
+
+    return () => clearInterval(interval);
+  }, [features.length]);
+
+  const handleFeatureClick = (index) => {
+    setActiveFeature(index);
+    setProgress(0);
+  };
+
   return (
-    <div className="bg-gradient-to-br from-[#4a0e0e] via-[#2d0a0a] to-[#1a0505] py-12 md:py-16 px-4 sm:px-6 lg:px-8">
+    <div className="bg-gradient-to-br from-[#4a0e0e] via-[#2d0a0a] to-[#1a0505] py-8 sm:py-12 lg:py-16 px-4 sm:px-6 lg:px-8">
       <div className="max-w-7xl mx-auto">
         {/* Header */}
-        <div className="text-center mb-12">
-          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-3">
+        <div className="text-center mb-8 sm:mb-10 lg:mb-12">
+          <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-2 sm:mb-3 px-2 leading-tight">
             {sectionData.title}
           </h2>
-          <p className="text-gray-300 text-sm md:text-base">
+          <p className="text-gray-300 text-sm sm:text-base px-4">
             {sectionData.subtitle}
           </p>
         </div>
 
         {/* Main Content Grid */}
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 md:gap-8">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 sm:gap-8">
           {/* Left Side - Features */}
-          <div className="space-y-4">
-            {features.map((feature) => (
+          <div className="space-y-3 sm:space-y-4">
+            {features.map((feature, index) => (
               <div
                 key={feature.id}
-                className={`rounded-lg transition-all duration-300 ${
-                  feature.expanded
+                onClick={() => handleFeatureClick(index)}
+                className={`rounded-lg transition-all duration-300 cursor-pointer overflow-hidden ${
+                  activeFeature === index
                     ? "bg-gradient-to-br from-red-900 to-red-950 border-2 border-red-500 shadow-lg shadow-red-900/50"
                     : "bg-gradient-to-br from-gray-800 to-gray-900 hover:from-red-900 hover:to-red-950 border border-gray-700 hover:border-red-500"
-                } p-5 md:p-6`}
+                } p-4 sm:p-5 md:p-6`}
               >
                 <div className="flex items-center gap-3">
-                  <span className="text-2xl">{feature.icon}</span>
-                  <h3 className="text-lg md:text-xl font-bold text-white">
+                  <span className="text-xl sm:text-2xl flex-shrink-0">
+                    {feature.icon}
+                  </span>
+                  <h3 className="text-base sm:text-lg md:text-xl font-bold text-white">
                     {feature.title}
                   </h3>
                 </div>
-                {feature.expanded && feature.description && (
-                  <p className="mt-3 text-sm text-gray-300 ml-11">
-                    {feature.description}
-                  </p>
+                {activeFeature === index && (
+                  <>
+                    <p className="mt-3 text-xs sm:text-sm text-gray-300 ml-8 sm:ml-11">
+                      {feature.description}
+                    </p>
+                    {/* Progress Bar */}
+                    <div className="mt-3 ml-8 sm:ml-11">
+                      <div className="w-full bg-red-950 rounded-full h-1 overflow-hidden">
+                        <div
+                          className="bg-red-500 h-1 transition-all duration-100 ease-linear"
+                          style={{ width: `${progress}%` }}
+                        />
+                      </div>
+                    </div>
+                  </>
                 )}
               </div>
             ))}
 
             {/* Signup Button */}
-            <div className="pt-4">
-              <button className="w-full bg-white hover:bg-gray-100 text-gray-900 font-bold py-4 px-6 rounded-lg transition-all duration-300 shadow-lg hover:shadow-xl text-base md:text-lg">
+            <div className="pt-2 sm:pt-4">
+              <button className="w-full bg-white hover:bg-gray-100 text-gray-900 font-bold py-3 sm:py-4 px-4 sm:px-6 rounded-lg transition-all duration-300 shadow-lg hover:shadow-xl text-sm sm:text-base md:text-lg">
                 {buttonText}
               </button>
             </div>
           </div>
 
           {/* Right Side - Dashboard Preview */}
-          <div className="bg-gradient-to-br from-blue-900 to-blue-950 rounded-lg shadow-2xl overflow-hidden border-4 border-gray-800">
+          <div className="bg-gradient-to-br from-blue-900 to-blue-950 rounded-lg shadow-2xl overflow-hidden border-2 sm:border-4 border-gray-800">
             {/* Dashboard Frame */}
-            <div className="p-4">
+            <div className="p-2 sm:p-3 lg:p-4">
               {/* Dashboard Content */}
               <div className="bg-white rounded-lg overflow-hidden">
-                {/* Dashboard Header */}
-                <div className="bg-gray-100 px-4 py-3 border-b border-gray-300 flex items-center justify-between">
-                  <div className="flex items-center gap-2">
-                    <span className="text-yellow-500 font-bold">⚡ zolvit</span>
-                    <span className="text-xs bg-blue-600 text-white px-2 py-1 rounded">
-                      360
-                    </span>
-                  </div>
-                  <div className="flex gap-4 text-xs">
-                    <span className="font-semibold">Compliance Department</span>
-                    <span className="font-semibold">Compliance Category</span>
-                    <span className="font-semibold">Due Date</span>
-                  </div>
-                </div>
-
-                {/* Sidebar Navigation */}
-                <div className="flex">
-                  <div className="w-48 bg-gray-900 text-white p-4 space-y-3 text-sm">
-                    <div className="flex items-center gap-2 text-gray-300">
-                      <span>🏠</span>
-                      <span>Home</span>
-                    </div>
-                    <div className="flex items-center gap-2 bg-red-600 px-2 py-1 rounded">
-                      <span>📋</span>
-                      <span>Compliance</span>
-                    </div>
-                    <div className="flex items-center gap-2 text-gray-300">
-                      <span>📅</span>
-                      <span>Zolvit</span>
-                    </div>
-                    <div className="flex items-center gap-2 text-gray-300">
-                      <span>📊</span>
-                      <span>Calendar</span>
-                    </div>
-                    <div className="flex items-center gap-2 text-gray-300">
-                      <span>📁</span>
-                      <span>Documents</span>
-                    </div>
-                    <div className="flex items-center gap-2 text-gray-300">
-                      <span>📈</span>
-                      <span>Reports</span>
-                    </div>
-                    <div className="flex items-center gap-2 text-red-400">
-                      <span>⭐</span>
-                      <span>Best in MS</span>
-                      <span className="text-xs">NEW</span>
-                    </div>
-                    <div className="flex items-center gap-2 text-gray-300">
-                      <span>👥</span>
-                      <span>Users & Roles</span>
-                    </div>
-                  </div>
-
-                  {/* Main Content Area */}
-                  <div className="flex-1 p-4 bg-white">
-                    <div className="space-y-2">
-                      {/* Stats */}
-                      <div className="flex gap-4 mb-4">
-                        <div className="text-center">
-                          <div className="text-2xl font-bold text-red-600">
-                            All india
-                          </div>
-                          <div className="text-xs text-gray-500">4 States</div>
-                        </div>
-                        <div className="text-center">
-                          <div className="text-xl font-bold">
-                            Needs action (61)
-                          </div>
-                        </div>
-                        <div className="text-center">
-                          <div className="text-xl font-bold">
-                            In-progress (40)
-                          </div>
-                        </div>
-                      </div>
-
-                      {/* Compliance List */}
-                      <div className="space-y-2">
-                        <div className="flex items-center gap-2 text-sm font-semibold border-b pb-2">
-                          <input type="checkbox" className="w-4 h-4" />
-                          <span>Compliance</span>
-                        </div>
-                        {complianceTasks.map((task) => (
-                          <div
-                            key={task.id}
-                            className="flex items-center gap-2 text-xs py-1 hover:bg-gray-50"
-                          >
-                            <input type="checkbox" className="w-3 h-3" />
-                            <span className="flex-1 text-gray-700">
-                              {task.text}
-                            </span>
-                            <span className="text-orange-500 text-xs">
-                              {task.status}
-                            </span>
-                          </div>
-                        ))}
-                      </div>
-                    </div>
-                  </div>
+                {/* Main Image Display */}
+                <div className="relative w-full aspect-[20/10] sm:aspect-[16/9] bg-gray-50 overflow-hidden">
+                  <img
+                    src={features[activeFeature].image}
+                    alt={features[activeFeature].title}
+                    className="w-full max-h-60 object-contain transition-opacity duration-500"
+                  />
                 </div>
               </div>
             </div>
           </div>
         </div>
-
-        {/* Refer a Friend Button (Fixed position) */}
       </div>
     </div>
   );
