@@ -1,9 +1,11 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 
 const ZolvitHeroSection = () => {
   const [activeDropdown, setActiveDropdown] = useState(null);
   const [clickedCard, setClickedCard] = useState(null);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [searchText, setSearchText] = useState("");
+  const [isTyping, setIsTyping] = useState(true);
 
   const heroData = {
     rating: "4.5/5 (19k+ Reviews)",
@@ -13,8 +15,43 @@ const ZolvitHeroSection = () => {
     highlight: "AI-Driven",
     description2: "Way. Trusted by millions.",
     description3: "Backed by real experts.",
-    searchPlaceholder: "Try #GSAI Registration",
+    searchPlaceholder: "Try GST Registration",
   };
+
+  const typingPhrases = [
+    "GST Registration",
+    "Company Registration",
+    "Trademark Registration",
+    "Legal Consultation",
+  ];
+
+  const [currentPhraseIndex, setCurrentPhraseIndex] = useState(0);
+  const [currentText, setCurrentText] = useState("");
+  const [isDeleting, setIsDeleting] = useState(false);
+
+  // Typing animation effect
+  useEffect(() => {
+    const currentPhrase = typingPhrases[currentPhraseIndex];
+    const typingSpeed = isDeleting ? 50 : 100;
+    const pauseTime = 2000;
+
+    const timeout = setTimeout(() => {
+      if (!isDeleting && currentText === currentPhrase) {
+        setTimeout(() => setIsDeleting(true), pauseTime);
+      } else if (isDeleting && currentText === "") {
+        setIsDeleting(false);
+        setCurrentPhraseIndex((prev) => (prev + 1) % typingPhrases.length);
+      } else {
+        setCurrentText(
+          isDeleting
+            ? currentPhrase.substring(0, currentText.length - 1)
+            : currentPhrase.substring(0, currentText.length + 1)
+        );
+      }
+    }, typingSpeed);
+
+    return () => clearTimeout(timeout);
+  }, [currentText, isDeleting, currentPhraseIndex]);
 
   const menuItems = [
     {
@@ -95,6 +132,9 @@ const ZolvitHeroSection = () => {
       description:
         "Launch your business effortlessly with expert-guided incorporation, registrations, and licensing.",
       icon: "🚀",
+      // illustration:
+      //   "https://assets.vakilsearch.com/live-images/ic-start-your-business.svg",
+      rotation: "-8deg",
     },
     {
       id: 2,
@@ -102,6 +142,9 @@ const ZolvitHeroSection = () => {
       description:
         "Stay compliant and in control with automated tax filings, smart dashboards, and real-time alerts.",
       icon: "📊",
+      // illustration:
+      //   "https://assets.vakilsearch.com/live-images/ic-manage-your-business.svg",
+      rotation: "0deg",
     },
     {
       id: 3,
@@ -109,12 +152,18 @@ const ZolvitHeroSection = () => {
       description:
         "Secure your brand with trademark registration, contracts, and legal support from trusted experts.",
       icon: "🛡️",
+      // illustration:
+      //   "https://assets.vakilsearch.com/live-images/ic-protect-your-business.svg",
+      rotation: "6deg",
     },
   ];
 
   const testimonial = {
     quote: '"Registration, Filing, and Legal help in one app just makes sense"',
-    author: "Sanjivani Awale on Google",
+    author: "Sanjivani Awale",
+    platform: "Google",
+    avatar:
+      "https://assets.vakilsearch.com/live-images/user-avatar-placeholder.svg",
     link: "#",
   };
 
@@ -138,7 +187,6 @@ const ZolvitHeroSection = () => {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex items-center justify-between h-16">
             <span className="text-2xl font-bold text-white">⚡ zolvit</span>
-            {/* Desktop menu */}
             <nav className="hidden md:flex items-center space-x-6">
               {menuItems.map((menu, index) => (
                 <div key={index} className="relative">
@@ -164,7 +212,7 @@ const ZolvitHeroSection = () => {
                     </svg>
                   </button>
                   {activeDropdown === index && (
-                    <div className="absolute top-full left-0 mt-2 bg-white rounded-lg shadow-2xl z-50 overflow-hidden">
+                    <div className="absolute top-full left-0 mt-2 bg-white rounded-lg shadow-2xl z-50 overflow-hidden min-w-[200px]">
                       <div className="p-4">
                         {menu.categories[0].items.map((item, i) => (
                           <a
@@ -181,12 +229,10 @@ const ZolvitHeroSection = () => {
                 </div>
               ))}
             </nav>
-
-            {/* Mobile menu button */}
             <div className="md:hidden">
               <button
                 onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-                className="text-white"
+                className="text-white text-2xl"
               >
                 ☰
               </button>
@@ -194,7 +240,6 @@ const ZolvitHeroSection = () => {
           </div>
         </div>
 
-        {/* Mobile menu */}
         {mobileMenuOpen && (
           <div className="md:hidden bg-black/90 text-white">
             {menuItems.map((menu, index) => (
@@ -214,7 +259,7 @@ const ZolvitHeroSection = () => {
                       <a
                         key={i}
                         href="#"
-                        className="block text-gray-200 hover:text-red-400"
+                        className="block text-gray-200 hover:text-red-400 text-sm"
                       >
                         {item}
                       </a>
@@ -229,7 +274,6 @@ const ZolvitHeroSection = () => {
 
       {/* Hero Content */}
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-12 pb-24">
-        {/* Rating */}
         <div className="flex justify-center items-center gap-3 mb-6">
           <div className="flex text-yellow-400 text-sm sm:text-base">★★★★★</div>
           <span className="text-white font-semibold text-sm sm:text-base">
@@ -237,36 +281,54 @@ const ZolvitHeroSection = () => {
           </span>
         </div>
 
-        {/* Titles */}
         <div className="text-center mb-8">
-          <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold text-white mb-4">
+          <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-4">
             {heroData.mainTitle}
           </h1>
-          <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-white mb-6">
+          <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-6">
             {heroData.subTitle}
           </h2>
-          <p className="text-gray-300 text-sm sm:text-lg">
+          <p className="text-gray-300 text-sm sm:text-base md:text-lg">
             {heroData.description1}{" "}
-            <span className="bg-white text-gray-900 px-2 py-1 rounded-full font-semibold text-xs sm:text-sm">
-              {heroData.highlight}
+            <span className="relative inline-block">
+              <span className="relative z-10 bg-white text-gray-900 px-3 py-1 rounded-full font-semibold text-xs sm:text-sm">
+                {heroData.highlight}
+              </span>
+              <span className="absolute inset-0 bg-gradient-to-r from-red-500 via-yellow-500 to-red-500 rounded-full blur-sm opacity-75 animate-pulse"></span>
             </span>{" "}
             {heroData.description2}
           </p>
-          <p className="text-gray-300 text-sm sm:text-lg mt-2">
+          <p className="text-gray-300 text-sm sm:text-base md:text-lg mt-2">
             {heroData.description3}
           </p>
         </div>
 
-        {/* Search Bar */}
+        {/* Search Bar with Typing Animation */}
         <div className="max-w-full sm:max-w-2xl mx-auto mb-6 relative">
-          <input
-            type="text"
-            placeholder={heroData.searchPlaceholder}
-            className="w-full px-4 sm:px-6 py-3 sm:py-4 rounded-full bg-white/10 backdrop-blur-sm border-2 border-white/20 text-white placeholder-gray-400 focus:border-red-500 focus:outline-none"
-          />
-          <button className="absolute right-2 top-1/2 transform -translate-y-1/2 bg-white text-gray-900 p-2 sm:p-3 rounded-full">
-            🔍
-          </button>
+          <div className="relative">
+            <input
+              type="text"
+              value={searchText}
+              onChange={(e) => setSearchText(e.target.value)}
+              placeholder={`Try ${currentText}`}
+              className="w-full px-4 sm:px-6 py-3 sm:py-4 pr-14 rounded-full bg-white/10 backdrop-blur-sm border-2 border-white/20 text-white placeholder-gray-400 focus:border-red-500 focus:outline-none transition-all"
+            />
+            <button className="absolute right-2 top-1/2 transform -translate-y-1/2 bg-white text-gray-900 p-2 sm:p-3 rounded-full hover:bg-gray-100 transition-all">
+              <svg
+                className="w-4 h-4 sm:w-5 sm:h-5"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth={2}
+                  d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"
+                />
+              </svg>
+            </button>
+          </div>
         </div>
 
         {/* Quick Actions */}
@@ -281,33 +343,40 @@ const ZolvitHeroSection = () => {
           ))}
         </div>
 
-        {/* Business Cards */}
-        <div className="relative w-full flex flex-col md:flex-row justify-center items-center md:items-end gap-6 md:gap-12 mt-10 md:mt-20">
+        {/* Business Cards with Tilt */}
+        <div className="relative w-full flex flex-col md:flex-row justify-center items-center md:items-end gap-2 md:gap-8 lg:gap-2 mt-10 md:mt-20 px-4">
           {businessCards.map((card, index) => (
             <div
               key={card.id}
               onClick={() =>
                 setClickedCard(clickedCard === card.id ? null : card.id)
               }
-              className={`bg-white rounded-2xl shadow-2xl p-6 sm:p-8 flex flex-col justify-between transition-all duration-500 hover:scale-105 hover:shadow-red-500/30 cursor-pointer w-full sm:w-72 md:w-80`}
+              className={`bg-white rounded-2xl shadow-2xl p-6 sm:p-8 flex flex-col justify-between transition-all duration-500 hover:scale-105 hover:shadow-red-500/30 cursor-pointer w-full sm:w-72 md:w-80 lg:w-72`}
               style={{
                 transform:
                   clickedCard === card.id
-                    ? "translateY(-30px)"
-                    : "translateY(0)",
+                    ? `rotate(0deg) translateY(-30px)`
+                    : `rotate(${card.rotation}) translateY(0)`,
                 zIndex: clickedCard === card.id ? 20 : 10,
               }}
             >
               <div>
-                <h3 className="text-lg sm:text-xl font-bold text-gray-900 mb-2 sm:mb-3">
-                  {card.title} ▸
-                </h3>
-                <p className="text-sm sm:text-base text-gray-600 leading-relaxed">
+                <div className="flex items-start justify-between mb-4">
+                  <h3 className="text-lg sm:text-xl font-bold text-gray-900">
+                    {card.title}
+                  </h3>
+                  <span className="text-2xl">▸</span>
+                </div>
+                <p className="text-sm sm:text-base text-gray-600 leading-relaxed mb-6">
                   {card.description}
                 </p>
               </div>
-              <div className="text-4xl sm:text-5xl opacity-20 self-end">
-                {card.icon}
+              <div className="flex justify-end">
+                {/* <img
+                  src={card.illustration}
+                  alt={card.title}
+                  className="w-24 h-24 sm:w-32 sm:h-32 object-contain opacity-90"
+                /> */}
               </div>
             </div>
           ))}
@@ -329,19 +398,23 @@ const ZolvitHeroSection = () => {
         <div className="bg-black pt-24 pb-12 relative z-10">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="grid grid-cols-1 md:grid-cols-3 gap-8 items-center mb-12">
-              {/* Testimonial */}
+              {/* Testimonial with Avatar */}
               <div className="text-white text-center md:text-left">
-                <p className="text-sm sm:text-lg italic mb-2">
+                <div className="flex items-center gap-3 mb-3 justify-center md:justify-start">
+                  <div className="w-10 h-10 rounded-full bg-gradient-to-br from-red-500 to-red-700 flex items-center justify-center text-white font-bold">
+                    SA
+                  </div>
+                  <div className="text-left">
+                    <p className="text-sm font-semibold">
+                      {testimonial.author}
+                    </p>
+                    <p className="text-xs text-gray-400">
+                      on {testimonial.platform}
+                    </p>
+                  </div>
+                </div>
+                <p className="text-sm sm:text-base italic">
                   {testimonial.quote}
-                </p>
-                <p className="text-xs sm:text-sm text-gray-400">
-                  Review By{" "}
-                  <a
-                    href={testimonial.link}
-                    className="underline hover:text-red-400"
-                  >
-                    {testimonial.author}
-                  </a>
                 </p>
               </div>
 
@@ -375,14 +448,14 @@ const ZolvitHeroSection = () => {
           </div>
 
           {/* Partner Logos Marquee */}
-          <div className="w-full bg-gray-500 py-6 overflow-hidden">
-            <div className="flex gap-6 sm:gap-12 animate-marquee items-center">
-              {partners.map((partner, index) => (
+          <div className="w-full bg-gray-800 py-6 overflow-hidden">
+            <div className="flex gap-12 animate-marquee items-center">
+              {[...partners, ...partners].map((partner, index) => (
                 <div key={index} className="flex-shrink-0">
                   <img
                     src={partner}
                     alt={`Partner ${index + 1}`}
-                    className="h-6 sm:h-8 object-contain"
+                    className="h-8 object-contain opacity-80 hover:opacity-100 transition-opacity"
                   />
                 </div>
               ))}
@@ -391,10 +464,10 @@ const ZolvitHeroSection = () => {
             <style jsx>{`
               @keyframes marquee {
                 0% {
-                  transform: translateX(100%);
+                  transform: translateX(0);
                 }
                 100% {
-                  transform: translateX(-100%);
+                  transform: translateX(-50%);
                 }
               }
               .animate-marquee {

@@ -45,34 +45,6 @@ const Zolvit360CommandCenter = () => {
     },
   ];
 
-  const complianceTasks = [
-    {
-      id: 1,
-      text: "Display of director of the co.next to their...",
-      status: "August 🔔",
-    },
-    {
-      id: 2,
-      text: "Direct Certification (Information from Company)...",
-      status: "August 🔔",
-    },
-    { id: 3, text: "Payment of TDS...", status: "August 🔔" },
-    { id: 4, text: "Payment of ESI from own salary...", status: "July 🔔" },
-    { id: 5, text: "Payment of PDS from such payment...", status: "August 🔔" },
-    {
-      id: 6,
-      text: "Maintenance of Wage Slip from 20th...",
-      status: "August 🔔",
-    },
-    { id: 7, text: "Payment of Wages...", status: "July 🔔" },
-    {
-      id: 8,
-      text: "Signed Partnership & body association...",
-      status: "August 🔔",
-    },
-    { id: 9, text: "SQC 523 (Dealer Retention)...", status: "July 🔔" },
-  ];
-
   const buttonText = "Signup for Zolvit 360";
 
   // Auto-progress effect
@@ -110,7 +82,7 @@ const Zolvit360CommandCenter = () => {
         </div>
 
         {/* Main Content Grid */}
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 sm:gap-8">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 sm:gap-8 items-start">
           {/* Left Side - Features */}
           <div className="space-y-3 sm:space-y-4">
             {features.map((feature, index) => (
@@ -159,17 +131,18 @@ const Zolvit360CommandCenter = () => {
           </div>
 
           {/* Right Side - Dashboard Preview */}
-          <div className="bg-gradient-to-br from-blue-900 to-blue-950 rounded-lg shadow-2xl overflow-hidden border-2 sm:border-4 border-gray-800">
+          <div className="bg-gradient-to-br from-red-900 to-red-950 rounded-lg shadow-2xl overflow-hidden border-2 sm:border-4 border-red-800/50">
             {/* Dashboard Frame */}
-            <div className="p-2 sm:p-3 lg:p-4">
+            <div className="p-3 sm:p-4 lg:p-5">
               {/* Dashboard Content */}
-              <div className="bg-white rounded-lg overflow-hidden">
+              <div className="bg-white rounded-lg overflow-hidden shadow-inner">
                 {/* Main Image Display */}
-                <div className="relative w-full aspect-[20/10] sm:aspect-[16/9] bg-gray-50 overflow-hidden">
+                <div className="relative w-full bg-gray-50 overflow-hidden flex items-center justify-center p-4 sm:p-6 lg:p-8">
                   <img
                     src={features[activeFeature].image}
                     alt={features[activeFeature].title}
-                    className="w-full max-h-60 object-contain transition-opacity duration-500"
+                    className="w-full h-auto object-contain transition-opacity duration-500 max-w-full"
+                    style={{ maxHeight: "400px" }}
                   />
                 </div>
               </div>
