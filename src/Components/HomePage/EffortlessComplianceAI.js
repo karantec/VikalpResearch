@@ -1,130 +1,138 @@
 import React from "react";
 import { Sparkles } from "lucide-react";
 
+const fallingMessages = [
+  "How to claim GST input credit?",
+  "Penalty for late ITR filing?",
+  "How to file GST returns online?",
+  "MCA annual compliance checklist",
+  "Startup legal documents made easy",
+  "Filing GST returns simplified",
+  "Corporate tax queries answered",
+  "Labour law compliance guide",
+  "Company registration made simple",
+];
+
 export default function ComplianceSection() {
   return (
-    <div className="min-h-screen bg-gradient-to-br from-[#4a0e0e] via-[#2d0a0a] to-[#1a0505] py-8 sm:py-12 lg:py-16 px-4">
-      <div className="max-w-7xl mx-auto">
+    <section className="py-16 bg-white overflow-hidden">
+      <div className="max-w-7xl mx-auto px-6 lg:px-8">
         {/* Header */}
-        <div className="text-center mb-8 sm:mb-12 lg:mb-16">
-          <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold text-white mb-3 sm:mb-4 px-2 leading-tight">
+        <div className="text-center mb-14">
+          <h2 className="text-3xl md:text-5xl font-semibold text-gray-900 mb-3">
             Effortless Compliance Backed by Smart AI
-          </h1>
-          <p className="text-white text-base sm:text-lg px-4">
-            Our AI-powered tools makes Compliance simple, swift, and seamless
-            for all your business needs.
+          </h2>
+          <p className="text-gray-500 text-base md:text-lg max-w-2xl mx-auto">
+            Our AI-powered tools make compliance simple, swift, and seamless for
+            all your business needs.
           </p>
         </div>
 
-        {/* Main Grid Layout */}
-        <div className="grid lg:grid-cols-2 gap-4 sm:gap-6 items-start">
-          {/* Left Column - Business Name & Document Generator */}
-          <div className="space-y-4 sm:space-y-6">
+        {/* Grid Layout */}
+        <div className="grid lg:grid-cols-2 gap-8">
+          {/* Left Side */}
+          <div className="space-y-8">
             {/* Business Name Generator */}
-            <div className="bg-gradient-to-br from-blue-50 to-indigo-50 rounded-2xl sm:rounded-3xl p-4 sm:p-6 lg:p-8 relative flex flex-col justify-between min-h-[400px] sm:min-h-[450px] lg:aspect-square">
-              <div className="flex flex-col h-full">
-                <div className="flex-1">
-                  <Sparkles className="w-5 h-5 sm:w-6 sm:h-6 text-amber-400 mb-2 sm:mb-3" />
-                  <h3 className="text-xl sm:text-2xl font-bold text-gray-900 mb-2 sm:mb-3 leading-tight">
-                    Business Name
-                    <br />
-                    Generator
-                  </h3>
-                  <p className="text-gray-600 text-xs sm:text-sm leading-relaxed">
-                    Find the perfect MCA-compliant name for your business in
-                    just a click.
-                  </p>
-                </div>
-                <div className="flex justify-center mt-4 sm:mt-6">
-                  <img
-                    src="https://vakilsearch.com/_next/image?url=https%3A%2F%2Fassets.vakilsearch.com%2Fic-zen-search.png&w=640&q=75"
-                    alt="Business Name Generator"
-                    className="w-full max-w-[280px] sm:max-w-[320px] lg:max-w-[384px] rounded-xl shadow-2xl"
-                  />
-                </div>
+            <div className="bg-[#f8faff] rounded-2xl shadow-sm p-8 flex flex-col justify-between hover:-translate-y-1 transition-transform duration-300">
+              <div>
+                <h3 className="text-xl md:text-2xl font-bold text-gray-900 mb-2">
+                  Business Name Generator
+                </h3>
+                <p className="text-gray-600 text-sm max-w-sm mb-6">
+                  Find the perfect, MCA-compliant name for your business in just
+                  a click.
+                </p>
+              </div>
+              <div className="flex justify-center">
+                <img
+                  src="https://vakilsearch.com/_next/image?url=https%3A%2F%2Fassets.vakilsearch.com%2Fic-zen-search.png&w=640&q=75"
+                  alt="Business Name Generator"
+                  className="w-64 md:w-80 rounded-xl shadow-lg"
+                />
               </div>
             </div>
 
             {/* Document Generator */}
-            <div className="bg-gradient-to-br from-purple-50 to-pink-50 rounded-2xl sm:rounded-3xl p-4 sm:p-6 lg:p-8 relative flex flex-col justify-between min-h-[400px] sm:min-h-[450px] lg:aspect-square">
-              <div className="flex flex-col h-full">
-                <div className="flex-1">
-                  <Sparkles className="w-5 h-5 sm:w-6 sm:h-6 text-amber-400 mb-2 sm:mb-3" />
-                  <h3 className="text-xl sm:text-2xl font-bold text-gray-900 mb-2 sm:mb-3 leading-tight">
-                    Document
-                    <br />
-                    Generator
-                  </h3>
-                  <p className="text-gray-600 text-xs sm:text-sm leading-relaxed">
-                    Create expert-vetted legal documents instantly tailored to
-                    your needs, no legal jargon, no delays.
-                  </p>
-                </div>
-                <div className="flex justify-center mt-4 sm:mt-6">
-                  <img
-                    src="https://vakilsearch.com/_next/image?url=https%3A%2F%2Fassets.vakilsearch.com%2Fic-zen-doc.png&w=640&q=75"
-                    alt="Document Generator"
-                    className="w-full max-w-[280px] sm:max-w-[320px] lg:max-w-[384px] rounded-xl shadow-2xl"
-                  />
-                </div>
+            <div className="bg-[#f8faff] rounded-2xl shadow-sm p-8 flex flex-col justify-between hover:-translate-y-1 transition-transform duration-300">
+              <div>
+                <h3 className="text-xl md:text-2xl font-bold text-gray-900 mb-2">
+                  Document Generator
+                </h3>
+                <p className="text-gray-600 text-sm max-w-sm mb-6">
+                  Create expert-vetted legal documents instantly, tailored to
+                  your needs — no legal jargon, no delays.
+                </p>
+              </div>
+              <div className="flex justify-center">
+                <img
+                  src="https://vakilsearch.com/_next/image?url=https%3A%2F%2Fassets.vakilsearch.com%2Fic-zen-doc.png&w=640&q=75"
+                  alt="Document Generator"
+                  className="w-64 md:w-80 rounded-xl shadow-lg"
+                />
               </div>
             </div>
           </div>
 
-          {/* Right Column - Zenius AI */}
-          <div className="bg-gradient-to-br from-cyan-50 to-blue-50 rounded-2xl sm:rounded-3xl p-4 sm:p-6 lg:p-8 flex flex-col justify-between min-h-[400px] lg:h-full">
-            <div>
-              <div className="inline-flex items-center gap-2 bg-white rounded-full px-3 sm:px-4 py-1.5 sm:py-2 shadow-md mb-3 sm:mb-4">
-                <Sparkles className="w-3 h-3 sm:w-4 sm:h-4 text-purple-500" />
-                <span className="font-semibold text-gray-900 text-xs sm:text-sm">
-                  Zenius Ai
-                </span>
-              </div>
-
-              <div className="mb-4 sm:mb-6 space-y-1 sm:space-y-2">
-                <p className="text-xs sm:text-sm text-gray-600">
-                  How to claim GST input credit?
-                </p>
-                <p className="text-xs sm:text-sm text-gray-600">
-                  Penalty for late ITR filing?
-                </p>
-                <p className="text-xs sm:text-sm text-gray-600">
-                  How to file GST returns online?
-                </p>
-              </div>
+          {/* Right Side - Zenius AI */}
+          <div className="bg-[#f8faff] rounded-2xl shadow-sm p-8 flex flex-col items-center justify-center relative overflow-hidden">
+            <div className="inline-flex items-center gap-2 bg-white border border-gray-200 rounded-full px-4 py-1.5 shadow-sm mb-8 relative z-20">
+              <Sparkles className="w-4 h-4 text-purple-500" />
             </div>
-
-            <div className="flex flex-col items-center mt-4 sm:mt-6">
-              <img
-                src="https://vakilsearch.com/_next/image?url=https%3A%2F%2Fassets.vakilsearch.com%2Fic-zen-man.png&w=384&q=75"
-                alt="Zenius AI Assistant"
-                className="w-full max-w-[240px] sm:max-w-[280px] lg:max-w-[320px] mb-3 sm:mb-4"
-              />
-
-              <h3 className="text-base sm:text-lg lg:text-xl font-bold text-gray-900 text-center leading-tight mb-2 sm:mb-3 px-2">
-                Not sure where to begin with your
-                <br className="hidden sm:block" />
-                <span className="sm:hidden"> </span>
-                legal, tax, or compliance journey?
-              </h3>
-
-              <p className="text-gray-600 text-xs sm:text-sm text-center leading-snug mb-3 sm:mb-4 px-2 max-w-md">
-                Zenius is your AI-powered legal assistant here to guide you
-                through
-                <br className="hidden sm:block" />
-                <span className="sm:hidden"> </span>
-                every step of your journey.
-              </p>
-
-              <div className="inline-flex items-center gap-1.5 bg-white rounded-full px-4 sm:px-5 py-2 sm:py-2.5 shadow-md border border-cyan-400">
-                <span className="font-semibold text-gray-900 text-xs sm:text-sm leading-tight text-center">
-                  COMING SOON
-                </span>
-              </div>
+            <span className="px-4 py-2 text-2xl font-semibold text-gray-800 bg-white border border-blue-300 rounded-lg shadow-sm inline-flex items-center">
+              <span className="mr-2 text-purple-500">✨</span> Zenius Ai
+            </span>
+            {/* Zenius AI Tag */} {/* Falling Messages */}
+            <div className="absolute inset-0 overflow-hidden pointer-events-none z-0">
+              {Array.from({ length: 20 }).map((_, index) => (
+                <div
+                  key={index}
+                  className="absolute text-xs md:text-sm px-3 py-1 bg-white/70 text-gray-600 rounded-full shadow animate-fall-linear"
+                  style={{
+                    left: `${Math.random() * 85}%`,
+                    top: `${Math.random() * 100}%`,
+                    animationDuration: `${3 + Math.random() * 4}s`,
+                  }}
+                >
+                  {
+                    fallingMessages[
+                      Math.floor(Math.random() * fallingMessages.length)
+                    ]
+                  }
+                </div>
+              ))}
+            </div>
+            <img
+              src="https://vakilsearch.com/_next/image?url=https%3A%2F%2Fassets.vakilsearch.com%2Fic-zen-man.png&w=384&q=75"
+              alt="Zenius AI Assistant"
+              className="w-48 md:w-64 mt-24 mb-6 relative z-10"
+            />
+            <h3 className="text-lg md:text-xl font-semibold text-gray-900 text-center mb-3 relative z-10">
+              Not sure where to begin with your legal, tax, or compliance
+              journey?
+            </h3>
+            <p className="text-gray-600 text-sm text-center max-w-xs mb-5 relative z-10">
+              Zenius is your AI-powered legal assistant here to guide you
+              through every step of your journey.
+            </p>
+            <div className="bg-white border border-gray-300 rounded-full px-5 py-2 text-sm font-semibold shadow relative z-10">
+              COMING SOON
             </div>
           </div>
         </div>
       </div>
-    </div>
+
+      {/* Tailwind Animations */}
+      <style>{`
+        @keyframes fall-linear {
+          0% { transform: translateY(-100%); }
+          100% { transform: translateY(100%); }
+        }
+        .animate-fall-linear {
+          animation-name: fall-linear;
+          animation-timing-function: linear;
+          animation-iteration-count: infinite;
+        }
+      `}</style>
+    </section>
   );
 }
