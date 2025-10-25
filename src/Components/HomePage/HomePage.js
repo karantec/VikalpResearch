@@ -55,10 +55,32 @@ const ZolvitHeroSection = () => {
 
   const menuItems = [
     {
-      label: "Business Registration",
+      label: "Content Creation",
       categories: [
         {
-          title: "Company Registration",
+          title: "Graphic Design",
+          items: [
+            "Logo Design",
+            "Music Video Poster",
+            "Music Video Branding",
+            "Movie Poster",
+          ],
+        },
+        {
+          title: "Video Editing",
+          items: [
+            "Private Limited Company",
+            "Limited Liability Partnership",
+            "One Person Company",
+            "Sole Proprietorship",
+            "Nidhi Company",
+            "Producer Company",
+            "Partnership Firm",
+            "Startup India Registration",
+          ],
+        },
+        {
+          title: "Content Creation Subscription",
           items: [
             "Private Limited Company",
             "Limited Liability Partnership",
@@ -76,8 +98,38 @@ const ZolvitHeroSection = () => {
       label: "Tax & Compliance",
       categories: [
         {
-          title: "GST Services",
-          items: ["GST Registration", "GST Return Filing", "GST Annual Return"],
+          title: "GST and Other Indirect Tax",
+          items: [
+            "GST Registration",
+            "GST Filing",
+            "HSN Code Finder",
+            "GST Cancellation and Revocation",
+            "GST Cancellation",
+          ],
+        },
+        {
+          title: "Changes in Pvt Ltd Company",
+          items: [],
+        },
+        {
+          title: "Changes in Limited Liability Partnership",
+          items: [],
+        },
+        {
+          title: "Mandatory Annual Filings",
+          items: [],
+        },
+        {
+          title: "Labour Compliance",
+          items: [],
+        },
+        {
+          title: "Accounting & Tax",
+          items: [],
+        },
+        {
+          title: "Convert Your Business",
+          items: [],
         },
       ],
     },
@@ -132,8 +184,6 @@ const ZolvitHeroSection = () => {
       description:
         "Launch your business effortlessly with expert-guided incorporation, registrations, and licensing.",
       icon: "🚀",
-      // illustration:
-      //   "https://assets.vakilsearch.com/live-images/ic-start-your-business.svg",
       rotation: "-8deg",
     },
     {
@@ -142,8 +192,6 @@ const ZolvitHeroSection = () => {
       description:
         "Stay compliant and in control with automated tax filings, smart dashboards, and real-time alerts.",
       icon: "📊",
-      // illustration:
-      //   "https://assets.vakilsearch.com/live-images/ic-manage-your-business.svg",
       rotation: "0deg",
     },
     {
@@ -152,8 +200,6 @@ const ZolvitHeroSection = () => {
       description:
         "Secure your brand with trademark registration, contracts, and legal support from trusted experts.",
       icon: "🛡️",
-      // illustration:
-      //   "https://assets.vakilsearch.com/live-images/ic-protect-your-business.svg",
       rotation: "6deg",
     },
   ];
@@ -183,19 +229,29 @@ const ZolvitHeroSection = () => {
   return (
     <div className="relative min-h-screen bg-gradient-to-br from-[#4a0e0e] via-[#2d0a0a] to-[#1a0505] overflow-hidden">
       {/* Header */}
-      <header className="relative z-20 bg-gradient-to-r from-[#1a0505] to-[#2d0a0a] border-b border-red-900/30">
+      <header className="relative z-20 bg-[#003d66] border-b border-[#004d7a]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex items-center justify-between h-16">
-            <span className="text-2xl font-bold text-white">⚡ zolvit</span>
-            <nav className="hidden md:flex items-center space-x-6">
+            {/* Logo */}
+            <div className="flex items-center">
+              <span className="text-2xl font-bold text-white">⚡ zolvit</span>
+            </div>
+
+            {/* Desktop Navigation */}
+            <nav className="hidden lg:flex items-center space-x-1">
+              {/* Consult Expert Button */}
+              <button className="px-4 py-2 bg-[#ffc107] hover:bg-[#ffcd38] text-gray-900 font-semibold rounded text-sm mr-2 transition-colors">
+                Consult an Expert ▾
+              </button>
+
               {menuItems.map((menu, index) => (
-                <div key={index} className="relative">
-                  <button
-                    onClick={() =>
-                      setActiveDropdown(activeDropdown === index ? null : index)
-                    }
-                    className="text-white hover:text-red-400 text-sm flex items-center gap-1"
-                  >
+                <div
+                  key={index}
+                  className="relative"
+                  onMouseEnter={() => setActiveDropdown(index)}
+                  onMouseLeave={() => setActiveDropdown(null)}
+                >
+                  <button className="px-3 py-2 text-white hover:text-[#ffc107] text-sm flex items-center gap-1 transition-colors">
                     {menu.label}
                     <svg
                       className="w-4 h-4"
@@ -212,27 +268,94 @@ const ZolvitHeroSection = () => {
                     </svg>
                   </button>
                   {activeDropdown === index && (
-                    <div className="absolute top-full left-0 mt-2 bg-white rounded-lg shadow-2xl z-50 overflow-hidden min-w-[200px]">
-                      <div className="p-4">
-                        {menu.categories[0].items.map((item, i) => (
+                    <div className="absolute top-full left-0 mt-2 bg-white rounded-lg shadow-xl z-50 w-[600px]">
+                      <div className="flex">
+                        {/* Left Column - Categories */}
+                        <div className="w-1/2 border-r border-gray-200 p-4">
+                          {menu.categories.map((category, catIndex) => (
+                            <button
+                              key={catIndex}
+                              className="w-full flex items-center justify-between py-3 px-3 hover:bg-gray-50 rounded-lg transition-colors group text-left"
+                            >
+                              <div className="flex items-center gap-3">
+                                <span className="text-gray-400 text-lg">
+                                  📄
+                                </span>
+                                <span className="text-sm font-medium text-gray-700 group-hover:text-[#003d66]">
+                                  {category.title}
+                                </span>
+                              </div>
+                              <svg
+                                className="w-4 h-4 text-gray-400 group-hover:text-[#003d66]"
+                                fill="none"
+                                stroke="currentColor"
+                                viewBox="0 0 24 24"
+                              >
+                                <path
+                                  strokeLinecap="round"
+                                  strokeLinejoin="round"
+                                  strokeWidth={2}
+                                  d="M9 5l7 7-7 7"
+                                />
+                              </svg>
+                            </button>
+                          ))}
+                        </div>
+
+                        {/* Right Column - Items */}
+                        <div className="w-1/2 p-4">
+                          <h4 className="text-xs font-semibold text-gray-500 mb-3 uppercase tracking-wide">
+                            {menu.categories[0].title}
+                          </h4>
+                          <div className="space-y-1 max-h-80 overflow-y-auto">
+                            {menu.categories[0].items.map((item, i) => (
+                              <a
+                                key={i}
+                                href="#"
+                                className="block text-sm text-gray-700 py-2 px-3 hover:text-[#003d66] hover:bg-gray-50 rounded transition-colors"
+                              >
+                                {item}
+                              </a>
+                            ))}
+                          </div>
+                        </div>
+                      </div>
+
+                      {/* Bottom CTA */}
+                      <div className="border-t border-gray-200 p-4">
+                        <div className="flex items-center justify-between bg-blue-50 rounded-lg p-3">
+                          <div className="flex items-center gap-3">
+                            <div className="w-8 h-8 bg-blue-600 rounded-full flex items-center justify-center flex-shrink-0">
+                              <span className="text-white text-sm">💬</span>
+                            </div>
+                            <p className="text-xs text-gray-700">
+                              Prefer to talk to a business advisor first?
+                            </p>
+                          </div>
                           <a
-                            key={i}
                             href="#"
-                            className="block text-sm text-gray-700 py-2 hover:text-red-600"
+                            className="text-blue-600 font-semibold text-xs hover:underline whitespace-nowrap ml-2"
                           >
-                            {item}
+                            Book a call back
                           </a>
-                        ))}
+                        </div>
                       </div>
                     </div>
                   )}
                 </div>
               ))}
+
+              {/* Login Button */}
+              <button className="ml-4 px-4 py-2 border border-white text-white hover:bg-white/10 rounded text-sm transition-colors">
+                Login
+              </button>
             </nav>
-            <div className="md:hidden">
+
+            {/* Mobile Menu Button */}
+            <div className="lg:hidden">
               <button
                 onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-                className="text-white text-2xl"
+                className="text-white text-2xl p-2"
               >
                 ☰
               </button>
@@ -240,34 +363,49 @@ const ZolvitHeroSection = () => {
           </div>
         </div>
 
+        {/* Mobile Menu */}
         {mobileMenuOpen && (
-          <div className="md:hidden bg-black/90 text-white">
+          <div className="lg:hidden bg-[#002d4d] text-white border-t border-[#004d7a]">
+            {/* Consult Expert - Mobile */}
+            <div className="border-b border-[#004d7a]">
+              <button className="w-full text-left px-4 py-3 bg-[#ffc107] text-gray-900 font-semibold">
+                Consult an Expert
+              </button>
+            </div>
+
             {menuItems.map((menu, index) => (
-              <div key={index} className="border-b border-gray-700">
+              <div key={index} className="border-b border-[#004d7a]">
                 <button
                   onClick={() =>
                     setActiveDropdown(activeDropdown === index ? null : index)
                   }
-                  className="w-full text-left px-4 py-3 flex justify-between items-center"
+                  className="w-full text-left px-4 py-3 flex justify-between items-center hover:bg-[#004d7a] transition-colors"
                 >
                   {menu.label}
                   <span>{activeDropdown === index ? "▲" : "▼"}</span>
                 </button>
                 {activeDropdown === index && (
-                  <div className="px-6 py-2 space-y-2">
+                  <div className="px-6 py-2 space-y-2 bg-[#002440]">
                     {menu.categories[0].items.map((item, i) => (
                       <a
                         key={i}
                         href="#"
-                        className="block text-gray-200 hover:text-red-400 text-sm"
+                        className="block text-gray-200 hover:text-[#ffc107] text-sm py-1 transition-colors"
                       >
-                        {item}
+                        ▸ {item}
                       </a>
                     ))}
                   </div>
                 )}
               </div>
             ))}
+
+            {/* Login - Mobile */}
+            <div className="p-4">
+              <button className="w-full px-4 py-2 border border-white text-white hover:bg-white/10 rounded text-sm transition-colors">
+                Login
+              </button>
+            </div>
           </div>
         )}
       </header>
@@ -372,11 +510,7 @@ const ZolvitHeroSection = () => {
                 </p>
               </div>
               <div className="flex justify-end">
-                {/* <img
-                  src={card.illustration}
-                  alt={card.title}
-                  className="w-24 h-24 sm:w-32 sm:h-32 object-contain opacity-90"
-                /> */}
+                <span className="text-5xl opacity-20">{card.icon}</span>
               </div>
             </div>
           ))}

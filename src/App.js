@@ -18,9 +18,9 @@ function App() {
       <StartupToScaleJourney />
       <EffortlessComplianceAI />
       <Zolvit360CommandCenter />
-      <BusinessGrowthSection />
+      {/* <BusinessGrowthSection /> */}
       <ProfessionalSupportSection />
-      <SuccessPrioritySection />
+      {/* <SuccessPrioritySection /> */}
       <ValidatedVisionSection />
       <InfoCards />
       <Footer />

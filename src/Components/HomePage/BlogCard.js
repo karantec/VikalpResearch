@@ -46,8 +46,11 @@ const RelatedBlogSection = () => {
         {/* Header */}
         <div className="text-center mb-12">
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-2">
-            Here are some related blog
+            The Creative Buzz: News,ideas & Innovations
           </h2>
+          <p className="text-2xl text-white mb-2">
+            Unfolding the latest campaigns, trends & digital conversations
+          </p>
         </div>
 
         {/* Blog Cards */}

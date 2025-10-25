@@ -1,104 +1,96 @@
 import React from "react";
 
-const ProfessionalSupportSection = () => {
+const ExpertHelpSection = () => {
   const sectionData = {
-    title: "Professional Support on Demand",
+    title: "Expert Help, Whenever You Need It",
     subtitle:
-      "We guide you through legal, financial, and compliance challenges",
+      "Connect with experts — marketing, performance, and sales — for results that matter.",
   };
 
-  const professionals = [
+  const experts = [
     {
       id: 1,
-      title: "Lawyers",
-      description: "For contracts, notices, and litigation support",
-      count: "205+ Lawyers",
-      icon: "⚖️",
+      title: "Marketing Consultant",
+      description: "Expert guidance on social media, branding & campaigns.",
+      count: "200+ Lawyers",
       buttonText: "Consult Now",
-      bgGradient: "from-blue-50 to-blue-100",
-      iconBg: "bg-green-500",
+      bgGradient: "from-gray-100 to-gray-200",
       imageUrl:
-        "https://vakilsearch.com/_next/image?url=https%3A%2F%2Fassets.vakilsearch.com%2Fic-lawyers-expert.png&w=256&q=75",
+        "https://images.unsplash.com/photo-1556157382-97eda2d62296?w=400&h=300&fit=crop",
     },
     {
       id: 2,
-      title: "Chartered Accountants (CAs)",
-      description: "For tax filings, audits, and financial planning",
+      title: "Performance Marketer",
+      description: "Optimize ads, funnels & ROI for growth.",
       count: "256+ CAs",
-      icon: "💼",
       buttonText: "Consult Now",
-      bgGradient: "from-green-50 to-green-100",
-      iconBg: "bg-green-500",
+      bgGradient: "from-gray-100 to-gray-200",
       imageUrl:
-        "https://vakilsearch.com/_next/image?url=https%3A%2F%2Fassets.vakilsearch.com%2Fic-ca-expert.png&w=256&q=75",
+        "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=400&h=300&fit=crop",
     },
     {
       id: 3,
-      title: "Company Secretaries (CSs)",
-      description: "For regulatory compliance, and corporate governance",
+      title: "Sales Specialist",
+      description: "Boost sales and conversions with proven strategies.",
       count: "200+ CS",
-      icon: "📋",
       buttonText: "Consult Now",
-      bgGradient: "from-purple-50 to-purple-100",
-      iconBg: "bg-green-500",
+      bgGradient: "from-gray-100 to-gray-200",
       imageUrl:
-        "https://vakilsearch.com/_next/image?url=https%3A%2F%2Fassets.vakilsearch.com%2Fic-cs-expert.png&w=256&q=75",
+        "https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?w=400&h=300&fit=crop",
     },
   ];
 
   return (
-    <div className="bg-gradient-to-br from-[#4a0e0e] via-[#2d0a0a] to-[#1a0505] py-12 md:py-16 px-4 sm:px-6 lg:px-8">
+    <div className="bg-gradient-to-br from-red-950 via-red-900 to-red-950 py-12 md:py-16 px-4 sm:px-6 lg:px-8">
       <div className="max-w-7xl mx-auto">
         {/* Header */}
         <div className="text-center mb-12">
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-3">
             {sectionData.title}
           </h2>
-          <p className="text-gray-300 text-sm md:text-base">
+          <p className="text-gray-200 text-sm md:text-base">
             {sectionData.subtitle}
           </p>
         </div>
 
-        {/* Professional Cards */}
+        {/* Expert Cards */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
-          {professionals.map((professional) => (
+          {experts.map((expert) => (
             <div
-              key={professional.id}
-              className="bg-white rounded-lg shadow-lg hover:shadow-2xl transition-all duration-300 overflow-hidden border-2 border-gray-200 hover:border-red-500 hover:scale-105"
+              key={expert.id}
+              className="bg-white rounded-xl shadow-lg hover:shadow-2xl transition-all duration-300 overflow-hidden border-2 border-gray-200 hover:border-red-600 hover:scale-105"
             >
               {/* Card Header */}
-              <div className="p-6 text-center border-b border-gray-200">
+              <div className="p-6 text-center">
                 <h3 className="text-xl md:text-2xl font-bold text-gray-900 mb-2">
-                  {professional.title}
+                  {expert.title}
                 </h3>
-                <p className="text-sm text-gray-600">
-                  {professional.description}
-                </p>
+                <p className="text-sm text-gray-600">{expert.description}</p>
               </div>
 
               {/* Consult Button */}
-              <div className="px-6 pt-4">
-                <button className="w-full bg-gradient-to-r from-[#1a0505] to-[#4a0e0e] hover:from-[#2d0a0a] hover:to-[#5a1111] text-white font-bold py-3 px-6 rounded-lg transition-all duration-300 shadow-md hover:shadow-lg">
-                  {professional.buttonText}
+              <div className="px-6">
+                <button className="w-full bg-gradient-to-r from-red-600 to-red-700 hover:from-red-700 hover:to-red-800 text-white font-semibold py-3 px-6 rounded-lg transition-all duration-300 shadow-md hover:shadow-lg">
+                  {expert.buttonText}
                 </button>
               </div>
 
-              {/* Professional Image Section */}
+              {/* Expert Image Section */}
               <div className="relative p-6">
                 <div
-                  className={`bg-gradient-to-br ${professional.bgGradient} rounded-lg overflow-hidden h-48 flex items-center justify-center relative`}
+                  className={`bg-gradient-to-br ${expert.bgGradient} rounded-lg overflow-hidden h-48 flex items-center justify-center relative`}
                 >
-                  {/* Professional Image */}
+                  {/* Expert Image */}
                   <img
-                    src={professional.imageUrl}
-                    alt={professional.title}
-                    className="w-auto h-full object-contain"
+                    src={expert.imageUrl}
+                    alt={expert.title}
+                    className="w-full h-full object-cover"
                   />
-                  <div
-                    className={`absolute bottom-4 left-4 ${professional.iconBg} text-white px-3 py-1 rounded-full text-xs font-semibold flex items-center gap-1 shadow-md`}
-                  >
+
+                  {/* Count Badge */}
+                  <div className="absolute bottom-4 left-4 bg-green-500 text-white px-3 py-1 rounded-full text-xs font-semibold flex items-center gap-2 shadow-md">
                     <span className="w-2 h-2 bg-white rounded-full animate-pulse"></span>
-                    {professional.count}
+                    {expert.count}
                   </div>
                 </div>
               </div>
@@ -110,4 +102,4 @@ const ProfessionalSupportSection = () => {
   );
 };
 
-export default ProfessionalSupportSection;
+export default ExpertHelpSection;
