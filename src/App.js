@@ -34,22 +34,54 @@ import Marketing from "./Components/SectionDesign/Others/Marketing";
 import SalesConsultancy from "./Components/SectionDesign/Others/Saleconsultancy";
 import TrainingAndWorkshop from "./Components/SectionDesign/Others/TrainingandWorkshop";
 import CubeAboutPage from "./Components/SectionDesign/About";
-import WrioNavbar from "./Components/HomePage/Navbar";
-import WrioHeroSection from "./Components/HomePage/WrioHeroSection";
 
 function App() {
   return (
     <div className="App">
-      <WrioNavbar />
-      <WrioHeroSection />
-      {/* <Routes> */}
-
-      {/* <Route
+      <Navbar />
+      <Routes>
+        //Web it
+        <Route path="/" element={<Home />} />
+        <Route path="/About" element={<CubeAboutPage />} />
+        <Route path="/it-design" element={<PersonalWebsiteDevelopment />} />
+        <Route path="/business" element={<BusinessWebsiteDevelopment />} />
+        <Route path="/ecommerce" element={<EcommerceWebsiteDevelopment />} />
+        <Route path="/mobile-app" element={<MobileAppDevelopment />} />
+        <Route path="/landingPage" element={<LandingPageFunnelDesign />} />
+        <Route
           path="/website-security"
           element={<WebsiteMaintenanceSecurity />}
         />
         // New Routes Added Below
-      </Routes> */}
+        <Route path="/publicity" element={<PublicityPRServices />} />
+        <Route path="/media-coverage" element={<MediaPRCoverage />} />
+        <Route path="/podcast" element={<PodcastProductionMarketing />} />
+        <Route path="/film-activity" element={<FilmEventPublicity />} />
+        <Route path="/wikipedia" element={<WikipediaORM />} />
+        <Route path="/social-media" element={<SocialMediaManagement />} />
+        <Route path="/content-creation" element={<ContentCreating />} />
+        <Route path="/Photography" element={<Photography />} />
+        <Route path="/Graphic" element={<Graphic />} />
+        <Route path="/VideoEditing" element={<VideoEditing />} />
+        <Route path="/Scripting" element={<Scripting />} />
+        <Route path="/voice" element={<VoiceOver />} />
+        <Route path="/Films" element={<BrandFilms />} />
+        // New Routes Added Below
+        <Route path="/Social" element={<SocialMediaManagement />} />
+        <Route path="/GoogleMyBusiness" element={<GoogleMyBusiness />} />
+        <Route path="/Influence" element={<InfluencerMarketing />} />
+        <Route path="/WhatsappApi" element={<WhatsappApi />} />
+        <Route path="/Seo" element={<Seo />} />
+        <Route path="/marketing" element={<MarketAuto />} />
+        <Route path="/Performance" element={<PerformanceMarketing />} />
+        <Route path="/marketing" element={<MarketAuto />} />
+        // others
+        <Route path="/AITool" element={<AIToolAndIntegration />} />
+        <Route path="/FreeLearning" element={<FreeLearning />} />
+        <Route path="/Marketing" element={<Marketing />} />
+        <Route path="/SalesConsult" element={<SalesConsultancy />} />
+        <Route path="/Training" element={<TrainingAndWorkshop />} />
+      </Routes>
       <Footer />
     </div>
   );
