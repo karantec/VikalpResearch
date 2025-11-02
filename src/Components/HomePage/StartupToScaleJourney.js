@@ -16,14 +16,14 @@ const StartupToScaleUp = () => {
             style={{ minHeight: "300px" }}
           />
         </div> */}
-     <div
-  className="absolute left-[70px] sm:left-[76px] top-72 sm:top-80 hidden md:flex flex-col items-center z-20"
-  style={{ height: "calc(100% - 26rem)" }}
->
-  <div className="w-[3px] bg-red-600 h-full relative">
-    <span className="absolute -bottom-2 left-1/2 -translate-x-1/2 w-4 h-4 bg-red-600 rounded-full border-2 border-white"></span>
-  </div>
-</div>
+        <div
+          className="absolute left-[70px] sm:left-[76px] top-72 sm:top-80 hidden md:flex flex-col items-center z-20"
+          style={{ height: "calc(100% - 26rem)" }}
+        >
+          <div className="w-[3px] bg-red-600 h-full relative">
+            <span className="absolute -bottom-2 left-1/2 -translate-x-1/2 w-4 h-4 bg-red-600 rounded-full border-2 border-white"></span>
+          </div>
+        </div>
 
 
 
@@ -98,12 +98,19 @@ const StartupToScaleUp = () => {
               </div>
             </div>
 
-            {/* Testimonial Image 1 */}
+            {/* Testimonial Image 1
             <div className="relative z-0 mt-16 sm:mt-20">
               <img
                 src="https://res.cloudinary.com/de4ks8mkh/image/upload/v1761737872/cubemedia/Testimonials_1_a5qcky.png"
                 alt="Client Testimonial"
                 className="w-full rounded-xl sm:rounded-2xl shadow-lg"
+              />
+            </div> */}
+            <div className="relative z-0 mt-24 sm:mt-32 px-4 sm:px-8 flex justify-center">
+              <img
+                src="https://res.cloudinary.com/de4ks8mkh/image/upload/v1761737872/cubemedia/Testimonials_1_a5qcky.png"
+                alt="Client Testimonial"
+                className="w-full max-w-[960px] rounded-xl sm:rounded-2xl shadow-lg"
               />
             </div>
           </div>
@@ -114,7 +121,7 @@ const StartupToScaleUp = () => {
           <div className="bg-gradient-to-br from-red-100 via-red-50 to-rose-100 rounded-xl sm:rounded-2xl shadow-xl p-4 sm:p-6 md:p-8 border-t-4 border-red-600">
             <h2 className="text-xl sm:text-2xl md:text-3xl font-bold text-gray-900 mb-6 sm:mb-8 flex items-center">
               <span className="bg-red-600 text-white rounded-full w-8 h-8 sm:w-10 sm:h-10 flex items-center justify-center mr-3 sm:mr-4 text-sm sm:text-base flex-shrink-0">
-                3
+                2
               </span>
               Performance Marketing
             </h2>
@@ -165,13 +172,21 @@ const StartupToScaleUp = () => {
             </div>
 
             {/* Testimonial Image 3 */}
-            <div className="relative z-0 mt-24 sm:mt-32 mb-6 sm:mb-9">
+            {/* <div className="relative z-0 mt-24 sm:mt-32 mb-6 sm:mb-9">
               <img
                 src="https://res.cloudinary.com/de4ks8mkh/image/upload/v1761737872/cubemedia/Testimonials_2_kpxfuk.png"
                 alt="Client Testimonial"
                 className="w-full rounded-xl sm:rounded-2xl shadow-lg"
               />
+            </div> */}
+            <div className="relative z-0 mt-24 sm:mt-32 px-4 sm:px-8 flex justify-center">
+              <img
+                src="https://res.cloudinary.com/de4ks8mkh/image/upload/v1761737872/cubemedia/Testimonials_2_kpxfuk.png"
+                alt="Client Testimonial"
+                className="w-full max-w-[960px] rounded-xl sm:rounded-2xl shadow-lg"
+              />
             </div>
+
           </div>
         </section>
 
@@ -180,7 +195,7 @@ const StartupToScaleUp = () => {
           <div className="bg-gradient-to-br from-red-100 via-red-50 to-rose-100 rounded-xl sm:rounded-2xl shadow-xl p-4 sm:p-6 md:p-8 border-t-4 border-red-600">
             <h2 className="text-xl sm:text-2xl md:text-3xl font-bold text-gray-900 mb-6 sm:mb-8 flex items-center">
               <span className="bg-red-600 text-white rounded-full w-8 h-8 sm:w-10 sm:h-10 flex items-center justify-center mr-3 sm:mr-4 text-sm sm:text-base flex-shrink-0">
-                2
+                3
               </span>
               Social Media Management
             </h2>
@@ -230,14 +245,23 @@ const StartupToScaleUp = () => {
               </div>
             </div>
 
-            {/* Testimonial Image 2 */}
+            {/* Testimonial Image 2
             <div className="relative z-0 mt-24 sm:mt-32">
               <img
                 src="https://res.cloudinary.com/de4ks8mkh/image/upload/v1761737872/cubemedia/Testimonials_3_cuzxtt.png"
                 alt="Client Testimonial"
                 className="w-full rounded-xl sm:rounded-2xl shadow-lg"
               />
+            </div> */}
+            {/* Testimonial Image 2 */}
+            <div className="relative z-0 mt-24 sm:mt-32 px-4 sm:px-8 flex justify-center">
+              <img
+                src="https://res.cloudinary.com/de4ks8mkh/image/upload/v1761737872/cubemedia/Testimonials_3_cuzxtt.png"
+                alt="Client Testimonial"
+                className="w-full max-w-[960px] rounded-xl sm:rounded-2xl shadow-lg"
+              />
             </div>
+
           </div>
         </section>
 
