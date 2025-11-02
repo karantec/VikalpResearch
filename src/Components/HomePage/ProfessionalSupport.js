@@ -41,14 +41,14 @@ const ExpertHelpSection = () => {
   ];
 
   return (
-    <div className="bg-gradient-to-br from-red-950 via-red-900 to-red-950 py-12 md:py-16 px-4 sm:px-6 lg:px-8">
+    <div className="bg-gradient-to-br bg-white py-12 md:py-16 px-4 sm:px-6 lg:px-8">
       <div className="max-w-7xl mx-auto">
         {/* Header */}
         <div className="text-center mb-12">
-          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-3">
+          <h2 className="text-3xl md:text-4xl lg:text-5xl font-medium text-gray-900 mb-3 ">
             {sectionData.title}
           </h2>
-          <p className="text-gray-200 text-sm md:text-base">
+          <p className="text-gray-600 text-sm md:text-base">
             {sectionData.subtitle}
           </p>
         </div>
@@ -58,11 +58,11 @@ const ExpertHelpSection = () => {
           {experts.map((expert) => (
             <div
               key={expert.id}
-              className="bg-white rounded-xl shadow-lg hover:shadow-2xl transition-all duration-300 overflow-hidden border-2 border-gray-200 hover:border-red-600 hover:scale-105"
+              className="bg-white rounded-xl transition-all duration-300 overflow-hidden border-2 border-black hover:border-red-900 hover:scale-105"
             >
               {/* Card Header */}
               <div className="p-6 text-center">
-                <h3 className="text-xl md:text-2xl font-bold text-gray-900 mb-2">
+                <h3 className="text-xl md:text-2xl font-normal text-gray-900 mb-2">
                   {expert.title}
                 </h3>
                 <p className="text-sm text-gray-600">{expert.description}</p>
@@ -70,7 +70,7 @@ const ExpertHelpSection = () => {
 
               {/* Consult Button */}
               <div className="px-6">
-                <button className="w-full bg-gradient-to-r from-red-600 to-red-700 hover:from-red-700 hover:to-red-800 text-white font-semibold py-3 px-6 rounded-lg transition-all duration-300 shadow-md hover:shadow-lg">
+                <button className="w-full bg-red-900 hover:from-red-700 hover:to-red-800 text-white font-semibold py-3 px-6 rounded-lg transition-all duration-300 shadow-md hover:shadow-lg">
                   {expert.buttonText}
                 </button>
               </div>
