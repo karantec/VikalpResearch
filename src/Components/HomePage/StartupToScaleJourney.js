@@ -17,11 +17,11 @@ const StartupToScaleUp = () => {
           />
         </div> */}
         <div
-          className="absolute left-[70px] sm:left-[76px] top-72 sm:top-80 hidden md:flex flex-col items-center z-20"
+          className="absolute left-[70px] sm:left-[75px] top-72 sm:top-80 hidden md:flex flex-col items-center z-20"
           style={{ height: "calc(100% - 26rem)" }}
         >
-          <div className="w-[3px] bg-red-600 h-full relative">
-            <span className="absolute -bottom-2 left-1/2 -translate-x-1/2 w-4 h-4 bg-red-600 rounded-full border-2 border-white"></span>
+          <div className="w-[2px] bg-red-600 h-full relative">
+            <span className="absolute -bottom-2 left-1/2 -translate-x-1/2 w-6 h-6 bg-red-600 rounded-full border-2 border-white"></span>
           </div>
         </div>
 
@@ -45,14 +45,14 @@ const StartupToScaleUp = () => {
         {/* 1️⃣ CONTENT CREATION */}
         <section className="mb-10 sm:mb-14 mt-12 sm:mt-20 relative z-10">
           <div className="bg-gradient-to-br from-red-100 via-red-50 to-rose-100 rounded-xl sm:rounded-2xl shadow-xl p-4 sm:p-6 md:p-8 border-t-4 border-red-600">
-            <h2 className="text-xl sm:text-2xl md:text-3xl font-bold text-gray-900 mb-6 sm:mb-8 flex items-center ">
-              <span className="bg-red-600 text-white rounded-full w-8 h-8 sm:w-10 sm:h-10 flex items-center justify-center mr-3 sm:mr-4 text-sm sm:text-base flex-shrink-0">
-                1
+            <h2 className="text-xl sm:text-2xl md:text-3xl font-medium text-gray-900 mb-6 sm:mb-8 flex items-center ">
+              <span className="bg-red-600 text-white rounded-full w-4 h-4 sm:w-6 sm:h-6 flex items-center justify-center mr-3 sm:mr-4 text-sm sm:text-base flex-shrink-0">
+                
               </span>
               Content Creation
             </h2>
 
-            <div className="grid md:grid-cols-2 gap-6 sm:gap-8 md:gap-10 mb-6 sm:mb-10">
+            <div className="grid md:grid-cols-2 gap-6 sm:gap-8 md:gap-10 mb-6 sm:mb-10 ml-6">
               <div>
                 <ul className="space-y-2 sm:space-y-3">
                   {[
@@ -119,14 +119,14 @@ const StartupToScaleUp = () => {
         {/* 3️⃣ PERFORMANCE MARKETING */}
         <section className="mb-12 sm:mb-20 relative z-10">
           <div className="bg-gradient-to-br from-red-100 via-red-50 to-rose-100 rounded-xl sm:rounded-2xl shadow-xl p-4 sm:p-6 md:p-8 border-t-4 border-red-600">
-            <h2 className="text-xl sm:text-2xl md:text-3xl font-bold text-gray-900 mb-6 sm:mb-8 flex items-center">
-              <span className="bg-red-600 text-white rounded-full w-8 h-8 sm:w-10 sm:h-10 flex items-center justify-center mr-3 sm:mr-4 text-sm sm:text-base flex-shrink-0">
-                2
-              </span>
+            <h2 className="text-xl sm:text-2xl md:text-3xl font-medium text-gray-900 mb-6 sm:mb-8 flex items-center">
+            <span className="bg-red-600 text-white rounded-full w-4 h-4 sm:w-6 sm:h-6 flex items-center justify-center mr-3 sm:mr-4 text-sm sm:text-base flex-shrink-0">
+                
+                </span>
               Performance Marketing
             </h2>
 
-            <div className="grid md:grid-cols-2 gap-6 sm:gap-8 md:gap-10 mb-6 sm:mb-10">
+            <div className="grid md:grid-cols-2 gap-6 sm:gap-8 md:gap-10 mb-6 sm:mb-10 ml-6">
               <div>
                 <ul className="space-y-2 sm:space-y-3">
                   {[
@@ -193,14 +193,14 @@ const StartupToScaleUp = () => {
         {/* 2️⃣ SOCIAL MEDIA MANAGEMENT */}
         <section className="mb-10 sm:mb-14 mt-12 sm:mt-20 relative z-10">
           <div className="bg-gradient-to-br from-red-100 via-red-50 to-rose-100 rounded-xl sm:rounded-2xl shadow-xl p-4 sm:p-6 md:p-8 border-t-4 border-red-600">
-            <h2 className="text-xl sm:text-2xl md:text-3xl font-bold text-gray-900 mb-6 sm:mb-8 flex items-center">
-              <span className="bg-red-600 text-white rounded-full w-8 h-8 sm:w-10 sm:h-10 flex items-center justify-center mr-3 sm:mr-4 text-sm sm:text-base flex-shrink-0">
-                3
-              </span>
+            <h2 className="text-xl sm:text-2xl md:text-3xl font-medium text-gray-900 mb-6 sm:mb-8 flex items-center">
+            <span className="bg-red-600 text-white rounded-full w-4 h-4 sm:w-6 sm:h-6 flex items-center justify-center mr-3 sm:mr-4 text-sm sm:text-base flex-shrink-0">
+                
+                </span>
               Social Media Management
             </h2>
 
-            <div className="grid md:grid-cols-2 gap-6 sm:gap-8 md:gap-10 mb-6 sm:mb-10">
+            <div className="grid md:grid-cols-2 gap-6 sm:gap-8 md:gap-10 mb-6 sm:mb-10 ml-6">
               <div>
                 <ul className="space-y-2 sm:space-y-3">
                   {[
