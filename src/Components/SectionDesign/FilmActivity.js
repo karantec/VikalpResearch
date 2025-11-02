@@ -116,7 +116,6 @@ export default function FilmEventPublicity() {
   return (
     <div className="min-h-screen bg-gradient-to-br from-gray-50 via-white to-rose-50">
       <MarketingLandingPage />
-
       {/* Animated Background */}
       <div className="fixed inset-0 overflow-hidden pointer-events-none">
         <div className="absolute top-20 left-10 w-72 h-72 bg-rose-200 rounded-full mix-blend-multiply filter blur-3xl opacity-20 animate-pulse"></div>
@@ -125,7 +124,6 @@ export default function FilmEventPublicity() {
           style={{ animationDelay: "2s" }}
         ></div>
       </div>
-
       {/* HERO SECTION */}
       <div className="relative bg-gradient-to-br from-red-700 via-rose-800 to-red-900 text-white pt-32 pb-20 overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/5 to-transparent animate-shimmer"></div>
@@ -202,7 +200,7 @@ export default function FilmEventPublicity() {
           </div>
         </div>
       </div>
-
+      <TestimonialCarousel />
       {/* WHY IT MATTERS */}
       <div className="py-20 bg-gradient-to-b from-white to-rose-50 text-center">
         <div className="max-w-4xl mx-auto px-6">
@@ -217,7 +215,6 @@ export default function FilmEventPublicity() {
           </p>
         </div>
       </div>
-
       {/* PROCESS */}
       <div className="py-20 bg-gradient-to-br from-rose-50 via-white to-red-50">
         <div className="max-w-5xl mx-auto px-6">
@@ -255,22 +252,65 @@ export default function FilmEventPublicity() {
           </div>
         </div>
       </div>
-
       {/* WHY CHOOSE US */}
-      <div className="py-16 bg-white text-center">
-        <h2 className="text-4xl font-bold mb-8 text-red-700">
-          {whyChooseUs.tag}
-        </h2>
-        <ul className="max-w-2xl mx-auto space-y-3 text-gray-700 text-lg">
-          {whyChooseUs.points.map((point, i) => (
-            <li key={i} className="flex items-center justify-center gap-2">
-              <Check className="w-5 h-5 text-green-500" />
-              {point}
-            </li>
-          ))}
-        </ul>
-      </div>
+      <div className="py-20 bg-gradient-to-br from-white via-rose-50 to-red-50 relative overflow-hidden">
+        {/* Decorative elements */}
+        <div className="absolute top-20 left-10 w-64 h-64 bg-rose-300 rounded-full mix-blend-multiply filter blur-3xl opacity-20 animate-pulse"></div>
+        <div
+          className="absolute bottom-20 right-10 w-64 h-64 bg-red-300 rounded-full mix-blend-multiply filter blur-3xl opacity-20 animate-pulse"
+          style={{ animationDelay: "1s" }}
+        ></div>
 
+        <div className="relative max-w-6xl mx-auto px-6">
+          <div className="text-center mb-16">
+            <span className="inline-block px-4 py-2 bg-gradient-to-r from-red-100 to-rose-100 text-red-700 rounded-full text-sm font-semibold mb-4">
+              {whyChooseUs.tag}
+            </span>
+            <h2 className="text-4xl md:text-5xl font-bold mb-6 bg-clip-text text-transparent bg-gradient-to-r from-red-700 to-rose-700">
+              Your Success Is Our Mission
+            </h2>
+            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+              We combine expertise, creativity, and proven strategies to deliver
+              publicity campaigns that exceed expectations
+            </p>
+          </div>
+
+          <div className="grid md:grid-cols-3 gap-8">
+            {whyChooseUs.points.map((point, i) => (
+              <div
+                key={i}
+                className="group relative bg-white p-8 rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-500 hover:-translate-y-3 border border-rose-100"
+              >
+                {/* Gradient border effect on hover */}
+                <div className="absolute inset-0 bg-gradient-to-br from-red-500 to-rose-600 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity -z-10 blur-xl"></div>
+
+                {/* Icon container */}
+                <div className="w-16 h-16 bg-gradient-to-br from-red-500 to-rose-600 rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300 shadow-lg">
+                  <Check className="w-8 h-8 text-white" />
+                </div>
+
+                {/* Content */}
+                <p className="text-lg text-gray-800 font-medium leading-relaxed">
+                  {point}
+                </p>
+
+                {/* Decorative corner */}
+                <div className="absolute top-4 right-4 w-2 h-2 bg-red-500 rounded-full opacity-0 group-hover:opacity-100 transition-opacity"></div>
+              </div>
+            ))}
+          </div>
+
+          {/* Trust badge */}
+          <div className="mt-16 text-center">
+            <div className="inline-flex items-center gap-3 bg-white px-8 py-4 rounded-full shadow-lg border border-rose-100">
+              <Sparkles className="w-5 h-5 text-red-600" />
+              <span className="text-gray-700 font-semibold">
+                Trusted by leading entertainment brands & celebrities
+              </span>
+            </div>
+          </div>
+        </div>
+      </div>
       {/* CASE STUDY */}
       <div className="py-20 bg-gradient-to-b from-rose-50 via-white to-rose-100 text-center">
         <h2 className="text-4xl font-bold mb-10 text-red-700">
@@ -291,7 +331,6 @@ export default function FilmEventPublicity() {
           </p>
         </div>
       </div>
-
       {/* FAQ */}
       <div className="py-20 bg-gradient-to-br from-white to-rose-50">
         <div className="max-w-4xl mx-auto text-center">
@@ -308,7 +347,6 @@ export default function FilmEventPublicity() {
           </div>
         </div>
       </div>
-
       {/* CTA */}
       <div className="py-24 bg-gradient-to-br from-red-700 via-rose-800 to-red-900 text-center relative overflow-hidden">
         <cta.icon className="w-16 h-16 text-yellow-300 mx-auto mb-8 animate-bounce-slow" />
@@ -323,7 +361,6 @@ export default function FilmEventPublicity() {
           <ArrowRight className="w-6 h-6 group-hover:translate-x-2 transition-transform" />
         </button>
       </div>
-
       <style>{`
         @keyframes shimmer {
           0% { transform: translateX(-100%); }

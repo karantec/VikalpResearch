@@ -268,7 +268,7 @@ export default function MarketAuto() {
           </div>
         </div>
       </div>
-
+      <TestimonialCarousel />
       {/* WHY CHOOSE US */}
       <div className="py-16 bg-white text-center">
         <h2 className="text-4xl font-bold mb-8 text-red-700">
@@ -283,7 +283,7 @@ export default function MarketAuto() {
           ))}
         </ul>
       </div>
-
+      <TestimonialCarousel />
       {/* CASE STUDY */}
       <div className="py-20 bg-gradient-to-b from-rose-50 via-white to-rose-100 text-center">
         <h2 className="text-4xl font-bold mb-10 text-red-700">

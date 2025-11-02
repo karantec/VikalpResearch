@@ -12,6 +12,7 @@ import {
   Award,
 } from "lucide-react";
 import MarketingLandingPage from "./TopDesign";
+import TestimonialCarousel from "./Testimonial";
 
 export default function MobileAppDevelopmentRed() {
   const [isVisible, setIsVisible] = useState(false);
@@ -239,7 +240,7 @@ export default function MobileAppDevelopmentRed() {
           </div>
         </div>
       </div>
-
+      <TestimonialCarousel />
       {/* CASE STUDY */}
       <div className="py-20 bg-white">
         <div className="max-w-5xl mx-auto px-6 text-center">

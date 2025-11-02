@@ -33,6 +33,7 @@ import FreeLearning from "./Components/SectionDesign/Others/Freelearnings";
 import Marketing from "./Components/SectionDesign/Others/Marketing";
 import SalesConsultancy from "./Components/SectionDesign/Others/Saleconsultancy";
 import TrainingAndWorkshop from "./Components/SectionDesign/Others/TrainingandWorkshop";
+import CubeAboutPage from "./Components/SectionDesign/About";
 
 function App() {
   return (
@@ -41,6 +42,7 @@ function App() {
       <Routes>
         //Web it
         <Route path="/" element={<Home />} />
+        <Route path="/About" element={<CubeAboutPage />} />
         <Route path="/it-design" element={<PersonalWebsiteDevelopment />} />
         <Route path="/business" element={<BusinessWebsiteDevelopment />} />
         <Route path="/ecommerce" element={<EcommerceWebsiteDevelopment />} />

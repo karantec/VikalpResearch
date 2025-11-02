@@ -221,7 +221,7 @@ export default function Scripting() {
           </p>
         </div>
       </div>
-
+      <TestimonialCarousel />
       {/* PROCESS */}
       <div className="py-20 bg-gradient-to-br from-rose-50 via-white to-red-50">
         <div className="max-w-5xl mx-auto px-6">

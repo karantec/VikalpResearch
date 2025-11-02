@@ -255,7 +255,7 @@ export default function EcommerceWebsiteDevelopment() {
           </div>
         </div>
       </div>
-
+      <TestimonialCarousel />
       {/* CASE STUDY */}
       <div className="py-20 bg-white">
         <div className="max-w-5xl mx-auto px-6">

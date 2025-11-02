@@ -262,7 +262,7 @@ export default function PublicityPRServices() {
           </div>
         </div>
       </div>
-
+      <TestimonialCarousel />
       {/* WHY CHOOSE US */}
       <div className="py-16 bg-white text-center">
         <h2 className="text-4xl font-bold mb-8 text-red-700">

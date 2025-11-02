@@ -9,6 +9,7 @@ import {
   Check,
 } from "lucide-react";
 import MarketingLandingPage from "./TopDesign";
+import TestimonialCarousel from "./Testimonial";
 
 export default function LandingPageFunnelDesign() {
   const [isVisible, setIsVisible] = useState(false);
@@ -237,7 +238,7 @@ export default function LandingPageFunnelDesign() {
           </div>
         </div>
       </div>
-
+      <TestimonialCarousel />
       {/* CASE STUDY */}
       <div className="py-20 bg-white">
         <div className="max-w-5xl mx-auto px-6">
