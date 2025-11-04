@@ -53,7 +53,7 @@ function App() {
           element={<WebsiteMaintenanceSecurity />}
         />
         // New Routes Added Below
-        <Route path="/publicity" element={<PublicityPRServices />} />
+        {/* <Route path="/publicity" element={<PublicityPRServices />} />
         <Route path="/media-coverage" element={<MediaPRCoverage />} />
         <Route path="/podcast" element={<PodcastProductionMarketing />} />
         <Route path="/film-activity" element={<FilmEventPublicity />} />
@@ -65,7 +65,7 @@ function App() {
         <Route path="/VideoEditing" element={<VideoEditing />} />
         <Route path="/Scripting" element={<Scripting />} />
         <Route path="/voice" element={<VoiceOver />} />
-        <Route path="/Films" element={<BrandFilms />} />
+        <Route path="/Films" element={<BrandFilms />} /> */}{" "}
         // New Routes Added Below
         <Route path="/Social" element={<SocialMediaManagement />} />
         <Route path="/GoogleMyBusiness" element={<GoogleMyBusiness />} />
@@ -75,7 +75,6 @@ function App() {
         <Route path="/marketing" element={<MarketAuto />} />
         <Route path="/Performance" element={<PerformanceMarketing />} />
         <Route path="/marketing" element={<MarketAuto />} />
-        // others
         <Route path="/AITool" element={<AIToolAndIntegration />} />
         <Route path="/FreeLearning" element={<FreeLearning />} />
         <Route path="/Marketing" element={<Marketing />} />
