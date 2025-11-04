@@ -100,11 +100,6 @@ const TestimonialCarousel = () => {
       <div className="w-full max-w-7xl mx-auto">
         {/* Header Section */}
         <div className="text-center mb-12 md:mb-16">
-          <div className="inline-block mb-3">
-            <span className="px-4 py-1.5 bg-white text-red-500 text-2xl font-semibold rounded-full border border-red-500/30">
-              SUCCESS STORIES
-            </span>
-          </div>
           <h2 className="text-4xl md:text-6xl font-bold text-white mb-4">
             What Our Clients Say
           </h2>
