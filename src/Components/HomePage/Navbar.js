@@ -69,9 +69,9 @@ const Navbar = () => {
         { name: "Sales Consultancy", path: "/SalesConsult" },
         { name: "AI Tools Integration", path: "/AITool" },
         { name: "Training & Workshops", path: "/Training" },
-        { name: "Live Classes / Webinars", path: "/Training" }, // if same component for now
+        { name: "Live Classes / Webinars", path: "/Training" },
         { name: "Free Learning Videos", path: "/FreeLearning" },
-        { name: "Downloadable Resources", path: "/FreeLearning" }, // if same component for now
+        { name: "Downloadable Resources", path: "/FreeLearning" },
       ],
     },
   ];
@@ -127,8 +127,8 @@ const Navbar = () => {
             />
           </Link>
 
-          {/* Desktop Navigation */}
-          <nav className="hidden lg:flex items-center space-x-1">
+          {/* Desktop Navigation - Centered */}
+          <nav className="hidden lg:flex items-center space-x-6 flex-1 justify-center">
             {menuItems.map((menu, index) => (
               <div key={index} className="relative group">
                 <button className="px-3 py-2 text-white hover:text-yellow-300 text-sm flex items-center gap-1 transition-colors">
@@ -149,41 +149,43 @@ const Navbar = () => {
                 </button>
 
                 <div className="absolute top-full left-1/2 transform -translate-x-1/2 pt-2 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200">
-  <div className="bg-white rounded-lg shadow-xl z-50 w-[400px]">
-    <div className="p-4">
-      <h4 className="text-sm font-medium text-gray-900 mb-3 flex items-center gap-2">
-        <span>{menu.icon}</span>
-        {menu.label}
-      </h4>
+                  <div className="bg-white rounded-lg shadow-xl z-50 w-[400px]">
+                    <div className="p-4">
+                      <h4 className="text-sm font-medium text-gray-900 mb-3 flex items-center gap-2">
+                        <span>{menu.icon}</span>
+                        {menu.label}
+                      </h4>
 
-      {/* Divider line */}
-      <div className="border-b border-gray-200 mb-3 w-[100px]"></div>
+                      {/* Divider line */}
+                      <div className="border-b border-gray-200 mb-3 w-[100px]"></div>
 
-      <div className="space-y-1 max-h-96 overflow-y-auto">
-        {menu.items.map((item, i) => (
-          <Link
-            key={i}
-            to={item.path}
-            onClick={handleLinkClick}
-            className="block text-sm text-gray-700 py-2 px-3 hover:text-red-700 hover:bg-gray-50 rounded transition-colors"
-          >
-            {item.name}
-          </Link>
-        ))}
-      </div>
-    </div>
-  </div>
-</div>
-
+                      <div className="space-y-1 max-h-96 overflow-y-auto">
+                        {menu.items.map((item, i) => (
+                          <Link
+                            key={i}
+                            to={item.path}
+                            onClick={handleLinkClick}
+                            className="block text-sm text-gray-700 py-2 px-3 hover:text-red-700 hover:bg-gray-50 rounded transition-colors"
+                          >
+                            {item.name}
+                          </Link>
+                        ))}
+                      </div>
+                    </div>
+                  </div>
+                </div>
               </div>
             ))}
+          </nav>
 
-            <button className="ml-4 px-4 py-2 border border-white text-white hover:bg-white/10 rounded text-sm transition-colors">
+          {/* Right Side: Login and Hamburger */}
+          <div className="hidden lg:flex items-center space-x-4">
+            <button className="px-4 py-2 border border-white text-white hover:bg-white/10 rounded text-sm transition-colors">
               Login
             </button>
 
             {/* Hamburger Menu Button */}
-            <div ref={hamburgerMenuRef} className="ml-2 relative">
+            <div ref={hamburgerMenuRef} className="relative">
               <button
                 onClick={() => setAllPagesMenuOpen(!allPagesMenuOpen)}
                 className="p-2 text-white hover:text-yellow-300 transition-colors"
@@ -224,7 +226,7 @@ const Navbar = () => {
                 </div>
               )}
             </div>
-          </nav>
+          </div>
 
           {/* Mobile Menu Button */}
           <div className="lg:hidden">
