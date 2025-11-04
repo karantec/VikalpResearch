@@ -20,7 +20,7 @@ export default function MarketingLandingPage() {
   }, []);
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-red-600 via-red-500 to-orange-500 relative overflow-hidden">
+    <div className="min-h-screen bg-gradient-to-br from-red-700 via-rose-800 to-red-900 relative overflow-hidden">
       {/* Animated background elements */}
       <div className="absolute inset-0 overflow-hidden mt-16">
         <div className="absolute top-20 left-10 w-96 h-96 bg-yellow-400 rounded-full mix-blend-multiply filter blur-3xl opacity-20 animate-pulse"></div>
