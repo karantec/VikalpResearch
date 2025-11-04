@@ -63,7 +63,7 @@ const ZolvitHeroSection = () => {
       title: "Digital Marketing ▸",
       description:
         "Data-driven campaigns and social media strategies that grow your brand.",
-      icon: "https://assets.vakilsearch.com/ic-start-business-services-zpf.png",
+      icon: "/images/digital-marketing.webp",
       rotation: "-5deg",
     },
     {
@@ -71,7 +71,7 @@ const ZolvitHeroSection = () => {
       title: "Influencer Marketing ▸",
       description:
         "Partner with the right talents to boost engagement and credibility.",
-      icon: "https://assets.vakilsearch.com/ic-manage-business-services-zpf.png",
+      icon: "/images/influencer-marketing.webp",
       rotation: "0deg",
     },
     {
@@ -79,7 +79,7 @@ const ZolvitHeroSection = () => {
       title: "Content Creation ▸",
       description:
         "Creative visuals and compelling stories for your brand story.",
-      icon: "https://assets.vakilsearch.com/ic-protect-business-services-zpf.png",
+      icon: "/images/content-creation.webp",
       rotation: "5deg",
     },
   ];
@@ -103,8 +103,8 @@ const ZolvitHeroSection = () => {
       <div
         className="absolute inset-0 z-0"
         style={{
-          backgroundImage: `url(${backgroundImageUrl})`,
-          backgroundSize: "100% 100%",
+          backgroundImage: `url("/images/background.png")`,
+          backgroundSize: "cover", // changed to prevent stretching
           backgroundPosition: "center top",
           backgroundRepeat: "no-repeat",
           minHeight: "100vh",
@@ -117,54 +117,58 @@ const ZolvitHeroSection = () => {
 
       {/* Hero Content */}
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-12 pb-24">
-        <div className="flex justify-center items-center mb-6 w-full">
+        <div className="flex justify-center items-center gap-4 mb-6 w-full flex-wrap">
           <div className="flex -space-x-2 justify-center">
             {[
-              "https://randomuser.me/api/portraits/men/1.jpg",
+              "https://assets.vakilsearch.com/googleimg-white.svg",
               "https://randomuser.me/api/portraits/women/2.jpg",
               "https://randomuser.me/api/portraits/men/3.jpg",
               "https://randomuser.me/api/portraits/women/4.jpg",
               "https://randomuser.me/api/portraits/men/5.jpg",
-            ].map((src, i) => (
+            ].map((src, i, arr) => (
               <a
                 key={i}
                 href="https://www.google.com/search?gs_ssp=eJzj4tVP1zc0LMsoNC80NTQxYLRSNaiwSEsxMTdINk40TE6xsDQwtjKosDRPMk4ySjUzMrc0SkwzMvbiTy5NSlXILc0pycxNTclMBAC-QBTB&q=cube+multimedia&rlz=1C1ONGR_enIN1130IN1130&oq=cube&gs_lcrp=EgZjaHJvbWUqEggDEC4YJxivARjHARiABBiKBTIGCAAQRRg8MgYIARBFGDwyDAgCEEUYORixAxiABDISCAMQLhgnGK8BGMcBGIAEGIoFMgwIBBAuGEMYgAQYigUyBggFEEUYPTIGCAYQRRg8MgYIBxBFGDzSAQg3MzQyajBqN6gCCLACAfEFji1jvnFnQRg&sourceid=chrome&ie=UTF-8"
                 target="_blank"
                 rel="noopener noreferrer"
+                style={{ zIndex: arr.length - i }}
               >
                 <img
                   src={src}
                   alt="Reviewer"
-                  className="w-8 h-8 rounded-full border-2 border-gray-800 hover:scale-110 transition-transform duration-200"
+                  className="w-8 h-8 rounded-full border-2 border-gray-800 hover:scale-110 transition-transform duration-200 relative"
+                  style={{ zIndex: arr.length - i }}
                 />
               </a>
             ))}
           </div>
-        </div>
-
-        <div className="flex justify-center items-center gap-2 mb-6">
-          <div className="flex text-yellow-400 text-sm sm:text-base">★★★★★</div>
-          <span className="text-white font-semibold text-sm sm:text-base">
-            4.5/5
-          </span>
-          <span className="text-gray-400 text-xs sm:text-sm">
-            (19k+ Reviews)
-          </span>
+          <div className="flex items-center gap-2">
+            <div className="flex text-yellow-400 text-sm sm:text-base">★★★★★</div>
+            <span className="text-white font-semibold text-sm sm:text-base">
+              4.5/5
+            </span>
+            <span className="text-gray-400 text-xs sm:text-sm">
+              (19k+ Reviews)
+            </span>
+          </div>
         </div>
 
         <div className="text-center mb-8">
-          <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-4">
+          <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-medium text-white mb-4">
             {heroData.mainTitle}
           </h1>
-          <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-6">
+          <h2 className="text-3xl sm:text-4xl md:text-4xl lg:text-5xl font-medium text-white mb-6">
             {heroData.subTitle}
           </h2>
           <p className="text-gray-300 text-sm sm:text-base md:text-lg">
             {heroData.description1}{" "}
             <span className="relative inline-block">
-              <span className="relative z-10 bg-red-500 text-white px-3 py-1 rounded-full font-semibold text-1xl shadow-[0_0_20px_rgba(239,68,68,0.6),0_0_40px_rgba(239,68,68,0.4)]">
+              <button className="relative z-10 px-2 py-1 rounded-full text-white font-semibold border border-pink-300 bg-gradient-to-r from-red-600 via-red-500 to-orange-400 shadow-md hover:scale-105 transition-transform">
+                AI-Driven
+              </button>
+              {/* <span className="relative z-10 bg-red-500 text-white px-3 py-1 rounded-full font-semibold border-pink-300 text-1xl shadow-[0_0_20px_rgba(239,68,68,0.6),0_0_40px_rgba(239,68,68,0.4)]">
                 {heroData.highlight}
-              </span>
+              </span> */}
               <span className="absolute inset-0 bg-gradient-to-r from-red-500 via-yellow-500 to-red-500 rounded-full blur-sm opacity-75 animate-pulse"></span>
             </span>{" "}
             {heroData.description2}
@@ -175,20 +179,20 @@ const ZolvitHeroSection = () => {
         </div>
 
         {/* Search Bar with Typing Animation */}
-        <div className="max-w-full sm:max-w-3xl lg:max-w-full mx-auto mb-6 relative">
-          <div className="relative">
+        <div className="w-full max-w-xs sm:max-w-sm md:max-w-[900px] rounded-full mx-auto flex flex-row justify-between relative">
+          <div className="relative w-full flex items-center py-3">
             <input
               type="text"
               value={searchText}
               onChange={(e) => setSearchText(e.target.value)}
               placeholder={`Try ${currentText}`}
-              className="w-full px-6 sm:px-8 py-5 sm:py-6 lg:py-7 pr-20 rounded-full bg-white/10 backdrop-blur-sm border-2 border-white/20 text-white text-lg sm:text-xl placeholder-gray-400 focus:border-red-500 focus:outline-none transition-all"
+              className="flex-1 w-full px-4 sm:px-5 py-3.5 sm:py-4 lg:py-5 pr-16 rounded-full bg-white/10 backdrop-blur-sm border-2 border-white/50 text-white text-base sm:text-lg placeholder-gray-400 focus:border-red-500 focus:outline-none transition-all"
             />
-            <button className="absolute right-3 top-1/2 transform -translate-y-1/2 bg-white text-gray-900 p-3 sm:p-4 lg:p-5 rounded-full hover:bg-gray-100 transition-all">
+            <button className="absolute right-3 top-1/2 transform -translate-y-1/2 bg-white/20 text-gray-900 p-2.5 sm:p-3.5 lg:p-4 rounded-full hover:bg-white/30 transition-all">
               <svg
-                className="w-6 h-6 sm:w-7 sm:h-7"
+                className="w-5 h-5 sm:w-6 sm:h-6"
                 fill="none"
-                stroke="currentColor"
+                stroke="white"
                 viewBox="0 0 24 24"
               >
                 <path
@@ -207,7 +211,7 @@ const ZolvitHeroSection = () => {
           {quickActions.map((action, index) => (
             <button
               key={index}
-              className="px-3 sm:px-4 py-2 rounded-full border-2 border-white/30 text-white hover:bg-white/10 hover:border-red-500 transition-all text-xs sm:text-sm"
+              className="px-3 sm:px-4 py-2 rounded-full border-2 border-white/50 text-white hover:bg-white/10 hover:border-red-500 transition-all text-xs sm:text-sm"
             >
               {action}
             </button>
@@ -222,7 +226,7 @@ const ZolvitHeroSection = () => {
               onClick={() =>
                 setClickedCard(clickedCard === card.id ? null : card.id)
               }
-              className={`bg-white rounded-2xl shadow-2xl p-8 sm:p-10 flex flex-col justify-between transition-all duration-500 hover:scale-105 hover:shadow-red-500/30 cursor-pointer w-full sm:w-[500px] md:w-[580px] lg:w-[680px] xl:w-[750px] min-h-[420px]`}
+              className={`bg-white border-2 border-red-300 rounded-2xl shadow-2xl p-6 sm:p-8 flex flex-col justify-between transition-all duration-500 hover:scale-105 hover:shadow-red-500/30 cursor-pointer w-full sm:w-[500px] md:w-[580px] lg:w-[680px] xl:w-[750px] min-h-[420px]`}
               style={{
                 transform:
                   clickedCard === card.id
@@ -231,24 +235,26 @@ const ZolvitHeroSection = () => {
                 zIndex: clickedCard === card.id ? 20 : 10,
               }}
             >
-              <div>
-                <div className="flex items-start justify-between mb-6">
-                  <h3 className="text-xl sm:text-2xl font-bold text-gray-900">
-                    {card.title}
-                  </h3>
-                  <span className="text-3xl">▸</span>
+              <div className="flex flex-col h-full">
+             
+                <div className="flex flex-col flex-1 justify-between">
+                  <div className="flex items-start justify-between mt-0 mb-2">
+                    <h2 className="text-xl sm:text-2xl font-semibold text-gray-900">
+                      {card.title}
+                    </h2>
+                    {/* <span className="text-3xl">▸</span> */}
+                  </div>
+                  <p className="text-base sm:text-lg text-gray-600 leading-relaxed m-0">
+                    {card.description}
+                  </p>
                 </div>
-                <p className="text-base sm:text-lg text-gray-600 leading-relaxed mb-6">
-                  {card.description}
-                </p>
-              </div>
-
-              <div className="flex justify-center items-center">
-                <img
-                  src={card.icon}
-                  alt={card.title}
-                  className="w-96 h-96 sm:w-40 sm:h-40 md:w-40 md:h-40 object-contain opacity-90 transition-all duration-300"
-                />
+                <div className="flex justify-center items-center mt-12">
+                  <img
+                    src={card.icon}
+                    alt={card.title}
+                    className="w-256 h-146 sm:w-256 sm:h-146 md:w-256 md:h-146 object-contain opacity-90 transition-all duration-300"
+                  />
+                </div>
               </div>
             </div>
           ))}
@@ -281,7 +287,7 @@ const ZolvitHeroSection = () => {
               {/* Award */}
               <div className="text-center">
                 <img
-                  src="https://assets.vakilsearch.com/ic-zolvit-reviews-light-zpf.svg"
+                  src="/images/review.svg"
                   alt="Zolvit Reviews"
                   className="w-72 sm:w-80 md:w-96"
                 />
@@ -291,10 +297,11 @@ const ZolvitHeroSection = () => {
               <div className="flex items-center justify-center md:justify-end bg-black p-4 rounded-lg">
                 <div className="flex items-center gap-3 text-white">
                   <img
-                    src="https://th.bing.com/th/id/R.0fa3fe04edf6c0202970f2088edea9e7?rik=joOK76LOMJlBPw&riu=http%3a%2f%2fpluspng.com%2fimg-png%2fgoogle-logo-png-open-2000.png&ehk=0PJJlqaIxYmJ9eOIp9mYVPA4KwkGo5Zob552JPltDMw%3d&risl=&pid=ImgRaw&r=0"
+                    src="https://assets.vakilsearch.com/googleimg-white.svg"
                     alt="Google"
-                    className="w-8 sm:w-10"
+                    className="w-20 sm:w-20"
                   />
+              
 
                   <div className="text-left">
                     <p className="font-medium text-sm sm:text-base">
@@ -319,33 +326,34 @@ const ZolvitHeroSection = () => {
 
           {/* Partner Logos Marquee */}
           <div className="w-full bg-[#1a1a1a] py-12 overflow-hidden">
-            <div className="flex gap-12 animate-marquee items-center">
-              {[...partners, ...partners].map((partner, index) => (
-                <div key={index} className="flex-shrink-0">
-                  <img
-                    src={partner}
-                    alt={`Partner ${index + 1}`}
-                    className="h-8 object-contain opacity-80 hover:opacity-100 transition-opacity"
-                  />
-                </div>
-              ))}
+            <div className="relative w-full">
+              <div className="marquee-track flex items-center gap-20" /* increased gap here */>
+                {[...partners, ...partners].map((partner, index) => (
+                  <div key={index} className="flex-shrink-0">
+                    <img
+                      src={partner}
+                      alt={`Partner ${index + 1}`}
+                      className="h-8 object-contain opacity-80 hover:opacity-100 transition-opacity"
+                    />
+                  </div>
+                ))}
+              </div>
             </div>
-
             <style jsx>{`
-              @keyframes marquee {
+              .marquee-track {
+                will-change: transform;
+                animation: marquee-continuous 30s linear infinite;
+              }
+              .marquee-track:hover {
+                animation-play-state: paused;
+              }
+              @keyframes marquee-continuous {
                 0% {
                   transform: translateX(0);
                 }
                 100% {
                   transform: translateX(-50%);
                 }
-              }
-              .animate-marquee {
-                display: flex;
-                animation: marquee 20s linear infinite;
-              }
-              .animate-marquee:hover {
-                animation-play-state: paused;
               }
             `}</style>
           </div>

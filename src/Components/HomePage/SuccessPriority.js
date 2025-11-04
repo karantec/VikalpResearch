@@ -5,7 +5,7 @@ const SuccessPrioritySection = () => {
   const scrollContainer2Ref = useRef(null);
 
   const sectionData = {
-    title: "Your success is our priority",
+    title: "Your success is our\n priority",
     quote:
       '"We started Zolvit because we saw brilliant entrepreneurs being held back by overwhelming compliance. Our mission is to be the partner you can always count on.',
     description:
@@ -164,12 +164,12 @@ const SuccessPrioritySection = () => {
   );
 
   return (
-    <div className="bg-gradient-to-br from-[#4a0e0e] via-[#2d0a0a] to-[#1a0505] py-12 md:py-16 px-4 sm:px-6 lg:px-8">
+    <div className="bg-gradient-to-br from-red-900 via-red-700 to-red-500 py-0 md:py-0 px-4 sm:px-6 lg:px-8">
       <div className="max-w-7xl mx-auto">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12">
           {/* Left Section - Main Content */}
           <div className="text-white flex flex-col justify-center">
-            <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-6">
+            <h2 className="text-3xl md:text-4xl lg:text-5xl font-medium mb-6 whitespace-pre-line" >
               {sectionData.title}
             </h2>
 

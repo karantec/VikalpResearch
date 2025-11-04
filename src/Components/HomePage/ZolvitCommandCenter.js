@@ -72,11 +72,11 @@ const HassleFreeProjectSection = () => {
   };
 
   return (
-    <div className="bg-gradient-to-br from-red-950 via-red-900 to-red-950 py-8 sm:py-12 lg:py-16 px-4 sm:px-6 lg:px-8">
+    <div className="bg-gradient-to-b from-red-900 via-red-500 via-70% to-white to-100% py-8 sm:py-12 lg:py-16 px-4 sm:px-6 lg:px-8">
       <div className="max-w-7xl mx-auto">
         {/* Header */}
         <div className="text-center mb-8 sm:mb-10 lg:mb-12">
-          <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-2 sm:mb-3 px-2 leading-tight">
+          <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-medium text-white mb-2 sm:mb-3 px-2 leading-tight">
             {sectionData.title}
           </h2>
           <p className="text-gray-200 text-sm sm:text-base px-4 max-w-4xl mx-auto">
@@ -95,16 +95,16 @@ const HassleFreeProjectSection = () => {
                 className={`rounded-lg transition-all duration-300 cursor-pointer overflow-hidden ${
                   activeFeature === index
                     ? feature.highlighted
-                      ? "bg-gradient-to-br from-red-700 to-red-800 border-2 border-red-400 shadow-lg shadow-red-900/50"
-                      : "bg-gradient-to-br from-red-800 to-red-900 border-2 border-red-500 shadow-lg shadow-red-900/50"
-                    : "bg-gradient-to-br from-gray-800 to-gray-900 hover:from-red-800 hover:to-red-900 border border-gray-700 hover:border-red-500"
+                      ? "bg-red-800 border-2 border-white"
+                      : "bg-red-900 border-2 border-white"
+                    : "bg-red-950 hover:from-red-800/70 hover:to-red-900/70 border border-red-600 hover:border-red-500 bg-opacity-60"
                 } p-4 sm:p-5 md:p-6`}
               >
                 <div className="flex items-center gap-3">
                   <span className="text-xl sm:text-2xl flex-shrink-0">
                     {feature.icon}
                   </span>
-                  <h3 className="text-base sm:text-lg md:text-xl font-bold text-white">
+                  <h3 className="text-base sm:text-lg md:text-xl font-normal text-white">
                     {feature.title}
                   </h3>
                 </div>
@@ -135,24 +135,27 @@ const HassleFreeProjectSection = () => {
             </div>
           </div>
 
-          {/* Right Side - Dashboard Preview */}
-          <div className="bg-gradient-to-br from-red-800 to-red-900 rounded-lg shadow-2xl overflow-hidden border-2 sm:border-4 border-red-700/50">
-            {/* Dashboard Frame */}
-            <div className="p-3 sm:p-4 lg:p-5">
-              {/* Dashboard Content */}
-              <div className="bg-white rounded-lg overflow-hidden shadow-inner">
-                {/* Main Image Display */}
-                <div className="relative w-full bg-gradient-to-br from-red-50 to-gray-50 overflow-hidden flex items-center justify-center p-4 sm:p-6 lg:p-8">
-                  <img
-                    src={features[activeFeature].image}
-                    alt={features[activeFeature].title}
-                    className="w-full h-auto object-cover transition-opacity duration-500 rounded-lg shadow-md"
-                    style={{ maxHeight: "400px" }}
-                  />
-                </div>
-              </div>
-            </div>
-          </div>
+    {/* Right Side - Dashboard Preview */}
+<div className="bg-gradient-to-br from-red-800 to-red-900 rounded-lg shadow-2xl overflow-hidden border-2 sm:border-4 border-red-700/50">
+
+{/* Top + Left padding only */}
+<div className="pt-3 pl-3 sm:pt-4 sm:pl-4 lg:pt-5 lg:pl-5">
+
+  {/* Force height so image can fill */}
+  <div className="relative w-full" style={{ height: "400px" }}>
+
+    <img
+      src={features[activeFeature].image}
+      alt={features[activeFeature].title}
+      className="absolute top-0 left-0 w-full h-full object-cover rounded-lg shadow-md"
+    />
+
+  </div>
+
+</div>
+</div>
+
+
         </div>
       </div>
     </div>

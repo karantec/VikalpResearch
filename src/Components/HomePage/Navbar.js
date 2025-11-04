@@ -1,14 +1,16 @@
-import React, { useState } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import { Link } from "react-router-dom";
 
 const Navbar = () => {
   const [activeDropdown, setActiveDropdown] = useState(null);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [allPagesMenuOpen, setAllPagesMenuOpen] = useState(false);
+  const hamburgerMenuRef = useRef(null);
 
   const menuItems = [
     {
       label: "Digital Marketing",
-      icon: "📈",
+      icon: "",
       items: [
         { name: "Social Media Management", path: "/social-media" },
         {
@@ -25,7 +27,7 @@ const Navbar = () => {
     },
     {
       label: "Content Creation",
-      icon: "🎬",
+      icon: "",
       items: [
         { name: "Reels Production", path: "/content-creation" },
         { name: "Photography & Videography", path: "/Photography" },
@@ -38,7 +40,7 @@ const Navbar = () => {
     },
     {
       label: "Web Design & IT",
-      icon: "💻",
+      icon: "",
       items: [
         { name: "Personal Website", path: "/it-design" },
         { name: "Business / Corporate Website", path: "/business" },
@@ -50,7 +52,7 @@ const Navbar = () => {
     },
     {
       label: "Publicity & PR",
-      icon: "📰",
+      icon: "",
       items: [
         { name: "Personal Branding", path: "/publicity" },
         { name: "Media News & PR Coverage", path: "/media-coverage" },
@@ -61,7 +63,7 @@ const Navbar = () => {
     },
     {
       label: "Others",
-      icon: "⚙️",
+      icon: "",
       items: [
         { name: "Marketing Consultancy", path: "/Marketing" },
         { name: "Sales Consultancy", path: "/SalesConsult" },
@@ -74,16 +76,43 @@ const Navbar = () => {
     },
   ];
 
+  // Create a list of only main pages (categories)
+  const mainPages = [
+    { name: "Home", path: "/" },
+    ...menuItems.map((menu) => ({ name: menu.label, path: "#" })),
+  ];
+
   const handleLinkClick = () => {
     setMobileMenuOpen(false);
     setActiveDropdown(null);
+    setAllPagesMenuOpen(false);
   };
+
+  // Close hamburger menu when clicking outside
+  useEffect(() => {
+    const handleClickOutside = (event) => {
+      if (
+        hamburgerMenuRef.current &&
+        !hamburgerMenuRef.current.contains(event.target)
+      ) {
+        setAllPagesMenuOpen(false);
+      }
+    };
+
+    if (allPagesMenuOpen) {
+      document.addEventListener("mousedown", handleClickOutside);
+    }
+
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
+  }, [allPagesMenuOpen]);
 
   return (
     <header
       className="
         fixed top-0 left-0 w-full z-50
-        bg-red-900/90 backdrop-blur-md
+        bg-red-950 backdrop-blur-md
         shadow-md transition-all duration-300
       "
     >
@@ -119,35 +148,82 @@ const Navbar = () => {
                   </svg>
                 </button>
 
-                {/* Dropdown */}
                 <div className="absolute top-full left-1/2 transform -translate-x-1/2 pt-2 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200">
-                  <div className="bg-white rounded-lg shadow-xl z-50 w-[400px]">
-                    <div className="p-4">
-                      <h4 className="text-sm font-bold text-gray-900 mb-3 flex items-center gap-2">
-                        <span>{menu.icon}</span>
-                        {menu.label}
-                      </h4>
-                      <div className="space-y-1 max-h-96 overflow-y-auto">
-                        {menu.items.map((item, i) => (
-                          <Link
-                            key={i}
-                            to={item.path}
-                            onClick={handleLinkClick}
-                            className="block text-sm text-gray-700 py-2 px-3 hover:text-red-700 hover:bg-gray-50 rounded transition-colors"
-                          >
-                            {item.name}
-                          </Link>
-                        ))}
-                      </div>
-                    </div>
-                  </div>
-                </div>
+  <div className="bg-white rounded-lg shadow-xl z-50 w-[400px]">
+    <div className="p-4">
+      <h4 className="text-sm font-medium text-gray-900 mb-3 flex items-center gap-2">
+        <span>{menu.icon}</span>
+        {menu.label}
+      </h4>
+
+      {/* Divider line */}
+      <div className="border-b border-gray-200 mb-3 w-[100px]"></div>
+
+      <div className="space-y-1 max-h-96 overflow-y-auto">
+        {menu.items.map((item, i) => (
+          <Link
+            key={i}
+            to={item.path}
+            onClick={handleLinkClick}
+            className="block text-sm text-gray-700 py-2 px-3 hover:text-red-700 hover:bg-gray-50 rounded transition-colors"
+          >
+            {item.name}
+          </Link>
+        ))}
+      </div>
+    </div>
+  </div>
+</div>
+
               </div>
             ))}
 
             <button className="ml-4 px-4 py-2 border border-white text-white hover:bg-white/10 rounded text-sm transition-colors">
               Login
             </button>
+
+            {/* Hamburger Menu Button */}
+            <div ref={hamburgerMenuRef} className="ml-2 relative">
+              <button
+                onClick={() => setAllPagesMenuOpen(!allPagesMenuOpen)}
+                className="p-2 text-white hover:text-yellow-300 transition-colors"
+                aria-label="All Pages Menu"
+              >
+                <svg
+                  className="w-6 h-6"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth={2}
+                    d="M4 6h16M4 12h16M4 18h16"
+                  />
+                </svg>
+              </button>
+
+              {/* All Pages Menu Dropdown */}
+              {allPagesMenuOpen && (
+                <div className="absolute right-0 mt-2 w-80 bg-white rounded-lg shadow-xl z-50">
+                  <div className="p-4">
+                    <div className="space-y-1">
+                      {mainPages.map((page, index) => (
+                        <Link
+                          key={index}
+                          to={page.path}
+                          onClick={handleLinkClick}
+                          className="block text-sm text-gray-700 py-2 px-3 hover:text-red-700 hover:bg-gray-50 rounded transition-colors"
+                        >
+                          {page.name}
+                        </Link>
+                      ))}
+                    </div>
+                  </div>
+                </div>
+              )}
+            </div>
           </nav>
 
           {/* Mobile Menu Button */}
