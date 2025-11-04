@@ -22,7 +22,7 @@ export default function MarketingLandingPage() {
         {/* Top Bar */}
 
         {/* Main Content */}
-        <div className="grid lg:grid-cols-2 gap-8 lg:gap-12 items-start max-w-7xl mx-auto pt-12 sm:pt-20 lg:pt-36">
+        <div className="grid lg:grid-cols-2 gap-8 lg:gap-12 items-start max-w-7xl mx-auto pt-12 sm:pt-20 lg:pt-16">
           {/* Left Side */}
           <div className="space-y-2 sm:space-y-6 lg:space-y-6 pt-2 sm:pt-8 mb-4">
             {/* Yellow Banner */}
