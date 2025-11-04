@@ -18,15 +18,15 @@ export default function MarketingLandingPage() {
         }}
       ></div>
 
-      <div className="container mx-auto px-4 sm:px-6 py-4 sm:py-6 relative z-10">
+      <div className="mx-auto px-4 sm:px-6  sm:py-6 relative z-10">
         {/* Top Bar */}
 
         {/* Main Content */}
-        <div className="grid lg:grid-cols-2 gap-8 lg:gap-12 items-start max-w-8xl mx-auto pt-12 sm:pt-20 lg:pt-40">
+        <div className="grid lg:grid-cols-2 gap-8 lg:gap-12 items-start max-w-7xl mx-auto pt-12 sm:pt-20 lg:pt-36">
           {/* Left Side */}
-          <div className="space-y-4 sm:space-y-6 lg:space-y-8 pt-4 sm:pt-8">
+          <div className="space-y-2 sm:space-y-6 lg:space-y-6 pt-2 sm:pt-8 mb-4">
             {/* Yellow Banner */}
-            <div className="bg-yellow-400 rounded-lg px-4 sm:px-6 py-2 sm:py-3 inline-block shadow-md">
+            <div className="bg-yellow-400 rounded-lg -mb-2 px-4 sm:px-6 py-2 sm:py-3 inline-block shadow-md">
               <h2 className="text-lg sm:text-xl md:text-2xl font-bold leading-tight">
                 <span className="text-red-600 italic">ব্যবসায়</span>{" "}
                 <span className="text-gray-900 italic">হলে টেনশন</span>
@@ -120,7 +120,7 @@ export default function MarketingLandingPage() {
             {/* Blue thumbs up badge */}
 
             {/* Video Container */}
-            <div className="relative w-full max-w-[900px] aspect-video sm:aspect-[16/10] rounded-2xl sm:rounded-3xl overflow-hidden shadow-2xl mx-auto">
+            <div className="relative w-full max-w-[900px] aspect-video sm:aspect-[16/10] rounded-2xl sm:rounded-3xl overflow-hidden shadow-2xl  mt-10 mx-auto">
               {isVideoPlaying ? (
                 <div className="w-full h-full bg-black">
                   <iframe
