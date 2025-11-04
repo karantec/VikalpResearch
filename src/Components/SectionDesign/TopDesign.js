@@ -1,11 +1,125 @@
-import React, { useState } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import { Play, Globe } from "lucide-react";
 
 export default function MarketingLandingPage() {
   const [isVideoPlaying, setIsVideoPlaying] = useState(false);
+  const canvasRef = useRef(null);
+
+  useEffect(() => {
+    const canvas = canvasRef.current;
+    if (!canvas) return;
+
+    const ctx = canvas.getContext("2d");
+    let animationFrameId;
+    let particles = [];
+
+    // Set canvas size
+    const resizeCanvas = () => {
+      canvas.width = window.innerWidth;
+      canvas.height = window.innerHeight;
+    };
+    resizeCanvas();
+    window.addEventListener("resize", resizeCanvas);
+
+    // Particle class
+    class Particle {
+      constructor() {
+        this.x = Math.random() * canvas.width;
+        this.y = Math.random() * canvas.height;
+        this.size = Math.random() * 3 + 1;
+        this.baseSize = this.size;
+        this.speedX = Math.random() * 0.5 - 0.25;
+        this.speedY = Math.random() * 0.5 - 0.25;
+        this.scale = 1;
+        this.scaleSpeed = Math.random() * 0.02 + 0.01;
+        this.scaleDirection = Math.random() > 0.5 ? 1 : -1;
+      }
+
+      update() {
+        this.x += this.speedX;
+        this.y += this.speedY;
+
+        // Zoom in/out animation
+        this.scale += this.scaleSpeed * this.scaleDirection;
+        if (this.scale > 1.5 || this.scale < 0.5) {
+          this.scaleDirection *= -1;
+        }
+        this.size = this.baseSize * this.scale;
+
+        // Wrap around screen
+        if (this.x > canvas.width) this.x = 0;
+        if (this.x < 0) this.x = canvas.width;
+        if (this.y > canvas.height) this.y = 0;
+        if (this.y < 0) this.y = canvas.height;
+      }
+
+      draw() {
+        ctx.fillStyle = "rgba(200, 200, 200, 0.6)";
+        ctx.beginPath();
+        ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+        ctx.fill();
+      }
+    }
+
+    // Create particles
+    const particleCount = Math.floor((canvas.width * canvas.height) / 15000);
+    for (let i = 0; i < particleCount; i++) {
+      particles.push(new Particle());
+    }
+
+    // Connect particles
+    const connectParticles = () => {
+      const maxDistance = 120;
+      for (let i = 0; i < particles.length; i++) {
+        for (let j = i + 1; j < particles.length; j++) {
+          const dx = particles[i].x - particles[j].x;
+          const dy = particles[i].y - particles[j].y;
+          const distance = Math.sqrt(dx * dx + dy * dy);
+
+          if (distance < maxDistance) {
+            const opacity = (1 - distance / maxDistance) * 0.3;
+            ctx.strokeStyle = `rgba(200, 200, 200, ${opacity})`;
+            ctx.lineWidth = 1;
+            ctx.beginPath();
+            ctx.moveTo(particles[i].x, particles[i].y);
+            ctx.lineTo(particles[j].x, particles[j].y);
+            ctx.stroke();
+          }
+        }
+      }
+    };
+
+    // Animation loop
+    const animate = () => {
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+      particles.forEach((particle) => {
+        particle.update();
+        particle.draw();
+      });
+
+      connectParticles();
+
+      animationFrameId = requestAnimationFrame(animate);
+    };
+
+    animate();
+
+    return () => {
+      window.removeEventListener("resize", resizeCanvas);
+      cancelAnimationFrame(animationFrameId);
+    };
+  }, []);
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-orange-50 via-pink-50 to-red-50 relative overflow-hidden">
+      {/* Particles Canvas */}
+      <canvas
+        ref={canvasRef}
+        className="absolute inset-0 pointer-events-none"
+        style={{ zIndex: 1 }}
+      />
+
       {/* Grid pattern background */}
       <div
         className="absolute inset-0 opacity-40"
@@ -15,6 +129,7 @@ export default function MarketingLandingPage() {
           linear-gradient(90deg, rgba(255, 200, 200, 0.3) 1px, transparent 1px)
         `,
           backgroundSize: "40px 40px",
+          zIndex: 0,
         }}
       ></div>
 
@@ -27,9 +142,8 @@ export default function MarketingLandingPage() {
           <div className="space-y-2 sm:space-y-6 lg:space-y-6 pt-2 sm:pt-8 mb-4">
             {/* Yellow Banner */}
             <div className="bg-yellow-400 rounded-lg -mb-2 px-4 sm:px-6 py-2 sm:py-3 inline-block shadow-md">
-              <h2 className="text-lg sm:text-xl md:text-2xl font-bold leading-tight">
-                <span className="text-red-600 italic">ব্যবসায়</span>{" "}
-                <span className="text-gray-900 italic">হলে টেনশন</span>
+              <h2 className="text-lg sm:text-xl md:text-2xl font-bold leading-tight whitespace-nowrap">
+                <span className="text-red-600 italic">ব্যবসায় </span>হলে টেনশন
               </h2>
             </div>
 
@@ -37,7 +151,7 @@ export default function MarketingLandingPage() {
             <div className="leading-none">
               <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-black leading-[0.9]">
                 <span className="text-red-600 italic">মার্কেটিং</span>
-                <span className="text-gray-900 italic"> - ই</span>
+                <span className="text-gray-900 italic"> -ই</span>
               </h1>
               <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-black leading-[0.9] mt-2">
                 <span className="text-gray-900 italic">সলিউশন !</span>
@@ -58,7 +172,7 @@ export default function MarketingLandingPage() {
               <div className="bg-red-50 rounded-xl p-3 sm:p-4 shadow-md border border-red-300">
                 <div className="flex items-start gap-2">
                   <span className="text-xl sm:text-2xl">👨‍💼</span>
-                  <p className="text-xs font-semibold italic text-gray-900 leading-tight mt-1 sm:mt-2">
+                  <p className="text-xs font-semibold  text-gray-900 leading-tight mt-1 sm:mt-2">
                     কনটেন্ট ক্রিয়েশন
                   </p>
                 </div>
@@ -67,7 +181,7 @@ export default function MarketingLandingPage() {
               <div className="bg-red-50 rounded-xl p-3 sm:p-4 shadow-md border border-red-300">
                 <div className="flex items-start gap-2">
                   <span className="text-xl sm:text-2xl">🎨</span>
-                  <p className="text-xs italic font-semibold text-gray-900 leading-tight mt-1 sm:mt-2">
+                  <p className="text-xs font-semibold text-gray-900 leading-tight mt-1 sm:mt-2">
                     নিউজ জেনারেশন ও<br />
                     অনলাইন সেলস
                   </p>
@@ -77,7 +191,7 @@ export default function MarketingLandingPage() {
               <div className="bg-red-50 rounded-xl p-3 sm:p-4 shadow-md border border-red-300">
                 <div className="flex items-start gap-2">
                   <span className="text-xl sm:text-2xl">👔</span>
-                  <p className="text-xs italic font-semibold text-gray-900 leading-tight mt-1 sm:mt-2">
+                  <p className="text-xs  font-semibold text-gray-900 leading-tight mt-1 sm:mt-2">
                     পার্সোনালিটি ডিজাইন
                     <br />
                     এবং পার্সোনাল ব্রান্ডিং
