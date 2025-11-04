@@ -40,7 +40,6 @@ function App() {
     <div className="App">
       <Navbar />
       <Routes>
-        //Web it
         <Route path="/" element={<Home />} />
         <Route path="/About" element={<CubeAboutPage />} />
         <Route path="/it-design" element={<PersonalWebsiteDevelopment />} />
@@ -53,7 +52,7 @@ function App() {
           element={<WebsiteMaintenanceSecurity />}
         />
         // New Routes Added Below
-        {/* <Route path="/publicity" element={<PublicityPRServices />} />
+        <Route path="/publicity" element={<PublicityPRServices />} />
         <Route path="/media-coverage" element={<MediaPRCoverage />} />
         <Route path="/podcast" element={<PodcastProductionMarketing />} />
         <Route path="/film-activity" element={<FilmEventPublicity />} />
@@ -65,8 +64,8 @@ function App() {
         <Route path="/VideoEditing" element={<VideoEditing />} />
         <Route path="/Scripting" element={<Scripting />} />
         <Route path="/voice" element={<VoiceOver />} />
-        <Route path="/Films" element={<BrandFilms />} /> */}{" "}
-        // New Routes Added Below
+        <Route path="/Films" element={<BrandFilms />} /> */} // New Routes Added
+        Below
         <Route path="/Social" element={<SocialMediaManagement />} />
         <Route path="/GoogleMyBusiness" element={<GoogleMyBusiness />} />
         <Route path="/Influence" element={<InfluencerMarketing />} />

@@ -32,8 +32,11 @@ export default function SmartIdeasSection() {
           {/* Left Side */}
           <div className="space-y-8">
             {/* Business Name Generator */}
-            <div className="bg-white rounded-2xl shadow-md p-8 pt-8 pb-0 flex flex-col justify-between hover:shadow-2xl hover:-translate-y-1 transition-all duration-300 border-2 border-gray-200 hover:border-red-500" style={{ maxHeight: 600 }}>
-              <div className="mb-6">
+            <div
+              className="bg-white  rounded-2xl shadow-md p-8 pt-8 pb-0 flex flex-col justify-between hover:shadow-2xl hover:-translate-y-1 transition-all duration-300 border-2 border-gray-200 hover:border-red-500"
+              style={{ maxHeight: 600 }}
+            >
+              <div className="-mb-">
                 <h3 className="text-2xl md:text-3xl font-normal text-gray-900 mb-3">
                   Business Name Generator
                 </h3>
@@ -42,19 +45,22 @@ export default function SmartIdeasSection() {
                   a click.
                 </p>
               </div>
-              <div className="flex flex-grow items-end mt-0">
+              <div className="flex flex-grow items-end ">
                 <img
                   src="https://res.cloudinary.com/de4ks8mkh/image/upload/v1761544103/cubemedia/AI_name_rlnnec.svg"
                   alt="Business Name Generator"
                   className="w-full"
-                  style={{ objectFit: 'cover'}}
+                  style={{ objectFit: "cover" }}
                 />
               </div>
             </div>
 
             {/* Document Generator */}
-            <div className="bg-white rounded-2xl shadow-md p-8 pt-8 pb-0 flex flex-col justify-between hover:shadow-2xl hover:-translate-y-1 transition-all duration-300 border-2 border-gray-200 hover:border-red-500" style={{ maxHeight: 600, overflow: 'hidden' }}>
-              <div className="mb-6">
+            <div
+              className="bg-white rounded-2xl shadow-md p-8 pt-8 pb-0 flex flex-col justify-between hover:shadow-2xl hover:-translate-y-1 transition-all duration-300 border-2 border-gray-200 hover:border-red-500"
+              style={{ maxHeight: 600, overflow: "hidden" }}
+            >
+              <div className="-mb-8">
                 <h3 className="text-2xl md:text-3xl font-normal text-gray-900 mb-3">
                   Document Generator
                 </h3>
@@ -68,8 +74,8 @@ export default function SmartIdeasSection() {
                   src="https://res.cloudinary.com/de4ks8mkh/image/upload/v1761544102/cubemedia/AI_Document_brqbn8.webp"
                   alt="Document Generator"
                   className="w-full"
-                  style={{ objectFit: 'contain' }}
-                />  
+                  style={{ objectFit: "contain" }}
+                />
               </div>
             </div>
           </div>
@@ -87,10 +93,12 @@ export default function SmartIdeasSection() {
             <div className="absolute inset-0 w-full h-full overflow-hidden pointer-events-none z-0">
               {fallingMessages.map((msg, i) => {
                 // To avoid clutter/collision, alternate horizontal % and vertical start offset per message
-                const minPercent = 5, maxPercent = 95;
+                const minPercent = 5,
+                  maxPercent = 95;
                 // Space them more evenly by adding extra gap so they're not too close
                 const total = fallingMessages.length;
-                const spacing = (maxPercent - minPercent) / (total > 1 ? total - 1 : 1);
+                const spacing =
+                  (maxPercent - minPercent) / (total > 1 ? total - 1 : 1);
 
                 // Add a small random/sinusoidal offset for realistic spread
                 const jitter = 3 * Math.sin(i * 1.7); // up to ±3%
@@ -99,27 +107,41 @@ export default function SmartIdeasSection() {
                 // For vertical staggering: alternate additional top offset for each message
                 // So they start falling not all from exactly the same line
                 const baseTop = -50;
-                const vertStagger = (i % 2 === 0 ? 0 : 26 * (i % 3)); // 0px, 26px, 52px, repeat
+                const vertStagger = i % 2 === 0 ? 0 : 26 * (i % 3); // 0px, 26px, 52px, repeat
                 const top = baseTop + vertStagger;
 
                 // Spread out the animation duration and delay to avoid overlap
-                const minDuration = 25, maxDuration = 25;
-                const minDelay = 0, maxDelay = 2.5 + i * 0.35; // linearly increases with i
+                const minDuration = 25,
+                  maxDuration = 25;
+                const minDelay = 0,
+                  maxDelay = 2.5 + i * 0.35; // linearly increases with i
 
                 // Make duration slightly vary with index to prevent continuous overlaps
-                const animDuration = minDuration + ((i % 2 === 0 ? 1 : -1) * 0.7 * i) + (Math.sin(i) * 1.6);
-                const animDelay = minDelay + ((i % 2 === 0 ? 0.6 : 0.2) * i) + (Math.abs(Math.cos(i * 1.2)) * 0.8);
+                const animDuration =
+                  minDuration +
+                  (i % 2 === 0 ? 1 : -1) * 0.7 * i +
+                  Math.sin(i) * 1.6;
+                const animDelay =
+                  minDelay +
+                  (i % 2 === 0 ? 0.6 : 0.2) * i +
+                  Math.abs(Math.cos(i * 1.2)) * 0.8;
 
                 // Edge detection for cut end
                 let borderRadiusClass = "rounded-full";
                 let extraStyle = {};
                 if (i === 0) {
                   borderRadiusClass = "rounded-r-full";
-                  extraStyle = { borderTopLeftRadius: 0, borderBottomLeftRadius: 0 };
+                  extraStyle = {
+                    borderTopLeftRadius: 0,
+                    borderBottomLeftRadius: 0,
+                  };
                 }
                 if (i === fallingMessages.length - 1) {
                   borderRadiusClass = "rounded-l-full";
-                  extraStyle = { borderTopRightRadius: 0, borderBottomRightRadius: 0 };
+                  extraStyle = {
+                    borderTopRightRadius: 0,
+                    borderBottomRightRadius: 0,
+                  };
                 }
 
                 return (
@@ -136,10 +158,12 @@ export default function SmartIdeasSection() {
                       minWidth: "80px",
                       // Prevent horizontal overflow at the edges
                       ...(i === 0 ? { transform: "translateX(-5%)" } : {}),
-                      ...(i === fallingMessages.length - 1 ? { transform: "translateX(-95%)" } : {}),
-                      whiteSpace: 'nowrap',
-                      overflow: 'hidden',
-                      textOverflow: 'ellipsis',
+                      ...(i === fallingMessages.length - 1
+                        ? { transform: "translateX(-95%)" }
+                        : {}),
+                      whiteSpace: "nowrap",
+                      overflow: "hidden",
+                      textOverflow: "ellipsis",
                       zIndex: 2 + i, // subtle z-index stacking so later messages are behind for less clutter
                     }}
                   >
@@ -153,7 +177,9 @@ export default function SmartIdeasSection() {
             <div className="flex flex-col items-center justify-center w-full">
               <div className="inline-flex items-center gap-2 bg-white border-2 border-red-300 rounded-lg px-5 py-2 shadow-md mb-4 mt-6 relative z-20">
                 <Sparkles className="w-5 h-5 text-red-500" />
-                <span className="font-bold text-gray-800 text-2xl ">Cube Ai</span>
+                <span className="font-bold text-gray-800 text-2xl ">
+                  Cube Ai
+                </span>
               </div>
               <img
                 src="https://vakilsearch.com/_next/image?url=https%3A%2F%2Fassets.vakilsearch.com%2Fic-zen-man.png&w=384&q=75"
@@ -170,7 +196,7 @@ export default function SmartIdeasSection() {
               Zenius is your AI-powered legal assistant here to guide you
               through every step of your journey.
             </p>
-            <div className="bg-white border-2 border-red-400 rounded-full px-6 py-2.5 text-sm font-bold shadow-md relative z-10 text-red-900">
+            <div className="bg-white border-2 mt-6 border-red-400 rounded-full px-6 py-2.5 text-sm font-bold shadow-md relative z-10 text-red-900">
               COMING SOON
             </div>
           </div>
