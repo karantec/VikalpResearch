@@ -102,45 +102,54 @@ export default function CubeAboutPage() {
         </div>
 
         {/* Bottom Image Grid */}
-        <div className="container mx-auto px-4 pb-12 relative z-10">
-          <div className="flex justify-center gap-4 md:gap-6">
-            <div className="w-16 h-16 md:w-24 md:h-24 bg-white/10 backdrop-blur-md rounded-xl border-2 border-white/30 shadow-2xl hover:scale-110 transition-transform duration-300 hover:bg-white/20 overflow-hidden">
-              <div className="w-full h-full bg-gradient-to-br from-red-300/50 to-transparent"></div>
-            </div>
-            <div
-              className="w-16 h-16 md:w-24 md:h-24 bg-white/10 backdrop-blur-md rounded-xl border-2 border-white/30 shadow-2xl hover:scale-110 transition-transform duration-300 hover:bg-white/20 overflow-hidden"
-              style={{ transitionDelay: "100ms" }}
-            >
-              <div className="w-full h-full bg-gradient-to-br from-orange-300/50 to-transparent"></div>
-            </div>
-            <div
-              className="w-16 h-16 md:w-24 md:h-24 bg-white/10 backdrop-blur-md rounded-xl border-2 border-white/30 shadow-2xl hover:scale-110 transition-transform duration-300 hover:bg-white/20 overflow-hidden"
-              style={{ transitionDelay: "200ms" }}
-            >
-              <div className="w-full h-full bg-gradient-to-br from-pink-300/50 to-transparent"></div>
-            </div>
-            <div
-              className="w-16 h-16 md:w-24 md:h-24 bg-white/10 backdrop-blur-md rounded-xl border-2 border-white/30 shadow-2xl hover:scale-110 transition-transform duration-300 hover:bg-white/20 overflow-hidden"
-              style={{ transitionDelay: "300ms" }}
-            >
-              <div className="w-full h-full bg-gradient-to-br from-red-400/50 to-transparent"></div>
-            </div>
-          </div>
-        </div>
+        <div className="container mx-auto px-4 pb-12 relative z-10"></div>
 
         {/* Wave Shape */}
         <div className="absolute bottom-0 left-0 right-0 z-0">
-          <svg
-            viewBox="0 0 1440 120"
-            fill="none"
-            xmlns="http://www.w3.org/2000/svg"
-            className="w-full h-auto"
-          >
-            <path
-              d="M0 120L60 105C120 90 240 60 360 45C480 30 600 30 720 37.5C840 45 960 60 1080 67.5C1200 75 1320 75 1380 75L1440 75V120H1380C1320 120 1200 120 1080 120C960 120 840 120 720 120C600 120 480 120 360 120C240 120 120 120 60 120H0Z"
-              fill="white"
-            />
-          </svg>
+          {/* Images positioned above the wave */}
+          <div className="absolute bottom-8 left-0 right-0 z-10">
+            <div className="container mx-auto px-4">
+              <div className="flex justify-center gap-4 md:gap-8">
+                {/* Image Box 1 */}
+                <div className="w-16 h-16 md:w-20 md:h-20 bg-white rounded-lg shadow-lg overflow-hidden hover:scale-110 transition-transform duration-300">
+                  <img
+                    src="https://via.placeholder.com/100"
+                    alt="Partner 1"
+                    className="w-full h-full object-cover p-2"
+                  />
+                </div>
+
+                {/* Image Box 2 */}
+                <div className="w-16 h-16 md:w-20 md:h-20 bg-white rounded-lg shadow-lg overflow-hidden hover:scale-110 transition-transform duration-300">
+                  <img
+                    src="https://via.placeholder.com/100"
+                    alt="Partner 2"
+                    className="w-full h-full object-contain p-2"
+                  />
+                </div>
+
+                {/* Image Box 3 */}
+                <div className="w-16 h-16 md:w-20 md:h-20 bg-white rounded-lg shadow-lg overflow-hidden hover:scale-110 transition-transform duration-300">
+                  <img
+                    src="https://via.placeholder.com/100"
+                    alt="Partner 3"
+                    className="w-full h-full object-contain p-2"
+                  />
+                </div>
+
+                {/* Image Box 4 */}
+                <div className="w-30 h-30 md:w-20 md:h-20 bg-white rounded-2xl shadow-lg overflow-hidden hover:scale-110 transition-transform duration-300">
+                  <img
+                    src="https://res.cloudinary.com/de4ks8mkh/image/upload/v1762292252/FB_IMG_1762292106304_htrjj0.jpg"
+                    alt="Partner 4"
+                    className="w-full h-full object-cover  p-2"
+                  />
+                </div>
+              </div>
+            </div>
+          </div>
+
+          {/* Wave Shape */}
         </div>
       </div>
 
