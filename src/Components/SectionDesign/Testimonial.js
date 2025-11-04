@@ -2,21 +2,18 @@ import React, { useState, useEffect, useRef } from "react";
 
 const TestimonialCarousel = () => {
   const [selectedVideo, setSelectedVideo] = useState(null);
+  const [currentIndex, setCurrentIndex] = useState(0);
   const trackRef = useRef(null);
 
-  // Helper function to convert YouTube/Vimeo URLs to embed URLs
   const getEmbedUrl = (url) => {
-    // YouTube shorts
     if (url.includes("youtube.com/shorts/")) {
       const videoId = url.split("/shorts/")[1].split("?")[0];
       return `https://www.youtube.com/embed/${videoId}`;
     }
-    // YouTube regular
     if (url.includes("youtu.be/")) {
       const videoId = url.split("youtu.be/")[1].split("?")[0];
       return `https://www.youtube.com/embed/${videoId}`;
     }
-    // Vimeo
     if (url.includes("vimeo.com/")) {
       const videoId = url.split("vimeo.com/")[1].split("?")[0];
       return `https://player.vimeo.com/video/${videoId}`;
@@ -24,7 +21,6 @@ const TestimonialCarousel = () => {
     return url;
   };
 
-  // Helper to get thumbnail
   const getThumbnail = (url) => {
     if (url.includes("youtube.com/shorts/")) {
       const videoId = url.split("/shorts/")[1].split("?")[0];
@@ -34,45 +30,36 @@ const TestimonialCarousel = () => {
       const videoId = url.split("youtu.be/")[1].split("?")[0];
       return `https://img.youtube.com/vi/${videoId}/maxresdefault.jpg`;
     }
-    // Vimeo thumbnails require API, so we'll use a placeholder
-    return 'data:image/svg+xml,%3Csvg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 180"%3E%3Crect fill="%23dc2626" width="320" height="180"/%3E%3Ctext x="50%25" y="50%25" dominant-baseline="middle" text-anchor="middle" fill="white" font-size="24" font-family="Arial"%3EClick to Play%3C/text%3E%3C/svg%3E';
+    return 'data:image/svg+xml,%3Csvg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 180"%3E%3Crect fill="%2318181b" width="320" height="180"/%3E%3Ctext x="50%25" y="50%25" dominant-baseline="middle" text-anchor="middle" fill="white" font-size="20" font-family="Arial"%3EClick to Play%3C/text%3E%3C/svg%3E';
   };
 
   const testimonials = [
     {
       id: 1,
       url: "https://youtube.com/shorts/EPEENx-7fXY?si=4jhiDOZMk8rp4UU1",
-      alt: "Client Testimonial 1",
+      name: "Sarah Johnson",
+      role: "Marketing Director",
     },
     {
       id: 2,
       url: "https://youtu.be/CiRQaYXh598?si=4sMQbDcKlDOi6fbI",
-      alt: "Client Testimonial 2",
+      name: "Michael Chen",
+      role: "CEO, Tech Startup",
     },
-    {
-      id: 3,
-      url: "https://vimeo.com/1099805489?fl=pl&fe=sh",
-      alt: "Client Testimonial 3",
-    },
-    {
-      id: 4,
-      url: "https://vimeo.com/1099804593?fl=pl&fe=sh",
-      alt: "Client Testimonial 4",
-    },
+
     {
       id: 5,
       url: "https://youtu.be/2ovxeSQeaHo",
-      alt: "Client Testimonial 5",
+      name: "Lisa Anderson",
+      role: "Product Manager",
     },
     {
       id: 6,
       url: "https://youtu.be/QuvPBMIpQZY?si=h1EGWegnQ5qGSbxT",
-      alt: "Client Testimonial 6",
+      name: "James Taylor",
+      role: "Founder & CEO",
     },
   ];
-
-  // Duplicate testimonials for infinite scroll
-  const allTestimonials = [...testimonials, ...testimonials];
 
   const openModal = (url) => {
     setSelectedVideo(url);
@@ -86,9 +73,17 @@ const TestimonialCarousel = () => {
 
   const scrollCarousel = (direction) => {
     if (trackRef.current) {
-      const scrollAmount = 350;
-      trackRef.current.scrollLeft +=
-        direction === "left" ? -scrollAmount : scrollAmount;
+      const cardWidth = 340;
+      const newIndex =
+        direction === "left"
+          ? Math.max(0, currentIndex - 1)
+          : Math.min(testimonials.length - 1, currentIndex + 1);
+
+      setCurrentIndex(newIndex);
+      trackRef.current.scrollTo({
+        left: newIndex * (cardWidth + 24),
+        behavior: "smooth",
+      });
     }
   };
 
@@ -101,142 +96,203 @@ const TestimonialCarousel = () => {
   }, []);
 
   return (
-    <div className="h-screen w-screen bg-gradient-to-br from-red-900 via-red-800 to-rose-900 flex items-center justify-center p-6 relative overflow-hidden">
-      {/* Animated background elements */}
-      <div className="absolute inset-0 overflow-hidden">
-        <div className="absolute w-96 h-96 bg-red-500/20 rounded-full blur-3xl -top-48 -left-48 animate-pulse"></div>
-        <div
-          className="absolute w-96 h-96 bg-rose-500/20 rounded-full blur-3xl -bottom-48 -right-48 animate-pulse"
-          style={{ animationDelay: "1s" }}
-        ></div>
-        <div
-          className="absolute w-64 h-64 bg-red-400/10 rounded-full blur-3xl top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 animate-pulse"
-          style={{ animationDelay: "2s" }}
-        ></div>
-      </div>
-
-      <div className="w-full max-w-7xl bg-gradient-to-br from-red-600 via-red-500 to-red-600 rounded-3xl p-12 md:p-20 shadow-2xl relative overflow-hidden">
-        {/* Decorative patterns */}
-        <div className="absolute inset-0 opacity-10">
-          <div
-            className="absolute top-0 left-0 w-full h-full"
-            style={{
-              backgroundImage: `radial-gradient(circle at 2px 2px, white 1px, transparent 0)`,
-              backgroundSize: "40px 40px",
-            }}
-          ></div>
-        </div>
-
-        {/* Glow effects */}
-        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-3/4 h-40 bg-gradient-to-b from-white/20 to-transparent blur-2xl"></div>
-        <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-3/4 h-40 bg-gradient-to-t from-yellow-300/30 to-transparent blur-2xl"></div>
-
-        {/* Title with enhanced styling */}
-        <div className="text-center mb-14 relative z-10">
-          <div className="inline-block">
-            <h2 className="text-white text-4xl md:text-6xl font-black uppercase tracking-wider mb-3 relative">
-              <span className="relative z-10 drop-shadow-2xl">
-                OUR CLIENT'S FEEDBACK
-              </span>
-              <div className="absolute inset-0 blur-md bg-gradient-to-r from-yellow-300 via-red-300 to-yellow-300 opacity-50"></div>
-            </h2>
-            <div className="h-1.5 bg-gradient-to-r from-transparent via-yellow-400 to-transparent rounded-full animate-pulse"></div>
+    <div className="min-h-screen w-full bg-gradient-to-br from-red-900 via-red-800 to-red-900 flex items-center justify-center p-4 md:p-8">
+      <div className="w-full max-w-7xl mx-auto">
+        {/* Header Section */}
+        <div className="text-center mb-12 md:mb-16">
+          <div className="inline-block mb-3">
+            <span className="px-4 py-1.5 bg-red-500/20 text-red-400 text-sm font-semibold rounded-full border border-red-500/30">
+              SUCCESS STORIES
+            </span>
           </div>
+          <h2 className="text-4xl md:text-6xl font-bold text-white mb-4">
+            What Our Clients Say
+          </h2>
+          <p className="text-slate-400 text-lg md:text-xl max-w-2xl mx-auto">
+            Real results from real people. See how we've helped transform
+            businesses.
+          </p>
         </div>
 
-        {/* Navigation Arrows with enhanced design */}
-        <button
-          onClick={() => scrollCarousel("left")}
-          className="absolute left-3 md:left-6 top-1/2 -translate-y-1/2 z-20 bg-white/25 backdrop-blur-lg border-2 border-white/40 text-white w-14 h-14 rounded-full text-3xl font-bold hover:bg-white/40 hover:scale-110 hover:border-yellow-300 transition-all duration-300 shadow-xl flex items-center justify-center"
-        >
-          ‹
-        </button>
-        <button
-          onClick={() => scrollCarousel("right")}
-          className="absolute right-3 md:right-6 top-1/2 -translate-y-1/2 z-20 bg-white/25 backdrop-blur-lg border-2 border-white/40 text-white w-14 h-14 rounded-full text-3xl font-bold hover:bg-white/40 hover:scale-110 hover:border-yellow-300 transition-all duration-300 shadow-xl flex items-center justify-center"
-        >
-          ›
-        </button>
+        {/* Carousel Section */}
+        <div className="relative px-12 md:px-16">
+          {/* Navigation Buttons */}
+          <button
+            onClick={() => scrollCarousel("left")}
+            disabled={currentIndex === 0}
+            className="absolute left-0 top-1/2 -translate-y-1/2 z-20 bg-white/10 backdrop-blur-md text-white w-10 h-10 md:w-12 md:h-12 rounded-full hover:bg-white/20 disabled:opacity-30 disabled:cursor-not-allowed transition-all duration-300 flex items-center justify-center group"
+          >
+            <svg
+              className="w-6 h-6 group-hover:-translate-x-0.5 transition-transform"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth={2.5}
+                d="M15 19l-7-7 7-7"
+              />
+            </svg>
+          </button>
 
-        {/* Carousel Container */}
-        <div className="relative overflow-hidden py-8">
+          <button
+            onClick={() => scrollCarousel("right")}
+            disabled={currentIndex === testimonials.length - 1}
+            className="absolute right-0 top-1/2 -translate-y-1/2 z-20 bg-white/10 backdrop-blur-md text-white w-10 h-10 md:w-12 md:h-12 rounded-full hover:bg-white/20 disabled:opacity-30 disabled:cursor-not-allowed transition-all duration-300 flex items-center justify-center group"
+          >
+            <svg
+              className="w-6 h-6 group-hover:translate-x-0.5 transition-transform"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth={2.5}
+                d="M9 5l7 7-7 7"
+              />
+            </svg>
+          </button>
+
+          {/* Cards Container */}
           <div
             ref={trackRef}
-            className="flex gap-6 md:gap-8 overflow-x-hidden hover:[animation-play-state:paused]"
-            style={{
-              animation: "scroll 35s linear infinite",
-            }}
+            className="overflow-x-auto scrollbar-hide flex gap-6 pb-4"
+            style={{ scrollbarWidth: "none", msOverflowStyle: "none" }}
           >
-            {allTestimonials.map((testimonial, index) => (
+            {testimonials.map((testimonial, index) => (
               <div
-                key={`${testimonial.id}-${index}`}
+                key={testimonial.id}
                 onClick={() => openModal(testimonial.url)}
-                className="min-w-[280px] md:min-w-[320px] h-[400px] md:h-[450px] bg-black rounded-3xl overflow-hidden cursor-pointer shadow-2xl hover:-translate-y-4 hover:shadow-yellow-500/50 hover:shadow-2xl transition-all duration-500 relative group border-4 border-white/20"
+                className="flex-shrink-0 w-[300px] md:w-[340px] group cursor-pointer"
               >
-                {/* Video thumbnail with play button */}
-                <div className="relative w-full h-full">
-                  <img
-                    src={getThumbnail(testimonial.url)}
-                    alt={testimonial.alt}
-                    className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
-                  />
-                  {/* Play button overlay */}
-                  <div className="absolute inset-0 flex items-center justify-center bg-black/30 group-hover:bg-black/50 transition-all duration-300">
-                    <div className="w-20 h-20 bg-red-600 rounded-full flex items-center justify-center group-hover:scale-110 group-hover:bg-red-500 transition-all duration-300 shadow-2xl">
-                      <svg
-                        className="w-10 h-10 text-white ml-1"
-                        fill="currentColor"
-                        viewBox="0 0 24 24"
-                      >
-                        <path d="M8 5v14l11-7z" />
-                      </svg>
+                {/* Card */}
+                <div className="bg-slate-800/50 backdrop-blur-sm rounded-2xl overflow-hidden border border-slate-700/50 hover:border-red-500/50 transition-all duration-300 hover:shadow-2xl hover:shadow-red-500/20 hover:-translate-y-2">
+                  {/* Video Thumbnail */}
+                  <div className="relative aspect-[9/16] overflow-hidden bg-slate-900">
+                    <img
+                      src={getThumbnail(testimonial.url)}
+                      alt={testimonial.name}
+                      className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                    />
+
+                    {/* Overlay */}
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent"></div>
+
+                    {/* Play Button */}
+                    <div className="absolute inset-0 flex items-center justify-center">
+                      <div className="w-16 h-16 bg-red-600 rounded-full flex items-center justify-center group-hover:scale-110 group-hover:bg-red-500 transition-all duration-300 shadow-2xl">
+                        <svg
+                          className="w-7 h-7 text-white ml-1"
+                          fill="currentColor"
+                          viewBox="0 0 24 24"
+                        >
+                          <path d="M8 5v14l11-7z" />
+                        </svg>
+                      </div>
+                    </div>
+
+                    {/* Video Label */}
+                    <div className="absolute top-4 right-4 bg-black/60 backdrop-blur-sm px-3 py-1 rounded-full text-white text-xs font-medium flex items-center gap-1.5">
+                      <div className="w-2 h-2 bg-red-500 rounded-full animate-pulse"></div>
+                      VIDEO
                     </div>
                   </div>
-                </div>
-                <div className="absolute inset-0 bg-gradient-to-t from-red-600/50 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-                <div className="absolute bottom-0 left-0 right-0 p-4 transform translate-y-full group-hover:translate-y-0 transition-transform duration-300">
-                  <p className="text-white font-bold text-center text-lg drop-shadow-lg">
-                    Click to Play Video
-                  </p>
+
+                  {/* Card Footer */}
+                  <div className="p-5">
+                    <h3 className="text-white font-bold text-lg mb-1">
+                      {testimonial.name}
+                    </h3>
+                    <p className="text-slate-400 text-sm">{testimonial.role}</p>
+                  </div>
                 </div>
               </div>
             ))}
           </div>
         </div>
 
-        {/* CTA Button with premium styling */}
-        <div className="text-center mt-12 relative z-10">
-          <button className="relative group bg-gradient-to-r from-yellow-400 via-yellow-300 to-yellow-400 text-red-900 font-black text-xl md:text-2xl px-10 md:px-16 py-5 rounded-full shadow-2xl hover:shadow-yellow-400/50 hover:-translate-y-2 transition-all duration-300 uppercase tracking-wider overflow-hidden">
-            <span className="relative z-10">Book Free Strategy Call</span>
-            <div className="absolute inset-0 bg-gradient-to-r from-yellow-300 via-yellow-200 to-yellow-300 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-            <div className="absolute inset-0 animate-pulse bg-gradient-to-r from-transparent via-white/30 to-transparent"></div>
-          </button>
-          <div className="mt-4">
-            <div className="inline-flex items-center gap-2 text-yellow-300 font-semibold animate-pulse">
-              <span className="text-2xl">✨</span>
-              <span>Limited Spots Available</span>
-              <span className="text-2xl">✨</span>
-            </div>
-          </div>
+        {/* Progress Dots */}
+        <div className="flex justify-center gap-2 mt-8">
+          {testimonials.map((_, index) => (
+            <button
+              key={index}
+              onClick={() => {
+                setCurrentIndex(index);
+                if (trackRef.current) {
+                  trackRef.current.scrollTo({
+                    left: index * (340 + 24),
+                    behavior: "smooth",
+                  });
+                }
+              }}
+              className={`h-2 rounded-full transition-all duration-300 ${
+                index === currentIndex
+                  ? "w-8 bg-red-500"
+                  : "w-2 bg-slate-600 hover:bg-slate-500"
+              }`}
+            />
+          ))}
         </div>
 
-        {/* Modal with video player */}
+        {/* CTA Section */}
+        <div className="text-center mt-16">
+          <button className="group relative bg-gradient-to-r from-red-600 to-red-500 text-white font-bold text-lg px-8 py-4 rounded-full hover:shadow-2xl hover:shadow-red-500/50 hover:-translate-y-1 transition-all duration-300 overflow-hidden">
+            <span className="relative z-10 flex items-center gap-2">
+              Book Your Free Consultation
+              <svg
+                className="w-5 h-5 group-hover:translate-x-1 transition-transform"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth={2}
+                  d="M17 8l4 4m0 0l-4 4m4-4H3"
+                />
+              </svg>
+            </span>
+            <div className="absolute inset-0 bg-gradient-to-r from-red-500 to-red-400 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+          </button>
+          <p className="text-slate-400 text-sm mt-4">
+            Join 100+ satisfied clients • No credit card required
+          </p>
+        </div>
+
+        {/* Modal */}
         {selectedVideo && (
           <div
             onClick={closeModal}
-            className="fixed inset-0 bg-black/95 backdrop-blur-sm z-50 flex items-center justify-center p-5 animate-fadeIn"
+            className="fixed inset-0 bg-black/95 backdrop-blur-md z-50 flex items-center justify-center p-4 animate-fadeIn"
           >
             <div
-              className="relative w-full max-w-5xl animate-zoomIn"
+              className="relative w-full max-w-5xl animate-scaleIn"
               onClick={(e) => e.stopPropagation()}
             >
               <button
                 onClick={closeModal}
-                className="absolute -top-16 right-0 text-white text-5xl font-bold w-14 h-14 bg-red-600/80 backdrop-blur-md rounded-full flex items-center justify-center hover:bg-red-500 hover:text-yellow-300 hover:scale-110 hover:rotate-90 transition-all duration-300 shadow-xl z-10"
+                className="absolute -top-12 right-0 text-white w-10 h-10 bg-white/10 backdrop-blur-md rounded-full flex items-center justify-center hover:bg-white/20 hover:rotate-90 transition-all duration-300"
               >
-                ×
+                <svg
+                  className="w-6 h-6"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth={2}
+                    d="M6 18L18 6M6 6l12 12"
+                  />
+                </svg>
               </button>
-              <div className="relative aspect-video bg-black rounded-3xl overflow-hidden shadow-2xl border-4 border-red-500/50">
+              <div className="relative aspect-video bg-black rounded-2xl overflow-hidden shadow-2xl">
                 <iframe
                   src={`${getEmbedUrl(selectedVideo)}?autoplay=1`}
                   className="w-full h-full"
@@ -245,7 +301,6 @@ const TestimonialCarousel = () => {
                   allowFullScreen
                   title="Video Testimonial"
                 ></iframe>
-                <div className="absolute -inset-4 bg-gradient-to-r from-red-500/20 via-yellow-500/20 to-red-500/20 blur-2xl -z-10 animate-pulse"></div>
               </div>
             </div>
           </div>
@@ -253,13 +308,8 @@ const TestimonialCarousel = () => {
       </div>
 
       <style jsx>{`
-        @keyframes scroll {
-          0% {
-            transform: translateX(0);
-          }
-          100% {
-            transform: translateX(-50%);
-          }
+        .scrollbar-hide::-webkit-scrollbar {
+          display: none;
         }
 
         @keyframes fadeIn {
@@ -271,9 +321,9 @@ const TestimonialCarousel = () => {
           }
         }
 
-        @keyframes zoomIn {
+        @keyframes scaleIn {
           from {
-            transform: scale(0.5);
+            transform: scale(0.9);
             opacity: 0;
           }
           to {
@@ -283,11 +333,11 @@ const TestimonialCarousel = () => {
         }
 
         .animate-fadeIn {
-          animation: fadeIn 0.3s ease;
+          animation: fadeIn 0.2s ease;
         }
 
-        .animate-zoomIn {
-          animation: zoomIn 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+        .animate-scaleIn {
+          animation: scaleIn 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
         }
       `}</style>
     </div>
