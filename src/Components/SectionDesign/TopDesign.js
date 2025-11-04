@@ -22,7 +22,7 @@ export default function MarketingLandingPage() {
         {/* Top Bar */}
 
         {/* Main Content */}
-        <div className="grid lg:grid-cols-2 gap-8 lg:gap-12 items-start max-w-7xl mx-auto pt-12 sm:pt-20 lg:pt-16">
+        <div className="grid lg:grid-cols-2 gap-8 lg:gap-12 items-start max-w-7xl mx-auto pt-12 sm:pt-20 lg:pt-20">
           {/* Left Side */}
           <div className="space-y-2 sm:space-y-6 lg:space-y-6 pt-2 sm:pt-8 mb-4">
             {/* Yellow Banner */}
@@ -135,7 +135,7 @@ export default function MarketingLandingPage() {
               ) : (
                 <div className="relative w-full h-full">
                   <img
-                    src="https://res.cloudinary.com/de4ks8mkh/image/upload/v1762281342/%E0%A6%AC%E0%A7%8D%E0%A6%AF%E0%A6%AC%E0%A6%B8%E0%A6%BE%E0%A6%AF%E0%A6%BC_%E0%A6%B9%E0%A6%B2%E0%A7%87_%E0%A6%9F%E0%A7%87%E0%A6%A8%E0%A6%B6%E0%A6%A8_%E0%A6%AE%E0%A6%BE%E0%A6%B0%E0%A7%8D%E0%A6%95%E0%A7%87%E0%A6%9F%E0%A6%BF%E0%A6%82_-_%E0%A6%87_%E0%A6%B8%E0%A6%B2%E0%A6%BF%E0%A6%89%E0%A6%B6%E0%A6%A8_mh32hl.jpg"
+                    src="https://res.cloudinary.com/de4ks8mkh/image/upload/v1762285721/maxresdefault_fvnawk.jpg"
                     alt="Cube Multimedia"
                     className="w-full h-full object-cover"
                   />
