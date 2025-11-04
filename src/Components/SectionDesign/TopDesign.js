@@ -18,89 +18,66 @@ export default function MarketingLandingPage() {
         }}
       ></div>
 
-      <div className="container mx-auto px-6 py-6 relative z-10">
+      <div className="container mx-auto px-4 sm:px-6 py-4 sm:py-6 relative z-10">
         {/* Top Bar */}
-        <div className="flex items-center justify-between mb-12">
-          {/* Logo */}
-          <div className="flex items-center gap-2">
-            <div className="w-12 h-12 bg-gray-900 rounded-lg flex flex-col items-center justify-center">
-              <span className="text-white font-black text-[10px] leading-tight">
-                CUBE
-              </span>
-            </div>
-            <div className="flex flex-col leading-none">
-              <span className="text-gray-900 font-black text-xl">
-                multimedia
-              </span>
-            </div>
-          </div>
-
-          {/* Website */}
-          <div className="flex items-center gap-2 bg-white rounded-full px-4 py-2 shadow-md">
-            <Globe className="w-4 h-4 text-red-600" />
-            <span className="text-sm font-semibold text-gray-900">
-              www.cubemultimedia.in
-            </span>
-          </div>
-        </div>
 
         {/* Main Content */}
-        <div className="grid lg:grid-cols-2 gap-12 items-start max-w-7xl mx-auto">
+        <div className="grid lg:grid-cols-2 gap-8 lg:gap-12 items-start max-w-8xl mx-auto pt-12 sm:pt-20 lg:pt-40">
           {/* Left Side */}
-          <div className="space-y-8 pt-8">
+          <div className="space-y-4 sm:space-y-6 lg:space-y-8 pt-4 sm:pt-8">
             {/* Yellow Banner */}
-            <div className="bg-yellow-400 rounded-lg px-6 py-3 inline-block shadow-md">
-              <h2 className="text-2xl font-bold leading-tight">
-                <span className="text-red-600">ব্যবসায়</span>{" "}
-                <span className="text-gray-900">হলে টেনশন</span>
+            <div className="bg-yellow-400 rounded-lg px-4 sm:px-6 py-2 sm:py-3 inline-block shadow-md">
+              <h2 className="text-lg sm:text-xl md:text-2xl font-bold leading-tight">
+                <span className="text-red-600 italic">ব্যবসায়</span>{" "}
+                <span className="text-gray-900 italic">হলে টেনশন</span>
               </h2>
             </div>
 
             {/* Main Headline */}
             <div className="leading-none">
-              <h1 className="text-7xl font-black leading-[0.9]">
-                <span className="text-red-600">মার্কেটিং</span>
-                <span className="text-gray-900"> - ই</span>
+              <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-black leading-[0.9]">
+                <span className="text-red-600 italic">মার্কেটিং</span>
+                <span className="text-gray-900 italic"> - ই</span>
               </h1>
-              <h1 className="text-7xl font-black leading-[0.9] mt-2">
-                <span className="text-gray-900">সলিউশন !</span>
+              <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-black leading-[0.9] mt-2">
+                <span className="text-gray-900 italic">সলিউশন !</span>
               </h1>
             </div>
 
             {/* Service Boxes */}
-            <div className="grid grid-cols-2 gap-4 max-w-lg">
-              <div className="bg-white rounded-xl p-4 shadow-md border border-pink-200">
+            <div className="grid grid-cols-2 gap-3 sm:gap-4 max-w-lg">
+              <div className="bg-red-50 rounded-xl p-3 sm:p-4 shadow-md border border-red-300">
                 <div className="flex items-start gap-2">
-                  <span className="text-2xl">📱</span>
-                  <p className="text-xs font-semibold text-gray-900 leading-tight mt-1">
+                  <span className="text-xl sm:text-2xl">📱</span>
+                  <p className="text-xs sm:text-sm md:text-md font-semibold text-gray-900 leading-tight mt-1 sm:mt-2">
                     ডিজিটাল মার্কেটিং
                   </p>
                 </div>
               </div>
 
-              <div className="bg-white rounded-xl p-4 shadow-md border border-pink-200">
+              <div className="bg-red-50 rounded-xl p-3 sm:p-4 shadow-md border border-red-300">
                 <div className="flex items-start gap-2">
-                  <span className="text-2xl">👨‍💼</span>
-                  <p className="text-xs font-semibold text-gray-900 leading-tight mt-1">
+                  <span className="text-xl sm:text-2xl">👨‍💼</span>
+                  <p className="text-xs font-semibold italic text-gray-900 leading-tight mt-1 sm:mt-2">
                     কনটেন্ট ক্রিয়েশন
                   </p>
                 </div>
               </div>
 
-              <div className="bg-white rounded-xl p-4 shadow-md border border-pink-200">
+              <div className="bg-red-50 rounded-xl p-3 sm:p-4 shadow-md border border-red-300">
                 <div className="flex items-start gap-2">
-                  <span className="text-2xl">🎨</span>
-                  <p className="text-xs font-semibold text-gray-900 leading-tight mt-1">
+                  <span className="text-xl sm:text-2xl">🎨</span>
+                  <p className="text-xs italic font-semibold text-gray-900 leading-tight mt-1 sm:mt-2">
                     নিউজ জেনারেশন ও<br />
                     অনলাইন সেলস
                   </p>
                 </div>
               </div>
 
-              <div className="bg-white rounded-xl p-4 shadow-md border border-pink-200">
+              <div className="bg-red-50 rounded-xl p-3 sm:p-4 shadow-md border border-red-300">
                 <div className="flex items-start gap-2">
-                  <span className="text-2xl">👔</span>
-                  <p className="text-xs font-semibold text-gray-900 leading-tight mt-1">
+                  <span className="text-xl sm:text-2xl">👔</span>
+                  <p className="text-xs italic font-semibold text-gray-900 leading-tight mt-1 sm:mt-2">
                     পার্সোনালিটি ডিজাইন
                     <br />
                     এবং পার্সোনাল ব্রান্ডিং
@@ -110,15 +87,17 @@ export default function MarketingLandingPage() {
             </div>
 
             {/* CTA Red Button */}
-            <div className="bg-red-600 rounded-xl px-6 py-3 inline-block shadow-lg">
-              <p className="text-white font-black text-xl">আজই যোগাযোগ করুন</p>
+            <div className="bg-red-600 px-4 sm:px-6 py-2 sm:py-3 inline-block shadow-lg">
+              <p className="text-white font-black text-base sm:text-lg md:text-xl">
+                আজই যোগাযোগ করুন
+              </p>
             </div>
 
             {/* Phone Number */}
             <div className="flex items-center gap-3">
-              <div className="w-12 h-12 bg-green-500 rounded-full flex items-center justify-center shadow-md">
+              <div className="w-10 h-10 sm:w-12 sm:h-12 bg-green-500 rounded-full flex items-center justify-center shadow-md flex-shrink-0">
                 <svg
-                  className="w-6 h-6 text-white"
+                  className="w-5 h-5 sm:w-6 sm:h-6 text-white"
                   fill="currentColor"
                   viewBox="0 0 24 24"
                 >
@@ -127,29 +106,21 @@ export default function MarketingLandingPage() {
               </div>
               <a
                 href="tel:+919046965841"
-                className="text-3xl font-black text-gray-900"
+                className="text-lg sm:text-xl md:text-2xl font-bold text-black"
               >
                 +91 90469 65841
               </a>
             </div>
 
             {/* Social Media Icons */}
-            <div className="flex gap-3 pt-2">
-              <div className="w-14 h-14 bg-gradient-to-br from-blue-600 to-blue-700 rounded-xl flex items-center justify-center shadow-md cursor-pointer hover:scale-105 transition-transform">
-                <span className="text-2xl">📘</span>
-              </div>
-              <div className="w-14 h-14 bg-gradient-to-br from-pink-600 via-purple-600 to-orange-500 rounded-xl flex items-center justify-center shadow-md cursor-pointer hover:scale-105 transition-transform">
-                <span className="text-2xl">📸</span>
-              </div>
-            </div>
           </div>
 
           {/* Right Side - Video/Image */}
-          <div className="relative pt-8">
+          <div className="relative pt-4 sm:pt-8">
             {/* Blue thumbs up badge */}
 
             {/* Video Container */}
-            <div className="relative w-[900px] h-[550px] rounded-3xl overflow-hidden shadow-2xl mx-auto">
+            <div className="relative w-full max-w-[900px] aspect-video sm:aspect-[16/10] rounded-2xl sm:rounded-3xl overflow-hidden shadow-2xl mx-auto">
               {isVideoPlaying ? (
                 <div className="w-full h-full bg-black">
                   <iframe
@@ -173,9 +144,9 @@ export default function MarketingLandingPage() {
                   <div className="absolute inset-0 flex items-center justify-center">
                     <button
                       onClick={() => setIsVideoPlaying(true)}
-                      className="w-20 h-20 bg-white rounded-full flex items-center justify-center shadow-2xl hover:scale-110 transition-transform"
+                      className="w-16 h-16 sm:w-20 sm:h-20 bg-white rounded-full flex items-center justify-center shadow-2xl hover:scale-110 transition-transform"
                     >
-                      <Play className="w-10 h-10 text-red-600 fill-red-600 ml-1" />
+                      <Play className="w-8 h-8 sm:w-10 sm:h-10 text-red-600 fill-red-600 ml-1" />
                     </button>
                   </div>
                 </div>
@@ -186,10 +157,10 @@ export default function MarketingLandingPage() {
 
             {/* Target Icon bottom right */}
             <div
-              className="absolute -bottom-8 -right-4 z-20"
-              style={{ width: "140px", height: "140px" }}
+              className="absolute -bottom-4 -right-2 sm:-bottom-8 sm:-right-4 z-20"
+              style={{ width: "80px", height: "80px" }}
             >
-              <div className="relative w-full h-full">
+              <div className="relative w-full h-full sm:w-[140px] sm:h-[140px]">
                 {/* Red circle with rings */}
 
                 {/* Arrow with yellow gradient */}
@@ -199,37 +170,7 @@ export default function MarketingLandingPage() {
         </div>
 
         {/* Bottom Section */}
-        <div className="mt-32 text-center max-w-5xl mx-auto">
-          <div className="bg-white bg-opacity-70 backdrop-blur-sm rounded-3xl p-10 shadow-xl">
-            <h2 className="text-4xl md:text-5xl font-black text-gray-900 mb-3">
-              WE DON'T JUST DO MARKETING,
-            </h2>
-            <h2 className="text-4xl md:text-5xl font-black text-red-600 mb-6">
-              WE BUILD BRANDS <span className="text-5xl">🎉</span>
-            </h2>
-            <p className="text-xl text-gray-700 font-semibold mb-8">
-              Performance-driven digital marketing strategies crafted for
-              businesses that are{" "}
-              <span className="text-red-600 font-black">READY TO GROW</span>
-            </p>
-
-            <div className="flex flex-wrap items-center justify-center gap-4 mb-8">
-              <div className="bg-red-600 text-white px-6 py-3 rounded-full font-bold shadow-md">
-                ✨ 100% Results Oriented
-              </div>
-              <div className="bg-yellow-400 text-red-700 px-6 py-3 rounded-full font-bold shadow-md">
-                🚀 Fast Growth
-              </div>
-              <div className="bg-red-600 text-white px-6 py-3 rounded-full font-bold shadow-md">
-                💎 Premium Quality
-              </div>
-            </div>
-
-            <button className="bg-gradient-to-r from-red-600 to-red-700 hover:from-red-700 hover:to-red-800 text-white font-black text-2xl px-12 py-5 rounded-full shadow-xl hover:scale-105 transition-transform">
-              📞 Book Free Strategy Call
-            </button>
-          </div>
-        </div>
+        <div className="mt-32 text-center max-w-5xl mx-auto"></div>
       </div>
     </div>
   );
