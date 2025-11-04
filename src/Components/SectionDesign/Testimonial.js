@@ -101,7 +101,7 @@ const TestimonialCarousel = () => {
         {/* Header Section */}
         <div className="text-center mb-12 md:mb-16">
           <div className="inline-block mb-3">
-            <span className="px-4 py-1.5 bg-red-500/20 text-red-400 text-sm font-semibold rounded-full border border-red-500/30">
+            <span className="px-4 py-1.5 bg-white text-red-500 text-2xl font-semibold rounded-full border border-red-500/30">
               SUCCESS STORIES
             </span>
           </div>
