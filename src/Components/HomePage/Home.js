@@ -6,6 +6,7 @@ import ProfessionalSupportSection from "./ProfessionalSupport";
 import SuccessPrioritySection from "./SuccessPriority";
 import ValidatedVisionSection from "./Vision";
 import InfoCards from "./StickeyBar";
+import RelatedBlogSection from "./BlogCard";
 
 const Home = () => {
   return (
@@ -19,6 +20,7 @@ const Home = () => {
       <SuccessPrioritySection />
       <ValidatedVisionSection />
       <InfoCards />
+      <RelatedBlogSection />
     </div>
   );
 };
