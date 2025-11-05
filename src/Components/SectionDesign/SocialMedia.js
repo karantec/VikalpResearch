@@ -625,9 +625,7 @@ export default function SocialMediaManagement() {
       {/* CTA */}
       <div className="py-24 bg-gradient-to-br from-red-700 via-rose-800 to-red-900 text-center relative overflow-hidden">
         <cta.icon className="w-16 h-16 text-yellow-300 mx-auto mb-8 animate-bounce-slow" />
-        <h2 className="text-4xl md:text-6xl font-bold mb-4 text-white">
-          {cta.title}
-        </h2>
+        <h2 className="text-3xl font-bold mb-4 text-white">{cta.title}</h2>
         <p className="text-xl md:text-2xl mb-10 text-rose-100">
           {cta.subtitle}
         </p>
