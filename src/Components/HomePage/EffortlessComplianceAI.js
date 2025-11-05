@@ -81,7 +81,7 @@ export default function SmartIdeasSection() {
           </div>
 
           {/* Right Side - Cube AI */}
-          <div className="bg-gradient-to-br from-red-900 to-red-950 rounded-2xl shadow-md p-8 flex flex-col items-center justify-center relative overflow-hidden border-2 border-red-700">
+          <div className="bg-gradient-to-br from-red-900 to-red-950 rounded-2xl shadow-md p-6 flex flex-col items-center justify-center relative overflow-hidden border-2 border-red-700">
             {/* Cube AI Badge */}
             <img
               src="https://res.cloudinary.com/de4ks8mkh/image/upload/v1761544103/cubemedia/AI_Line_jr8op2.webp"
@@ -175,7 +175,7 @@ export default function SmartIdeasSection() {
 
             {/* Moved image to the middle */}
             <div className="flex flex-col items-center justify-center w-full">
-              <div className="inline-flex items-center gap-2 bg-white border-2 border-red-300 rounded-lg px-5 py-2 shadow-md mb-4 mt-6 relative z-20">
+              <div className="inline-flex items-center gap-2 bg-white border-2 border-red-300 rounded-lg px-5 py-2 shadow-md mb-3 mt-2 relative z-20">
                 <Sparkles className="w-5 h-5 text-red-500" />
                 <span className="font-bold text-gray-800 text-2xl ">
                   Cube Ai
@@ -184,19 +184,19 @@ export default function SmartIdeasSection() {
               <img
                 src="https://vakilsearch.com/_next/image?url=https%3A%2F%2Fassets.vakilsearch.com%2Fic-zen-man.png&w=384&q=75"
                 alt="Cube AI Assistant"
-                className="w-96 md:w-128 mb-6 relative z-10"
+                className="w-80 md:w-96 mb-3 relative z-10"
               />
             </div>
 
-            <h3 className="text-lg md:text-2xl font-normal text-white text-center mb-3 relative z-10 max-w-md">
+            <h3 className="text-lg md:text-2xl font-normal text-white text-center mb-2 relative z-10 max-w-md">
               Not sure where to begin with your legal, tax, or compliance
               journey?
             </h3>
-            <p className="text-gray-200 text-sm text-center max-w-sm mb-6 relative z-10">
+            <p className="text-gray-200 text-sm text-center max-w-sm mb-4 relative z-10">
               Zenius is your AI-powered legal assistant here to guide you
               through every step of your journey.
             </p>
-            <div className="bg-white border-2 mt-6 border-red-400 rounded-full px-6 py-2.5 text-sm font-bold shadow-md relative z-10 text-red-900">
+            <div className="bg-white border-2 mt-2 border-red-400 rounded-full px-6 py-2.5 text-sm font-bold shadow-md relative z-10 text-red-900">
               COMING SOON
             </div>
           </div>
