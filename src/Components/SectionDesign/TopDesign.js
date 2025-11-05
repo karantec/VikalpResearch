@@ -112,7 +112,19 @@ export default function MarketingLandingPage() {
   }, []);
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-orange-50 via-pink-50 to-red-50 relative overflow-hidden">
+    <div className="h-[90%] bg-gradient-to-br from-orange-50 via-pink-50 to-red-50 relative overflow-hidden mt-10">
+      {/* Background Image */}
+      <div
+        className="absolute inset-0 opacity-60"
+        style={{
+          backgroundImage: `url('https://res.cloudinary.com/de4ks8mkh/image/upload/v1762335033/BG_pluthr.jpg')`,
+          backgroundSize: "cover",
+          backgroundPosition: "center",
+          backgroundRepeat: "no-repeat",
+          zIndex: 0,
+        }}
+      ></div>
+
       {/* Particles Canvas */}
       <canvas
         ref={canvasRef}
@@ -122,7 +134,7 @@ export default function MarketingLandingPage() {
 
       {/* Grid pattern background */}
       <div
-        className="absolute inset-0 opacity-40"
+        className="absolute inset-0 opacity-20"
         style={{
           backgroundImage: `
           linear-gradient(rgba(255, 200, 200, 0.3) 1px, transparent 1px),
@@ -234,7 +246,7 @@ export default function MarketingLandingPage() {
             {/* Blue thumbs up badge */}
 
             {/* Video Container */}
-            <div className="relative w-full max-w-[900px] aspect-video sm:aspect-[16/10] rounded-2xl sm:rounded-3xl overflow-hidden shadow-2xl  mt-10 mx-auto">
+            <div className="relative w-full mb-5 max-w-[900px] aspect-video sm:aspect-[16/10] rounded-2xl sm:rounded-3xl overflow-hidden shadow-2xl  mt-10 mx-auto">
               {isVideoPlaying ? (
                 <div className="w-full h-full bg-black">
                   <iframe
@@ -284,7 +296,6 @@ export default function MarketingLandingPage() {
         </div>
 
         {/* Bottom Section */}
-        <div className="mt-32 text-center max-w-5xl mx-auto"></div>
       </div>
     </div>
   );

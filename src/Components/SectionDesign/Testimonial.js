@@ -3,7 +3,11 @@ import React, { useState, useEffect, useRef } from "react";
 const TestimonialCarousel = () => {
   const [selectedVideo, setSelectedVideo] = useState(null);
   const [currentIndex, setCurrentIndex] = useState(0);
+  const [isAutoPlaying, setIsAutoPlaying] = useState(true);
+  const [playingVideos, setPlayingVideos] = useState({ 1: true }); // Auto-play first video
   const trackRef = useRef(null);
+  const autoPlayTimerRef = useRef(null);
+  const iframeRefs = useRef({});
 
   const getEmbedUrl = (url) => {
     if (url.includes("youtube.com/shorts/")) {
@@ -46,7 +50,6 @@ const TestimonialCarousel = () => {
       name: "Michael Chen",
       role: "CEO, Tech Startup",
     },
-
     {
       id: 5,
       url: "https://youtu.be/2ovxeSQeaHo",
@@ -87,6 +90,63 @@ const TestimonialCarousel = () => {
     }
   };
 
+  // Play next video when current video ends
+  const playNextVideo = () => {
+    const nextIndex = (currentIndex + 1) % testimonials.length;
+    const nextTestimonial = testimonials[nextIndex];
+
+    // Stop current video
+    setPlayingVideos({});
+
+    // Scroll to next
+    setCurrentIndex(nextIndex);
+    if (trackRef.current) {
+      trackRef.current.scrollTo({
+        left: nextIndex * (340 + 24),
+        behavior: "smooth",
+      });
+    }
+
+    // Start next video after a brief delay
+    setTimeout(() => {
+      setPlayingVideos({ [nextTestimonial.id]: true });
+    }, 500);
+  };
+
+  // Auto-swipe functionality
+  useEffect(() => {
+    if (isAutoPlaying && !selectedVideo) {
+      // Check if current video is playing, wait for it to end (estimated 30 seconds per video)
+      const currentTestimonial = testimonials[currentIndex];
+      if (playingVideos[currentTestimonial.id]) {
+        // Wait for video duration (approximate 30 seconds for shorts)
+        autoPlayTimerRef.current = setTimeout(() => {
+          playNextVideo();
+        }, 30000); // 30 seconds
+      }
+
+      return () => {
+        if (autoPlayTimerRef.current) {
+          clearTimeout(autoPlayTimerRef.current);
+        }
+      };
+    }
+  }, [isAutoPlaying, selectedVideo, currentIndex, playingVideos, testimonials]);
+
+  // Pause autoplay when user interacts
+  const handleUserInteraction = () => {
+    setIsAutoPlaying(false);
+    if (autoPlayTimerRef.current) {
+      clearTimeout(autoPlayTimerRef.current);
+    }
+  };
+
+  // Handle manual video play
+  const handlePlayVideo = (testimonialId) => {
+    handleUserInteraction();
+    setPlayingVideos({ [testimonialId]: true });
+  };
+
   useEffect(() => {
     const handleEscape = (e) => {
       if (e.key === "Escape") closeModal();
@@ -94,6 +154,28 @@ const TestimonialCarousel = () => {
     document.addEventListener("keydown", handleEscape);
     return () => document.removeEventListener("keydown", handleEscape);
   }, []);
+
+  // YouTube API message listener for video end detection
+  useEffect(() => {
+    const handleMessage = (event) => {
+      if (event.origin === "https://www.youtube.com") {
+        try {
+          const data = JSON.parse(event.data);
+          // YouTube player state: 0 = ended
+          if (data.event === "onStateChange" && data.info === 0) {
+            if (isAutoPlaying) {
+              playNextVideo();
+            }
+          }
+        } catch (e) {
+          // Ignore parse errors
+        }
+      }
+    };
+
+    window.addEventListener("message", handleMessage);
+    return () => window.removeEventListener("message", handleMessage);
+  }, [isAutoPlaying, currentIndex]);
 
   return (
     <div className="min-h-screen w-full bg-gradient-to-br from-red-900 via-red-800 to-red-900 flex items-center justify-center p-4 md:p-8">
@@ -113,7 +195,10 @@ const TestimonialCarousel = () => {
         <div className="relative px-12 md:px-16">
           {/* Navigation Buttons */}
           <button
-            onClick={() => scrollCarousel("left")}
+            onClick={() => {
+              handleUserInteraction();
+              scrollCarousel("left");
+            }}
             disabled={currentIndex === 0}
             className="absolute left-0 top-1/2 -translate-y-1/2 z-20 bg-white/10 backdrop-blur-md text-white w-10 h-10 md:w-12 md:h-12 rounded-full hover:bg-white/20 disabled:opacity-30 disabled:cursor-not-allowed transition-all duration-300 flex items-center justify-center group"
           >
@@ -133,7 +218,10 @@ const TestimonialCarousel = () => {
           </button>
 
           <button
-            onClick={() => scrollCarousel("right")}
+            onClick={() => {
+              handleUserInteraction();
+              scrollCarousel("right");
+            }}
             disabled={currentIndex === testimonials.length - 1}
             className="absolute right-0 top-1/2 -translate-y-1/2 z-20 bg-white/10 backdrop-blur-md text-white w-10 h-10 md:w-12 md:h-12 rounded-full hover:bg-white/20 disabled:opacity-30 disabled:cursor-not-allowed transition-all duration-300 flex items-center justify-center group"
           >
@@ -161,40 +249,65 @@ const TestimonialCarousel = () => {
             {testimonials.map((testimonial, index) => (
               <div
                 key={testimonial.id}
-                onClick={() => openModal(testimonial.url)}
-                className="flex-shrink-0 w-[300px] md:w-[340px] group cursor-pointer"
+                className="flex-shrink-0 w-[300px] md:w-[340px] group"
               >
                 {/* Card */}
                 <div className="bg-slate-800/50 backdrop-blur-sm rounded-2xl overflow-hidden border border-slate-700/50 hover:border-red-500/50 transition-all duration-300 hover:shadow-2xl hover:shadow-red-500/20 hover:-translate-y-2">
-                  {/* Video Thumbnail */}
+                  {/* Video Container */}
                   <div className="relative aspect-[9/16] overflow-hidden bg-slate-900">
-                    <img
-                      src={getThumbnail(testimonial.url)}
-                      alt={testimonial.name}
-                      className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-                    />
+                    {playingVideos[testimonial.id] ? (
+                      <iframe
+                        ref={(el) => (iframeRefs.current[testimonial.id] = el)}
+                        src={`${getEmbedUrl(
+                          testimonial.url
+                        )}?autoplay=1&mute=1&enablejsapi=1&playsinline=1`}
+                        className="w-full h-full"
+                        frameBorder="0"
+                        allow="autoplay; fullscreen; picture-in-picture"
+                        allowFullScreen
+                        title={testimonial.name}
+                      ></iframe>
+                    ) : (
+                      <>
+                        <img
+                          src={getThumbnail(testimonial.url)}
+                          alt={testimonial.name}
+                          className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                        />
+                        {/* Overlay */}
+                        <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent"></div>
 
-                    {/* Overlay */}
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent"></div>
-
-                    {/* Play Button */}
-                    <div className="absolute inset-0 flex items-center justify-center">
-                      <div className="w-16 h-16 bg-red-600 rounded-full flex items-center justify-center group-hover:scale-110 group-hover:bg-red-500 transition-all duration-300 shadow-2xl">
-                        <svg
-                          className="w-7 h-7 text-white ml-1"
-                          fill="currentColor"
-                          viewBox="0 0 24 24"
+                        {/* Play Button */}
+                        <button
+                          onClick={() => handlePlayVideo(testimonial.id)}
+                          className="absolute inset-0 flex items-center justify-center cursor-pointer"
                         >
-                          <path d="M8 5v14l11-7z" />
-                        </svg>
-                      </div>
-                    </div>
+                          <div className="w-16 h-16 bg-red-600 rounded-full flex items-center justify-center group-hover:scale-110 group-hover:bg-red-500 transition-all duration-300 shadow-2xl">
+                            <svg
+                              className="w-7 h-7 text-white ml-1"
+                              fill="currentColor"
+                              viewBox="0 0 24 24"
+                            >
+                              <path d="M8 5v14l11-7z" />
+                            </svg>
+                          </div>
+                        </button>
 
-                    {/* Video Label */}
-                    <div className="absolute top-4 right-4 bg-black/60 backdrop-blur-sm px-3 py-1 rounded-full text-white text-xs font-medium flex items-center gap-1.5">
-                      <div className="w-2 h-2 bg-red-500 rounded-full animate-pulse"></div>
-                      VIDEO
-                    </div>
+                        {/* Video Label */}
+                        <div className="absolute top-4 right-4 bg-black/60 backdrop-blur-sm px-3 py-1 rounded-full text-white text-xs font-medium flex items-center gap-1.5">
+                          <div className="w-2 h-2 bg-red-500 rounded-full animate-pulse"></div>
+                          VIDEO
+                        </div>
+                      </>
+                    )}
+
+                    {/* Now Playing Indicator */}
+                    {playingVideos[testimonial.id] && (
+                      <div className="absolute top-4 left-4 bg-red-600 backdrop-blur-sm px-3 py-1 rounded-full text-white text-xs font-bold flex items-center gap-1.5 shadow-lg">
+                        <div className="w-2 h-2 bg-white rounded-full animate-pulse"></div>
+                        NOW PLAYING
+                      </div>
+                    )}
                   </div>
 
                   {/* Card Footer */}
@@ -216,6 +329,7 @@ const TestimonialCarousel = () => {
             <button
               key={index}
               onClick={() => {
+                handleUserInteraction();
                 setCurrentIndex(index);
                 if (trackRef.current) {
                   trackRef.current.scrollTo({

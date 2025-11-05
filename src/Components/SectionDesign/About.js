@@ -16,6 +16,8 @@ import {
   Lightbulb,
   Briefcase,
 } from "lucide-react";
+import HeroSection from "./Others/TopAbout";
+import TrustedSection from "./Others/Trusted";
 
 export default function CubeAboutPage() {
   const teamMembers = [
@@ -36,123 +38,8 @@ export default function CubeAboutPage() {
   ];
 
   return (
-    <div className="min-h-screen bg-white">
-      {/* Hero Section */}
-      <div className="relative mt-15 bg-gradient-to-br from-red-700 via-red-800 to-red-900 text-white overflow-hidden min-h-screen flex flex-col">
-        {/* Animated Background Elements */}
-
-        {/* Main Content */}
-        <div className="container mx-auto px-4 py-12 md:py-20 relative z-10 flex-grow flex items-center">
-          <div className="max-w-5xl mx-auto text-center">
-            <div className="mb-8 inline-block">
-              <span className="bg-white/20 backdrop-blur-sm text-white px-6 py-2 rounded-full text-sm font-semibold border border-white/30 shadow-lg">
-                🚀 Trusted Since 2018
-              </span>
-            </div>
-
-            <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold mb-4 leading-tight">
-              Simplifying Legal,
-              <span className="block bg-gradient-to-r from-white via-red-100 to-white bg-clip-text text-transparent">
-                Tax & Compliance
-              </span>
-            </h1>
-
-            <h2 className="text-2xl md:text-4xl lg:text-5xl font-semibold mb-8 text-red-100">
-              for Growing Businesses
-            </h2>
-
-            <p className="text-base md:text-xl text-red-50 mb-10 max-w-3xl mx-auto leading-relaxed">
-              A 2018 Startup in Kolkata (India). The Best Solution for all Needs
-              of Startups,
-              <span className="font-semibold">
-                {" "}
-                Cutting-edge Launch Delivery in India
-              </span>
-              <br />
-              <span className="text-red-200">
-                Built on Cloud • Trusted since 2018
-              </span>
-            </p>
-
-            <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
-              <button className="bg-white text-red-700 px-10 py-4 rounded-full font-bold text-lg hover:bg-red-50 transition-all duration-300 shadow-2xl hover:shadow-white/20 hover:scale-105 transform">
-                Get Started Now
-              </button>
-              <button className="border-2 border-white/50 text-white px-10 py-4 rounded-full font-bold text-lg hover:bg-white/10 transition-all duration-300 backdrop-blur-sm hover:scale-105 transform">
-                Learn More
-              </button>
-            </div>
-
-            {/* Stats */}
-            <div className="grid grid-cols-3 gap-8 mt-16 max-w-2xl mx-auto">
-              <div className="text-center">
-                <div className="text-3xl md:text-4xl font-bold mb-2">100+</div>
-                <div className="text-red-200 text-sm">Clients</div>
-              </div>
-              <div className="text-center border-x border-white/20">
-                <div className="text-3xl md:text-4xl font-bold mb-2">500+</div>
-                <div className="text-red-200 text-sm">Projects</div>
-              </div>
-              <div className="text-center">
-                <div className="text-3xl md:text-4xl font-bold mb-2">7+</div>
-                <div className="text-red-200 text-sm">Years</div>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        {/* Bottom Image Grid */}
-        <div className="container mx-auto px-4 pb-12 relative z-10"></div>
-
-        {/* Wave Shape */}
-        <div className="absolute bottom-0 left-0 right-0 z-0">
-          {/* Images positioned above the wave */}
-          <div className="absolute bottom-8 left-0 right-0 z-10">
-            <div className="container mx-auto px-4">
-              <div className="flex justify-center gap-4 md:gap-8">
-                {/* Image Box 1 */}
-                <div className="w-16 h-16 md:w-20 md:h-20 bg-white rounded-lg shadow-lg overflow-hidden hover:scale-110 transition-transform duration-300">
-                  <img
-                    src="https://via.placeholder.com/100"
-                    alt="Partner 1"
-                    className="w-full h-full object-cover p-2"
-                  />
-                </div>
-
-                {/* Image Box 2 */}
-                <div className="w-16 h-16 md:w-20 md:h-20 bg-white rounded-lg shadow-lg overflow-hidden hover:scale-110 transition-transform duration-300">
-                  <img
-                    src="https://via.placeholder.com/100"
-                    alt="Partner 2"
-                    className="w-full h-full object-contain p-2"
-                  />
-                </div>
-
-                {/* Image Box 3 */}
-                <div className="w-16 h-16 md:w-20 md:h-20 bg-white rounded-lg shadow-lg overflow-hidden hover:scale-110 transition-transform duration-300">
-                  <img
-                    src="https://via.placeholder.com/100"
-                    alt="Partner 3"
-                    className="w-full h-full object-contain p-2"
-                  />
-                </div>
-
-                {/* Image Box 4 */}
-                <div className="w-30 h-30 md:w-20 md:h-20 bg-white rounded-2xl shadow-lg overflow-hidden hover:scale-110 transition-transform duration-300">
-                  <img
-                    src="https://res.cloudinary.com/de4ks8mkh/image/upload/v1762292252/FB_IMG_1762292106304_htrjj0.jpg"
-                    alt="Partner 4"
-                    className="w-full h-full object-cover  p-2"
-                  />
-                </div>
-              </div>
-            </div>
-          </div>
-
-          {/* Wave Shape */}
-        </div>
-      </div>
-
+    <div>
+      <HeroSection />
       {/* Value Propositions Section */}
       <section className="container mx-auto px-4 py-20">
         <div className="max-w-6xl mx-auto">
@@ -238,75 +125,7 @@ export default function CubeAboutPage() {
       </section>
 
       {/* Trusted by Industry Leaders */}
-      <section className="bg-gray-50 py-20">
-        <div className="container mx-auto px-4">
-          <h2 className="text-4xl font-bold text-gray-900 mb-16 text-center">
-            Trusted by Industry Leaders
-          </h2>
-
-          <div className="max-w-5xl mx-auto space-y-16">
-            {/* Expert Support */}
-            <div className="flex items-center gap-8">
-              <div className="flex-1">
-                <h3 className="text-2xl font-bold text-gray-900 mb-4">
-                  Expert Support,
-                  <br />
-                  Anytime,
-                  <br />
-                  Anywhere You Need It
-                </h3>
-                <p className="text-gray-600 leading-relaxed">
-                  Whether you're launching a campaign at midnight or
-                  troubleshooting a strategy on Sunday, our team is always
-                  accessible. We believe great support isn't bound by business
-                  hours—it's about being there when you need us most.
-                </p>
-              </div>
-              <div className="w-32 h-32 flex items-center justify-center">
-                <Award className="w-20 h-20 text-red-600" />
-              </div>
-            </div>
-
-            {/* Growing Together */}
-            <div className="flex items-center gap-8">
-              <div className="w-32 h-32 flex items-center justify-center order-2 md:order-1">
-                <TrendingUp className="w-20 h-20 text-red-600" />
-              </div>
-              <div className="flex-1 order-1 md:order-2">
-                <h3 className="text-2xl font-bold text-gray-900 mb-4">
-                  2023 - Growing fast, Thinking Ahead
-                </h3>
-                <p className="text-gray-600 leading-relaxed">
-                  2023 has been a year of exponential growth and strategic
-                  evolution for Cube Multimedia. As we've expanded our reach and
-                  refined our services, we've kept our eyes firmly on the
-                  future—innovating, adapting, and positioning ourselves to lead
-                  in an ever-changing digital world.
-                </p>
-              </div>
-            </div>
-
-            {/* Tech-Driven Transformation */}
-            <div className="flex items-center gap-8">
-              <div className="flex-1">
-                <h3 className="text-2xl font-bold text-gray-900 mb-4">
-                  2024 - Tech-Driven Transformation
-                </h3>
-                <p className="text-gray-600 leading-relaxed">
-                  This year marks a pivotal shift as we integrate cutting-edge
-                  technology and AI-driven solutions into every aspect of our
-                  work. From automation to advanced analytics, we're
-                  transforming how brands connect, engage, and grow in the
-                  digital age.
-                </p>
-              </div>
-              <div className="w-32 h-32 flex items-center justify-center">
-                <Lightbulb className="w-20 h-20 text-red-600" />
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
+      <TrustedSection />
 
       {/* Testimonials/Achievements */}
       <section className="container mx-auto px-4 py-20">
