@@ -13,46 +13,45 @@ const SuccessPrioritySection = () => {
     founder: "Hrishikesh Datar",
     position: "Founder & CEO, Zolvit",
   };
-
   const testimonials = [
     {
       id: 1,
       name: "Divya Trivedi",
-      text: "Authit Jshah has done wonderful job. He has given his 100 % to my work. Thank you so much!",
+      text: "Amazing work on our social media pages! The creativity, consistency, and strategy have boosted our engagement massively. Truly impressed with the dedication!",
       avatar: "👤",
     },
     {
       id: 2,
       name: "Rishman Enterprises",
-      text: "Hi, Mr. Authit. I applied for Trade Mark and I sincerely appreciate your flexibility and willingness to help. I wished to express my personal gratitude for the effort and extra attention you have provided. Thank you for your confidence and support ❤️😍😍",
+      text: "We ran Google Ads campaigns with them, and the results were outstanding. Their flexibility, prompt updates, and constant optimisation made a huge difference. Highly grateful for the support! ❤️😍",
     },
     {
       id: 3,
       name: "Shilesh Bhattacharya",
-      text: "I am amazed and efficient... That is what I have to say about the service given. Mr. N Aume. Authit, who explained me the process in an easier to the organization. Wish him well!",
+      text: "Exceptional digital marketing service! The team explained the entire strategy clearly, from content planning to ad optimisation. Very efficient and reliable—highly recommended!",
     },
     {
       id: 4,
       name: "Rajan Dhirvi",
-      text: "Big shoutout to Vaddletech and Adity shrey manghere for their stellar support in getting our trademark accepted! Their dedication and determination throughout the process truly made the process seamless. Grateful for their exceptional service!",
+      text: "Big shoutout for managing our social media and ad campaigns so seamlessly! Their dedication, detailed analytics, and creative execution made everything effortless for us. Excellent service!",
     },
     {
       id: 5,
       name: "abxxxxxx25@gmail.com",
-      text: "I had a great experience with Krishan Wadhwa for my company registration and GST acquisition. The service for nidhi and TAN was professional and hassle-free. Very happy with the support and guidance provided throughout the process. I truly appreciate the responsiveness and clear communication at every step. She went above and beyond to ensure everything was handled perfectly highly recommended!",
+      text: "We scaled our business online with their guidance. From running high-ROI Google Ads to handling our social media content professionally—they managed everything smoothly. Communication was clear and timely throughout. Wonderful experience!",
     },
     {
       id: 6,
       name: "Shirey Shah",
-      text: "I wish to express my sincere gratitude to Mr. Krishan Wadhwa and the team at Zolvit Chain from Vaddletech were really helpful for filing trademark registration form. Will surely recommend!",
+      text: "Great experience working with the team for social media management! Their content quality, regular updates, and understanding of brand voice stood out. Definitely recommend!",
     },
     {
       id: 7,
-      text: "Overall, it has been a very good experience so far. Thanks to the team.",
+      text: "Overall, the digital marketing support has been fantastic. Truly appreciate the consistent results and teamwork.",
     },
     {
       id: 8,
-      text: "Fast, efficient, and effective. Multiple words at a single point. Always there and help so much.",
+      text: "Fast, efficient, and extremely helpful! Their Google Ads and social media strategies simplified everything for us.",
     },
   ];
 
@@ -169,7 +168,7 @@ const SuccessPrioritySection = () => {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12">
           {/* Left Section - Main Content */}
           <div className="text-white flex flex-col justify-center">
-            <h2 className="text-3xl md:text-4xl lg:text-5xl font-medium mb-6 whitespace-pre-line" >
+            <h2 className="text-3xl md:text-4xl lg:text-5xl font-medium mb-6 whitespace-pre-line">
               {sectionData.title}
             </h2>
 

@@ -2,14 +2,17 @@ import React from "react";
 import { Sparkles } from "lucide-react";
 
 const fallingMessages = [
-  "How to file GST return?",
-  "What is GST turnover?",
-  "Is GST mandatory?",
-  "GST compliance guide",
-  "Business registration steps",
-  "Tax filing simplified",
-  "Legal documents made easy",
-  "Domain name ideas",
+  "Digital Marketing Services",
+  "Performance Marketing",
+  "Meta Ads & Google Ads Campaigns",
+  "High ROI Growth Strategies",
+  "Dedicated & Proven Sales Funnels",
+  "Retargeting & Lead Nurturing",
+  "Conversion Rate Optimization",
+  "Audience Segmentation & AI Targeting",
+  "Budget-efficient Paid Campaigns",
+
+  // Creative Media & Production
 ];
 
 export default function SmartIdeasSection() {

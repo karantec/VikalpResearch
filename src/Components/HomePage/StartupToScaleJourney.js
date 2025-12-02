@@ -1,21 +1,36 @@
-import React from "react";
+import React, { useEffect, useRef, useState } from "react";
 
 const StartupToScaleUp = () => {
+  // Stats: use numeric values for animation; mark `isCr` where we want CR formatting.
+  const stats = [
+    { value: 100, label: "Happy Clients" },
+    { value: 5_00_00_000, label: "Revenue Generated for Clients", isCr: true }, // 5 Crore -> 50,000,000
+    { value: 25, label: "Cities Served" },
+    { value: 500, label: "Projects Delivered" },
+  ];
+
+  // Observer ref — will be attached to numbers section
+  const numbersRef = useRef(null);
+  const [startCount, setStartCount] = useState(false);
+
+  useEffect(() => {
+    if (!numbersRef.current) return;
+    const obs = new IntersectionObserver(
+      (entries) => {
+        if (entries[0].isIntersecting) {
+          setStartCount(true);
+          obs.unobserve(numbersRef.current); // animate only once
+        }
+      },
+      { threshold: 0.35 }
+    );
+    obs.observe(numbersRef.current);
+    return () => obs.disconnect();
+  }, []);
+
   return (
     <div className="min-h-screen bg-white">
       <div className="max-w-7xl mx-auto px-4 py-10 sm:px-6 lg:px-8 relative">
-        {/* Vertical timeline image spanning all three sections */}
-        {/* <div
-          className="absolute left-1 sm:left-2 top-64 sm:top-72 hidden md:block z-20"
-          style={{ height: "calc(100% - 28rem)" }}
-        >
-          <img
-            src="https://res.cloudinary.com/de4ks8mkh/image/upload/v1761738543/cubemedia/Copilot_20251029_171739-removebg-preview_n8c0fy.png"
-            alt="Timeline"
-            className="h-full w-16 sm:w-20 lg:w-24 object-fill"
-            style={{ minHeight: "300px" }}
-          />
-        </div> */}
         <div
           className="absolute left-[70px] sm:left-[75px] top-72 sm:top-80 hidden md:flex flex-col items-center z-20"
           style={{ height: "calc(100% - 26rem)" }}
@@ -24,9 +39,6 @@ const StartupToScaleUp = () => {
             <span className="absolute -bottom-2 left-1/2 -translate-x-1/2 w-6 h-6 bg-red-600 rounded-full border-2 border-white"></span>
           </div>
         </div>
-
-
-
 
         {/* MAIN HEADING */}
         <div className="text-center mb-12 sm:mb-16 relative z-10 px-2">
@@ -46,9 +58,7 @@ const StartupToScaleUp = () => {
         <section className="mb-10 sm:mb-14 mt-12 sm:mt-20 relative z-10">
           <div className="bg-gradient-to-br from-red-100 via-red-50 to-rose-100 rounded-xl sm:rounded-2xl shadow-xl p-4 sm:p-6 md:p-8 border-t-4 border-red-600">
             <h2 className="text-xl sm:text-2xl md:text-3xl font-medium text-gray-900 mb-6 sm:mb-8 flex items-center ">
-              <span className="bg-red-600 text-white rounded-full w-4 h-4 sm:w-6 sm:h-6 flex items-center justify-center mr-3 sm:mr-4 text-sm sm:text-base flex-shrink-0">
-                
-              </span>
+              <span className="bg-red-600 text-white rounded-full w-4 h-4 sm:w-6 sm:h-6 flex items-center justify-center mr-3 sm:mr-4 text-sm sm:text-base flex-shrink-0"></span>
               Content Creation
             </h2>
 
@@ -90,7 +100,7 @@ const StartupToScaleUp = () => {
               <div className="flex justify-center items-start mt-4 md:mt-0">
                 <div className="relative -mb-32 sm:-mb-48 md:-mb-64 z-10 w-full">
                   <img
-                    src="https://res.cloudinary.com/de4ks8mkh/image/upload/v1761544106/cubemedia/Script_Final_Draft_Locked_bkedbm.png"
+                    src="12.png"
                     alt="Start your business"
                     className="w-full max-w-xs sm:max-w-sm mx-auto object-contain"
                   />
@@ -98,14 +108,6 @@ const StartupToScaleUp = () => {
               </div>
             </div>
 
-            {/* Testimonial Image 1
-            <div className="relative z-0 mt-16 sm:mt-20">
-              <img
-                src="https://res.cloudinary.com/de4ks8mkh/image/upload/v1761737872/cubemedia/Testimonials_1_a5qcky.png"
-                alt="Client Testimonial"
-                className="w-full rounded-xl sm:rounded-2xl shadow-lg"
-              />
-            </div> */}
             <div className="relative z-0 mt-24 sm:mt-32 px-4 sm:px-8 flex justify-center">
               <img
                 src="https://res.cloudinary.com/de4ks8mkh/image/upload/v1761737872/cubemedia/Testimonials_1_a5qcky.png"
@@ -120,9 +122,7 @@ const StartupToScaleUp = () => {
         <section className="mb-12 sm:mb-20 relative z-10">
           <div className="bg-gradient-to-br from-red-100 via-red-50 to-rose-100 rounded-xl sm:rounded-2xl shadow-xl p-4 sm:p-6 md:p-8 border-t-4 border-red-600">
             <h2 className="text-xl sm:text-2xl md:text-3xl font-medium text-gray-900 mb-6 sm:mb-8 flex items-center">
-            <span className="bg-red-600 text-white rounded-full w-4 h-4 sm:w-6 sm:h-6 flex items-center justify-center mr-3 sm:mr-4 text-sm sm:text-base flex-shrink-0">
-                
-                </span>
+              <span className="bg-red-600 text-white rounded-full w-4 h-4 sm:w-6 sm:h-6 flex items-center justify-center mr-3 sm:mr-4 text-sm sm:text-base flex-shrink-0"></span>
               Performance Marketing
             </h2>
 
@@ -159,11 +159,10 @@ const StartupToScaleUp = () => {
                 </ul>
               </div>
 
-
               <div className="flex justify-center items-start mt-4 md:mt-0">
                 <div className="relative -mb-32 sm:-mb-48 md:-mb-64 z-10 w-full">
                   <img
-                    src="https://res.cloudinary.com/de4ks8mkh/image/upload/v1761544106/cubemedia/Upload_Done_on_All_Social_Media_Handles_s73wbp.png"
+                    src="14.png"
                     alt="Start your business"
                     className="w-full max-w-xs sm:max-w-sm mx-auto object-contain"
                   />
@@ -171,14 +170,6 @@ const StartupToScaleUp = () => {
               </div>
             </div>
 
-            {/* Testimonial Image 3 */}
-            {/* <div className="relative z-0 mt-24 sm:mt-32 mb-6 sm:mb-9">
-              <img
-                src="https://res.cloudinary.com/de4ks8mkh/image/upload/v1761737872/cubemedia/Testimonials_2_kpxfuk.png"
-                alt="Client Testimonial"
-                className="w-full rounded-xl sm:rounded-2xl shadow-lg"
-              />
-            </div> */}
             <div className="relative z-0 mt-24 sm:mt-32 px-4 sm:px-8 flex justify-center">
               <img
                 src="https://res.cloudinary.com/de4ks8mkh/image/upload/v1761737872/cubemedia/Testimonials_2_kpxfuk.png"
@@ -186,7 +177,6 @@ const StartupToScaleUp = () => {
                 className="w-full max-w-[960px] rounded-xl sm:rounded-2xl shadow-lg"
               />
             </div>
-
           </div>
         </section>
 
@@ -194,9 +184,7 @@ const StartupToScaleUp = () => {
         <section className="mb-10 sm:mb-14 mt-12 sm:mt-20 relative z-10">
           <div className="bg-gradient-to-br from-red-100 via-red-50 to-rose-100 rounded-xl sm:rounded-2xl shadow-xl p-4 sm:p-6 md:p-8 border-t-4 border-red-600">
             <h2 className="text-xl sm:text-2xl md:text-3xl font-medium text-gray-900 mb-6 sm:mb-8 flex items-center">
-            <span className="bg-red-600 text-white rounded-full w-4 h-4 sm:w-6 sm:h-6 flex items-center justify-center mr-3 sm:mr-4 text-sm sm:text-base flex-shrink-0">
-                
-                </span>
+              <span className="bg-red-600 text-white rounded-full w-4 h-4 sm:w-6 sm:h-6 flex items-center justify-center mr-3 sm:mr-4 text-sm sm:text-base flex-shrink-0"></span>
               Social Media Management
             </h2>
 
@@ -237,7 +225,7 @@ const StartupToScaleUp = () => {
               <div className="flex justify-center items-start mt-4 md:mt-0">
                 <div className="relative -mb-32 sm:-mb-48 md:-mb-64 z-10 w-full">
                   <img
-                    src="https://res.cloudinary.com/de4ks8mkh/image/upload/v1761544106/cubemedia/Your_Ads_are_LIVE_now_li9t0z.png"
+                    src="13.png"
                     alt="Start your business"
                     className="w-full max-w-xs sm:max-w-sm mx-auto object-contain"
                   />
@@ -245,15 +233,6 @@ const StartupToScaleUp = () => {
               </div>
             </div>
 
-            {/* Testimonial Image 2
-            <div className="relative z-0 mt-24 sm:mt-32">
-              <img
-                src="https://res.cloudinary.com/de4ks8mkh/image/upload/v1761737872/cubemedia/Testimonials_3_cuzxtt.png"
-                alt="Client Testimonial"
-                className="w-full rounded-xl sm:rounded-2xl shadow-lg"
-              />
-            </div> */}
-            {/* Testimonial Image 2 */}
             <div className="relative z-0 mt-24 sm:mt-32 px-4 sm:px-8 flex justify-center">
               <img
                 src="https://res.cloudinary.com/de4ks8mkh/image/upload/v1761737872/cubemedia/Testimonials_3_cuzxtt.png"
@@ -261,11 +240,8 @@ const StartupToScaleUp = () => {
                 className="w-full max-w-[960px] rounded-xl sm:rounded-2xl shadow-lg"
               />
             </div>
-
           </div>
         </section>
-
-
 
         {/* 🔢 The Numbers Behind the Journey */}
         <section
@@ -278,21 +254,19 @@ const StartupToScaleUp = () => {
           <h2 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-semibold text-center mb-8 sm:mb-10 px-2 text-red-700">
             Cube Multimedia's Journey So Far
           </h2>
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-4 sm:gap-6 md:gap-8 text-center">
-            {[
-              { number: "100+", label: "Happy Clients" },
-              { number: "5CR+", label: "Revenue Generated for Clients" },
-              { number: "25+", label: "Cities Served" },
-              { number: "500+", label: "Projects Delivered" },
-            ].map((item, index) => (
-              <div key={index} className="px-2">
-                <h3 className="text-3xl sm:text-4xl md:text-5xl font-semibold mb-2 text-red-700">
-                  {item.number}
-                </h3>
-                <p className="text-red-700 text-sm sm:text-base md:text-lg">
-                  {item.label}
-                </p>
-              </div>
+
+          <div
+            ref={numbersRef}
+            className="grid grid-cols-2 md:grid-cols-4 gap-4 sm:gap-6 md:gap-8 text-center"
+          >
+            {stats.map((item, index) => (
+              <CounterCard
+                key={index}
+                value={item.value}
+                label={item.label}
+                isCr={item.isCr}
+                active={startCount}
+              />
             ))}
           </div>
         </section>
@@ -300,5 +274,65 @@ const StartupToScaleUp = () => {
     </div>
   );
 };
+
+// CounterCard component: animates from 0 to `value` when `active` becomes true
+function CounterCard({ value = 0, label = "", isCr = false, active = false }) {
+  const [count, setCount] = useState(0);
+  const rafRef = useRef(null);
+
+  // Choose duration (ms). Larger numbers get longer duration but capped.
+  const duration = Math.min(1600 + Math.log10(Math.max(value, 1)) * 300, 2200);
+
+  useEffect(() => {
+    if (!active) return;
+    const startTime = performance.now();
+    const start = 0;
+    const end = Number(value);
+
+    const step = (now) => {
+      const elapsed = now - startTime;
+      const progress = Math.min(elapsed / duration, 1);
+      // easeOutCubic timing for smooth finish
+      const eased = 1 - Math.pow(1 - progress, 3);
+      const current = Math.floor(start + (end - start) * eased);
+      setCount(current);
+      if (progress < 1) {
+        rafRef.current = requestAnimationFrame(step);
+      } else {
+        setCount(end); // ensure exact final value
+      }
+    };
+
+    rafRef.current = requestAnimationFrame(step);
+
+    return () => {
+      if (rafRef.current) cancelAnimationFrame(rafRef.current);
+    };
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [active, value]);
+
+  // Format displayed number
+  const formatDisplay = () => {
+    if (isCr) {
+      // Convert absolute number back to crores (1 crore = 10,000,000)
+      const crores = Math.round(count / 10_000_000); // integer crores
+      return `${crores}CR+`;
+    }
+    // For smaller numbers, show simple `N+`. For thousands, show commas.
+    if (count >= 1000) {
+      return `${count.toLocaleString()}+`;
+    }
+    return `${count}+`;
+  };
+
+  return (
+    <div className="px-2">
+      <h3 className="text-3xl sm:text-4xl md:text-5xl font-semibold mb-2 text-red-700">
+        {formatDisplay()}
+      </h3>
+      <p className="text-red-700 text-sm sm:text-base md:text-lg">{label}</p>
+    </div>
+  );
+}
 
 export default StartupToScaleUp;

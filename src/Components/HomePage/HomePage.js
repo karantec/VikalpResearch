@@ -90,11 +90,43 @@ const ZolvitHeroSection = () => {
   };
 
   const partners = [
-    "https://assets.vakilsearch.com/live-images/ic-amazon.svg",
-    "https://assets.vakilsearch.com/live-images/ic-oyo.svg",
-    "https://assets.vakilsearch.com/live-images/ic-small-swiggy.svg",
-    "https://assets.vakilsearch.com/live-images/ic-bigbasket.svg",
-    "https://assets.vakilsearch.com/live-images/ic-hdfc.svg",
+    "/LOGO/1.png",
+    "/LOGO/2.png",
+    "/LOGO/3.png",
+    "/LOGO/4.png",
+
+    "/LOGO/9.png",
+    "/LOGO/10.png",
+    "/LOGO/11.png",
+
+    "/LOGO/13.png",
+    "/LOGO/14.png",
+    "/LOGO/15.png",
+
+    // Adding remaining logos up to 38
+    "/LOGO/16.png",
+    "/LOGO/17.png",
+    "/LOGO/18.png",
+    "/LOGO/19.png",
+    "/LOGO/20.png",
+    "/LOGO/21.png",
+    "/LOGO/22.png",
+    "/LOGO/23.png",
+    "/LOGO/24.png",
+    "/LOGO/25.png",
+    "/LOGO/26.png",
+    "/LOGO/27.png",
+    "/LOGO/28.png",
+    "/LOGO/29.png",
+    "/LOGO/30.png",
+    "/LOGO/31.png",
+    "/LOGO/32.png",
+    "/LOGO/33.png",
+    "/LOGO/34.png",
+    "/LOGO/35.jpg",
+    "/LOGO/36.png",
+    "/LOGO/37.jpg",
+    "/LOGO/38.png",
   ];
 
   return (
@@ -143,7 +175,9 @@ const ZolvitHeroSection = () => {
             ))}
           </div>
           <div className="flex items-center gap-2">
-            <div className="flex text-yellow-400 text-sm sm:text-base">★★★★★</div>
+            <div className="flex text-yellow-400 text-sm sm:text-base">
+              ★★★★★
+            </div>
             <span className="text-white font-semibold text-sm sm:text-base">
               4.5/5
             </span>
@@ -236,7 +270,6 @@ const ZolvitHeroSection = () => {
               }}
             >
               <div className="flex flex-col h-full">
-             
                 <div className="flex flex-col flex-1 justify-between">
                   <div className="flex items-start justify-between mt-0 mb-2">
                     <h2 className="text-xl sm:text-2xl font-semibold text-gray-900">
@@ -301,7 +334,6 @@ const ZolvitHeroSection = () => {
                     alt="Google"
                     className="w-20 sm:w-20"
                   />
-              
 
                   <div className="text-left">
                     <p className="font-medium text-sm sm:text-base">
@@ -327,18 +359,20 @@ const ZolvitHeroSection = () => {
           {/* Partner Logos Marquee */}
           <div className="w-full bg-[#1a1a1a] py-12 overflow-hidden">
             <div className="relative w-full">
-              <div className="marquee-track flex items-center gap-20" /* increased gap here */>
+              <div className="marquee-track flex items-center gap-20">
                 {[...partners, ...partners].map((partner, index) => (
                   <div key={index} className="flex-shrink-0">
                     <img
                       src={partner}
                       alt={`Partner ${index + 1}`}
-                      className="h-8 object-contain opacity-80 hover:opacity-100 transition-opacity"
+                      className="h-16 object-contain opacity-80 hover:opacity-100 transition-opacity invert brightness-0"
+                      /* or custom: filter: brightness(0) invert(1); */
                     />
                   </div>
                 ))}
               </div>
             </div>
+
             <style jsx>{`
               .marquee-track {
                 will-change: transform;
