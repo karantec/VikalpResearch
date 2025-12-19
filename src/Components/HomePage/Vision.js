@@ -32,6 +32,48 @@ const ValidatedVisionSection = () => {
       image: "/LOGO/4.png",
       alt: "Anant Raj Mahima Logo",
     },
+    {
+      id: 5,
+      name: "Anant Raj Mahima",
+      image: "/LOGO/5.png",
+      alt: "Anant Raj Mahima Logo",
+    },
+    {
+      id: 6,
+      name: "Anant Raj Mahima",
+      image: "/LOGO/6.png",
+      alt: "Anant Raj Mahima Logo",
+    },
+    {
+      id: 7,
+      name: "Anant Raj Mahima",
+      image: "/LOGO/7.png",
+      alt: "Anant Raj Mahima Logo",
+    },
+    {
+      id: 8,
+      name: "Anant Raj Mahima",
+      image: "/LOGO/8.png",
+      alt: "Anant Raj Mahima Logo",
+    },
+    {
+      id: 9,
+      name: "Anant Raj Mahima",
+      image: "/LOGO/9.png",
+      alt: "Anant Raj Mahima Logo",
+    },
+    {
+      id: 10,
+      name: "Anant Raj Mahima",
+      image: "/LOGO/10.png",
+      alt: "Anant Raj Mahima Logo",
+    },
+    {
+      id: 11,
+      name: "Anant Raj Mahima",
+      image: "/LOGO/11.png",
+      alt: "Anant Raj Mahima Logo",
+    },
     // {
     //   id: 5,
     //   name: "Lakme Academy",

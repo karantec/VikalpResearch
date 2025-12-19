@@ -89,7 +89,18 @@ const ZolvitHeroSection = () => {
     author: "Trusted by 100+ Clients",
   };
 
-  const partners = ["/LOGO/1.png", "/LOGO/2.png", "/LOGO/3.png", "/LOGO/4.png"];
+  const partners = [
+    "/LOGO/1.png",
+    "/LOGO/2.png",
+    "/LOGO/3.png",
+    "/LOGO/4.png",
+    "/LOGO/5.png",
+    "/LOGO/6.png",
+    "/LOGO/7.png",
+    "/LOGO/8.png",
+    "/LOGO/9.png",
+    "/LOGO/10.png",
+  ];
 
   return (
     <div className="relative min-h-screen overflow-hidden">
