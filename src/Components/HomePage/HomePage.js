@@ -89,45 +89,7 @@ const ZolvitHeroSection = () => {
     author: "Trusted by 100+ Clients",
   };
 
-  const partners = [
-    "/LOGO/1.png",
-    "/LOGO/2.png",
-    "/LOGO/3.png",
-    "/LOGO/4.png",
-
-    "/LOGO/9.png",
-    "/LOGO/10.png",
-    "/LOGO/11.png",
-
-    "/LOGO/13.png",
-    "/LOGO/14.png",
-    "/LOGO/15.png",
-
-    // Adding remaining logos up to 38
-    "/LOGO/16.png",
-    "/LOGO/17.png",
-    "/LOGO/18.png",
-    "/LOGO/19.png",
-    "/LOGO/20.png",
-    "/LOGO/21.png",
-    "/LOGO/22.png",
-    "/LOGO/23.png",
-    "/LOGO/24.png",
-    "/LOGO/25.png",
-    "/LOGO/26.png",
-    "/LOGO/27.png",
-    "/LOGO/28.png",
-    "/LOGO/29.png",
-    "/LOGO/30.png",
-    "/LOGO/31.png",
-    "/LOGO/32.png",
-    "/LOGO/33.png",
-    "/LOGO/34.png",
-    "/LOGO/35.jpg",
-    "/LOGO/36.png",
-    "/LOGO/37.jpg",
-    "/LOGO/38.png",
-  ];
+  const partners = ["/LOGO/1.png", "/LOGO/2.png", "/LOGO/3.png", "/LOGO/4.png"];
 
   return (
     <div className="relative min-h-screen overflow-hidden">

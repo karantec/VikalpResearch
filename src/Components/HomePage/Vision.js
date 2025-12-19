@@ -11,36 +11,34 @@ const ValidatedVisionSection = () => {
     {
       id: 1,
       name: "Preathers",
-      image: "https://i.postimg.cc/RVDMQFvL/preathers-logo.png",
+      image: "/LOGO/1.png",
       alt: "Preathers Logo",
     },
     {
       id: 2,
       name: "Zee Music Co",
-      image:
-        "https://digiosmosis.com/wp-content/uploads/2019/10/1140x456_Zee_Music-768x307.jpg",
+      image: "/LOGO/2.png",
       alt: "Zee Music Co Logo",
     },
     {
       id: 3,
       name: "Tufcon XT",
-      image:
-        "https://th.bing.com/th/id/OIP.62dILNr-O8Tal7b72kzm4wHaCA?o=7rm=3&rs=1&pid=ImgDetMain&o=7&rm=3",
+      image: "/LOGO/3.png",
       alt: "Tufcon XT Logo",
     },
     {
       id: 4,
       name: "Anant Raj Mahima",
-      image: "https://i.postimg.cc/KjN8w1gj/anant-raj-logo.png",
+      image: "/LOGO/4.png",
       alt: "Anant Raj Mahima Logo",
     },
-    {
-      id: 5,
-      name: "Lakme Academy",
-      image:
-        "https://www.newsvoir.com/images/user/logo/_LAKME_ACADEMY_new-logo.jpg",
-      alt: "Lakme Academy Logo",
-    },
+    // {
+    //   id: 5,
+    //   name: "Lakme Academy",
+    //   image:
+    //     "https://www.newsvoir.com/images/user/logo/_LAKME_ACADEMY_new-logo.jpg",
+    //   alt: "Lakme Academy Logo",
+    // },
   ];
 
   return (
@@ -103,7 +101,6 @@ const ValidatedVisionSection = () => {
         </div> */}
 
         {/* News Logos Section - Placeholder */}
-    
       </div>
     </div>
   );
