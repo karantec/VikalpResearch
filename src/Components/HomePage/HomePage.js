@@ -364,6 +364,8 @@ const ZolvitHeroSection = () => {
                   <div key={index} className="flex-shrink-0">
                     <img
                       src={partner}
+                      width="350px"
+                      height="150px"
                       alt={`Partner ${index + 1}`}
                       className="h-16 object-contain opacity-80 hover:opacity-100 transition-opacity invert brightness-0"
                       /* or custom: filter: brightness(0) invert(1); */

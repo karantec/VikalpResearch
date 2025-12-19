@@ -40,7 +40,7 @@ export default function SmartIdeasSection() {
               style={{ maxHeight: 600 }}
             >
               <div className="-mb-">
-                <h3 className="text-2xl md:text-3xl font-normal text-gray-900 mb-3">
+                <h3 className="text-2xl md:text-3xl font-bold text-gray-900 mb-3">
                   Business Name Generator
                 </h3>
                 <p className="text-gray-600 text-sm md:text-base max-w-sm">
@@ -50,7 +50,7 @@ export default function SmartIdeasSection() {
               </div>
               <div className="flex flex-grow items-end ">
                 <img
-                  src="https://res.cloudinary.com/de4ks8mkh/image/upload/v1761544103/cubemedia/AI_name_rlnnec.svg"
+                  src="https://res.cloudinary.com/de4ks8mkh/image/upload/v1766141049/cubemedia/business_name_generator_ztamej.png"
                   alt="Business Name Generator"
                   className="w-full"
                   style={{ objectFit: "cover" }}
@@ -64,17 +64,18 @@ export default function SmartIdeasSection() {
               style={{ maxHeight: 600, overflow: "hidden" }}
             >
               <div className="-mb-8">
-                <h3 className="text-2xl md:text-3xl font-normal text-gray-900 mb-3">
-                  Document Generator
+                <h3 className="text-2xl md:text-3xl font-bold text-gray-900 mb-3">
+                  Book Your Domain Now
                 </h3>
                 <p className="text-gray-600 text-sm md:text-base max-w-sm">
-                  Create expert-vetted legal documents instantly, tailored to
-                  your needs — no legal jargon, no delays.
+                  At Cube Multimedia, we help you choose, secure, and manage the
+                  perfect domain name for your business — without confusion or
+                  technical hassle.
                 </p>
               </div>
               <div className="flex flex-grow items-end mt-0">
                 <img
-                  src="https://res.cloudinary.com/de4ks8mkh/image/upload/v1761544102/cubemedia/AI_Document_brqbn8.webp"
+                  src="https://res.cloudinary.com/de4ks8mkh/image/upload/v1766141048/cubemedia/domain_name_ulbnhh.png"
                   alt="Document Generator"
                   className="w-full"
                   style={{ objectFit: "contain" }}

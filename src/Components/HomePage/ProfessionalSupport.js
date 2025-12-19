@@ -16,7 +16,7 @@ const ExpertHelpSection = () => {
       buttonText: "Consult Now",
       bgGradient: "from-gray-100 to-gray-200",
       imageUrl:
-        "https://images.unsplash.com/photo-1556157382-97eda2d62296?w=400&h=300&fit=crop",
+        "https://res.cloudinary.com/de4ks8mkh/image/upload/v1766141786/cubemedia/12_ntxl9i.jpg",
     },
     {
       id: 2,
@@ -26,7 +26,7 @@ const ExpertHelpSection = () => {
       buttonText: "Consult Now",
       bgGradient: "from-gray-100 to-gray-200",
       imageUrl:
-        "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=400&h=300&fit=crop",
+        "https://res.cloudinary.com/de4ks8mkh/image/upload/v1766141786/cubemedia/13_zpnmhz.jpg",
     },
     {
       id: 3,
@@ -36,7 +36,7 @@ const ExpertHelpSection = () => {
       buttonText: "Consult Now",
       bgGradient: "from-gray-100 to-gray-200",
       imageUrl:
-        "https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?w=400&h=300&fit=crop",
+        "https://res.cloudinary.com/de4ks8mkh/image/upload/v1766141786/cubemedia/414_tyw4r4.jpg",
     },
   ];
 

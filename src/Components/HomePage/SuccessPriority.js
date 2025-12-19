@@ -5,14 +5,15 @@ const SuccessPrioritySection = () => {
   const scrollContainer2Ref = useRef(null);
 
   const sectionData = {
-    title: "Your success is our\n priority",
+    title: "Your brand growth is our\n top priority",
     quote:
-      '"We started Zolvit because we saw brilliant entrepreneurs being held back by overwhelming compliance. Our mission is to be the partner you can always count on.',
+      '"We started our digital marketing journey with one clear belief — great brands deserve visibility, engagement, and measurable growth. Our mission is to turn ideas into impact and clicks into customers."',
     description:
-      'We combine technology with a team of over 1,000 experts to handle these complexities for you. Your success is our priority, because when you thrive, India thrives"',
-    founder: "Hrishikesh Datar",
-    position: "Founder & CEO, Zolvit",
+      "We blend data-driven strategies, creative storytelling, and performance marketing to scale brands online. From SEO and paid ads to social media and content, we focus on real results — because when your brand grows, so does your business.",
+    founder: "Sumanta Dey",
+    position: "Founder & CEO, Digital Marketing Strategist",
   };
+
   const testimonials = [
     {
       id: 1,

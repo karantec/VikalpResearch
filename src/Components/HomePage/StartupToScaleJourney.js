@@ -100,7 +100,7 @@ const StartupToScaleUp = () => {
               <div className="flex justify-center items-start mt-4 md:mt-0">
                 <div className="relative -mb-32 sm:-mb-48 md:-mb-64 z-10 w-full">
                   <img
-                    src="12.png"
+                    src="https://res.cloudinary.com/de4ks8mkh/image/upload/v1766139791/cubemedia/Contentcreation_gxky2s.png"
                     alt="Start your business"
                     className="w-full max-w-xs sm:max-w-sm mx-auto object-contain"
                   />
@@ -225,7 +225,7 @@ const StartupToScaleUp = () => {
               <div className="flex justify-center items-start mt-4 md:mt-0">
                 <div className="relative -mb-32 sm:-mb-48 md:-mb-64 z-10 w-full">
                   <img
-                    src="13.png"
+                    src="12.png"
                     alt="Start your business"
                     className="w-full max-w-xs sm:max-w-sm mx-auto object-contain"
                   />

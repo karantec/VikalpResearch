@@ -18,7 +18,7 @@ const HassleFreeProjectSection = () => {
       description:
         "Get a detailed, customized proposal outlining project scope, timeline, and deliverables.",
       image:
-        "https://res.cloudinary.com/de4ks8mkh/image/upload/v1761544106/cubemedia/Receive_Official_Proposal_a39puu.png",
+        "https://res.cloudinary.com/de4ks8mkh/image/upload/v1766141439/cubemedia/Receive_Official_Proposal_wltubs.png",
     },
     {
       id: 2,
@@ -27,7 +27,7 @@ const HassleFreeProjectSection = () => {
       description:
         "Quick and efficient onboarding to get your project started without delays.",
       image:
-        "https://res.cloudinary.com/de4ks8mkh/image/upload/v1761544102/cubemedia/4-5_Days_Onboarding_Period_naeccf.png",
+        "https://res.cloudinary.com/de4ks8mkh/image/upload/v1766141439/cubemedia/onboarding_gwjhdn.png",
     },
     {
       id: 3,
@@ -36,7 +36,7 @@ const HassleFreeProjectSection = () => {
       description: "Your point of contact for all updates",
       highlighted: true,
       image:
-        "https://res.cloudinary.com/de4ks8mkh/image/upload/v1761544105/cubemedia/Dedicated_Account_Manager_hjf48q.png",
+        "https://res.cloudinary.com/de4ks8mkh/image/upload/v1766141438/cubemedia/manager_nv7yso.png",
     },
     {
       id: 4,
@@ -45,7 +45,7 @@ const HassleFreeProjectSection = () => {
       description:
         "Stay connected with your team through a dedicated communication channel for seamless collaboration.",
       image:
-        "https://res.cloudinary.com/de4ks8mkh/image/upload/v1761544106/cubemedia/Internal_Communication_Group_sx2de0.png",
+        "https://res.cloudinary.com/de4ks8mkh/image/upload/v1766141438/cubemedia/Internal_Communication_Group_eotpoo.png",
     },
   ];
 
@@ -135,27 +135,20 @@ const HassleFreeProjectSection = () => {
             </div>
           </div>
 
-    {/* Right Side - Dashboard Preview */}
-<div className="bg-gradient-to-br from-red-800 to-red-900 rounded-lg shadow-2xl overflow-hidden border-2 sm:border-4 border-red-700/50">
-
-{/* Top + Left padding only */}
-<div className="pt-3 pl-3 sm:pt-4 sm:pl-4 lg:pt-5 lg:pl-5">
-
-  {/* Force height so image can fill */}
-  <div className="relative w-full" style={{ height: "400px" }}>
-
-    <img
-      src={features[activeFeature].image}
-      alt={features[activeFeature].title}
-      className="absolute top-0 left-0 w-full h-full object-cover rounded-lg shadow-md"
-    />
-
-  </div>
-
-</div>
-</div>
-
-
+          {/* Right Side - Dashboard Preview */}
+          <div className="bg-gradient-to-br from-red-800 to-red-900 rounded-lg shadow-2xl overflow-hidden border-2 sm:border-4 border-red-700/50">
+            {/* Top + Left padding only */}
+            <div className="pt-3 pl-3 sm:pt-4 sm:pl-4 lg:pt-5 lg:pl-5">
+              {/* Force height so image can fill */}
+              <div className="relative w-full" style={{ height: "400px" }}>
+                <img
+                  src={features[activeFeature].image}
+                  alt={features[activeFeature].title}
+                  className="absolute top-0 left-0 w-full h-full object-cover rounded-lg shadow-md"
+                />
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </div>
