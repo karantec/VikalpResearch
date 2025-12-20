@@ -32,12 +32,6 @@ const ValidatedVisionSection = () => {
       image: "/LOGO/4.png",
       alt: "Anant Raj Mahima Logo",
     },
-    // {
-    //   id: 5,
-    //   name: "Anant Raj Mahima",
-    //   image: "/LOGO/5.png",
-    //   alt: "Anant Raj Mahima Logo",
-    // },
     {
       id: 6,
       name: "Anant Raj Mahima",
@@ -62,88 +56,79 @@ const ValidatedVisionSection = () => {
       image: "/LOGO/9.png",
       alt: "Anant Raj Mahima Logo",
     },
-    // {
-    //   id: 10,
-    //   name: "Anant Raj Mahima",
-    //   image: "/LOGO/10.png",
-    //   alt: "Anant Raj Mahima Logo",
-    // },
-    // {
-    //   id: 11,
-    //   name: "Anant Raj Mahima",
-    //   image: "/LOGO/11.png",
-    //   alt: "Anant Raj Mahima Logo",
-    // },
-    // {
-    //   id: 5,
-    //   name: "Lakme Academy",
-    //   image:
-    //     "https://www.newsvoir.com/images/user/logo/_LAKME_ACADEMY_new-logo.jpg",
-    //   alt: "Lakme Academy Logo",
-    // },
   ];
 
   return (
-    <div className="bg-white py-16 px-4 sm:px-6 lg:px-8">
-      <div className="max-w-7xl mx-auto">
-        {/* Validated Vision Section */}
-        <div className="text-center mb-16">
-          <h2 className="text-3xl md:text-4xl lg:text-5xl font-medium text-grey-900 mb-4">
-            {sectionData.title}
-          </h2>
-          <p className="text-gray-600 text-sm md:text-base max-w-4xl mx-auto leading-relaxed">
-            {sectionData.description}
-          </p>
-        </div>
-
-        {/* Client Logos - Single Row */}
-        <div
-          className="overflow-x-auto mb-20"
-          style={{
-            scrollbarWidth: "none", // Firefox
-            msOverflowStyle: "none", // IE and Edge
-          }}
-        >
-          <div
-            className="flex justify-center items-center gap-4 md:gap-6 lg:gap-8 min-w-max px-4"
-            style={{
-              // Chrome, Safari and Opera
-              scrollbarWidth: "none",
-            }}
-          >
-            {clientLogos.map((logo) => (
-              <div
-                key={logo.id}
-                className="bg-white hover:bg-gray-50 rounded-lg hover:shadow-2xl transition-all duration-300 p-4 md:p-6 w-[140px] md:w-[180px] lg:w-[200px] h-[90px] md:h-[100px] flex items-center justify-center border border-gray-400 hover:border-red-600 hover:scale-105 flex-shrink-0"
-                // border reduced from 'border-2 border-gray-600' to 'border border-gray-400'
-              >
-                <img
-                  src={logo.image}
-                  alt={logo.alt}
-                  className="max-w-full max-h-full object-contain"
-                />
-              </div>
-            ))}
-          </div>
-          <style>
-            {`
-              /* Hide scrollbars for this section (Webkit browsers) */
-              .overflow-x-auto::-webkit-scrollbar {
-                display: none;
-              }
-            `}
-          </style>
-        </div>
-
-        {/* Cube in News Section */}
-        {/* <div className="text-center mb-12">
-          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white">
-            Cube in News
-          </h2>
-        </div> */}
-
-        {/* News Logos Section - Placeholder */}
+    <div className="w-full bg-white py-16">
+      {/* Validated Vision Section */}
+      <div className="max-w-6xl mx-auto px-4 text-center mb-12">
+        <h2 className="text-4xl font-bold text-gray-900 mb-4">
+          {sectionData.title}
+        </h2>
+        <p className="text-gray-600 text-lg max-w-2xl mx-auto">
+          {sectionData.description}
+        </p>
       </div>
+
+      {/* Client Logos - Animated Slider */}
+      <div className="relative overflow-hidden">
+        <style>{`
+          @keyframes scroll {
+            0% {
+              transform: translateX(0);
+            }
+            100% {
+              transform: translateX(-50%);
+            }
+          }
+          .animate-scroll {
+            animation: scroll 30s linear infinite;
+          }
+          .animate-scroll:hover {
+            animation-play-state: paused;
+          }
+        `}</style>
+
+        <div className="flex animate-scroll">
+          {/* First set of logos */}
+          {clientLogos.map((logo) => (
+            <div
+              key={`first-${logo.id}`}
+              className="flex items-center justify-center px-8 flex-shrink-0  transition-all duration-300"
+            >
+              <img
+                src={logo.image}
+                alt={logo.alt}
+                className="h-16 w-auto object-contain"
+              />
+            </div>
+          ))}
+          {/* Duplicate set for seamless loop */}
+          {clientLogos.map((logo) => (
+            <div
+              key={`second-${logo.id}`}
+              className="flex items-center justify-center px-8 flex-shrink-0  transition-all duration-300"
+            >
+              <img
+                src={logo.image}
+                alt={logo.alt}
+                className="h-16 w-auto object-contain"
+              />
+            </div>
+          ))}
+        </div>
+      </div>
+
+      {/* Cube in News Section */}
+      {/*
+      <div className="max-w-6xl mx-auto px-4 text-center mt-16">
+        <h2 className="text-3xl font-bold text-gray-900 mb-8">
+          Cube in News
+        </h2>
+      </div>
+      */}
+
+      {/* News Logos Section - Placeholder */}
     </div>
   );
 };
