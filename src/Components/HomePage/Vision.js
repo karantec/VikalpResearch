@@ -32,12 +32,12 @@ const ValidatedVisionSection = () => {
       image: "/LOGO/4.png",
       alt: "Anant Raj Mahima Logo",
     },
-    {
-      id: 5,
-      name: "Anant Raj Mahima",
-      image: "/LOGO/5.png",
-      alt: "Anant Raj Mahima Logo",
-    },
+    // {
+    //   id: 5,
+    //   name: "Anant Raj Mahima",
+    //   image: "/LOGO/5.png",
+    //   alt: "Anant Raj Mahima Logo",
+    // },
     {
       id: 6,
       name: "Anant Raj Mahima",
@@ -62,18 +62,18 @@ const ValidatedVisionSection = () => {
       image: "/LOGO/9.png",
       alt: "Anant Raj Mahima Logo",
     },
-    {
-      id: 10,
-      name: "Anant Raj Mahima",
-      image: "/LOGO/10.png",
-      alt: "Anant Raj Mahima Logo",
-    },
-    {
-      id: 11,
-      name: "Anant Raj Mahima",
-      image: "/LOGO/11.png",
-      alt: "Anant Raj Mahima Logo",
-    },
+    // {
+    //   id: 10,
+    //   name: "Anant Raj Mahima",
+    //   image: "/LOGO/10.png",
+    //   alt: "Anant Raj Mahima Logo",
+    // },
+    // {
+    //   id: 11,
+    //   name: "Anant Raj Mahima",
+    //   image: "/LOGO/11.png",
+    //   alt: "Anant Raj Mahima Logo",
+    // },
     // {
     //   id: 5,
     //   name: "Lakme Academy",
