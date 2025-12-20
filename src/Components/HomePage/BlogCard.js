@@ -4,36 +4,36 @@ const RelatedBlogSection = () => {
   const blogs = [
     {
       id: 1,
-      badge: "GSTR + Govt fees",
-      title: "Trademark Registration Fees in India: Complete Fees Structure",
+      badge: "Digital Marketing",
+      title: "Complete Digital Marketing Strategy for Business Growth in 2025",
       description:
-        "The official trademark registration fees in India vary depending on the applicant...",
+        "Learn how to build a powerful digital marketing strategy using SEO, social media, content, and paid ads to scale your business online.",
       imageUrl:
-        "https://vakilsearch.com/_next/image?url=https%3A%2F%2Fvakilsearch.com%2Fblog%2Fwp-content%2Fuploads%2F2022%2F12%2Ftrademark-registration-fees.webp&w=384&q=75",
+        "https://imgs.search.brave.com/FPZyx8SXx2UrNSb520tdHNpqWCy-EDJmXZVAaA4A58Q/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly93YWxs/cGFwZXJzLmNvbS9p/bWFnZXMvaGQvZGln/aXRhbC1tYXJrZXRp/bmctcGljdHVyZXMt/M2FpYWh5ajlndzR1/cDJpNS5qcGc",
       buttonText: "Read Details",
       bgColor: "bg-yellow-50",
       titleColor: "text-gray-900",
     },
     {
       id: 2,
-      badge: "GST Guide",
-      title: "GST on Gold: 18, 22, 24 Carat Jewellery Rates & Ornaments",
+      badge: "SEO & Growth",
+      title: "SEO vs Paid Ads: Which Digital Marketing Channel Works Best?",
       description:
-        "Under the current GST regime in India, all gold transactions—whether for jewellery...",
+        "Understand the key differences between SEO and paid advertising, and learn when to use each channel for maximum ROI.",
       imageUrl:
-        "https://vakilsearch.com/_next/image?url=https%3A%2F%2Fvakilsearch.com%2Fblog%2Fwp-content%2Fuploads%2F2025%2F03%2Fgst-on-gold.webp&w=384&q=75",
+        "https://imgs.search.brave.com/FPZyx8SXx2UrNSb520tdHNpqWCy-EDJmXZVAaA4A58Q/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly93YWxs/cGFwZXJzLmNvbS9p/bWFnZXMvaGQvZGln/aXRhbC1tYXJrZXRp/bmctcGljdHVyZXMt/M2FpYWh5ajlndzR1/cDJpNS5qcGc",
       buttonText: "Read Details",
       bgColor: "bg-purple-900",
       titleColor: "text-white",
     },
     {
       id: 3,
-      badge: "E-Way Bill Guide",
-      title: "Eway Bill Limit 2025: State-Wise List & Thresholds",
+      badge: "Social Media",
+      title: "Social Media Marketing Guide: Grow Your Brand & Engagement",
       description:
-        "The e-way bill system mandates an electronic document for transporting goods over...",
+        "Discover proven social media marketing techniques to build brand awareness, increase engagement, and generate leads.",
       imageUrl:
-        "https://vakilsearch.com/_next/image?url=https%3A%2F%2Fvakilsearch.com%2Fblog%2Fwp-content%2Fuploads%2F2025%2F03%2Feway-bill-limit.webp&w=384&q=75",
+        "https://imgs.search.brave.com/FPZyx8SXx2UrNSb520tdHNpqWCy-EDJmXZVAaA4A58Q/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly93YWxs/cGFwZXJzLmNvbS9p/bWFnZXMvaGQvZGln/aXRhbC1tYXJrZXRp/bmctcGljdHVyZXMt/M2FpYWh5ajlndzR1/cDJpNS5qcGc",
       buttonText: "Read Details",
       bgColor: "bg-gray-100",
       titleColor: "text-gray-900",
