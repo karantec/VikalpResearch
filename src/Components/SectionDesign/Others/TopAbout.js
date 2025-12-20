@@ -22,102 +22,118 @@ export default function HeroSection() {
                 </span>
               </div>
 
-              <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold text-gray-900 leading-tight">
+              <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-gray-900 leading-tight">
                 Elevate Your
-                <span className="block text-red-600 mt-2">Brand Story</span>
-                <span className="block mt-2">With Us</span>
+                <span className="block text-red-600 mt-1 sm:mt-2">
+                  Brand Story
+                </span>
+                <span className="block mt-1 sm:mt-2">With Us</span>
               </h1>
 
-              <p className="text-xl text-gray-600 leading-relaxed max-w-xl">
+              <p className="text-lg sm:text-xl text-gray-600 leading-relaxed max-w-xl">
                 At CubeMedia, we craft compelling marketing campaigns that drive
                 results. Join a team of creative minds reshaping how brands
                 connect with audiences in the digital age.
               </p>
 
-              <div className="flex flex-wrap gap-4">
-                <button className="bg-red-600 text-white px-8 py-4 rounded-xl font-semibold text-lg hover:bg-red-700 transition-all duration-300 hover:scale-105 hover:shadow-xl">
+              <div className="flex flex-col sm:flex-row flex-wrap gap-3 sm:gap-4">
+                <button className="bg-red-600 text-white px-6 sm:px-8 py-3 sm:py-4 rounded-xl font-semibold text-base sm:text-lg hover:bg-red-700 transition-all duration-300 hover:scale-105 hover:shadow-xl w-full sm:w-auto">
                   Join Us Today
                 </button>
-                <button className="bg-white text-gray-800 px-8 py-4 rounded-xl font-semibold text-lg border-2 border-gray-200 hover:border-red-600 hover:text-red-600 transition-all duration-300 hover:shadow-lg">
+                <button className="bg-white text-gray-800 px-6 sm:px-8 py-3 sm:py-4 rounded-xl font-semibold text-base sm:text-lg border-2 border-gray-200 hover:border-red-600 hover:text-red-600 transition-all duration-300 hover:shadow-lg w-full sm:w-auto">
                   Learn More
                 </button>
               </div>
 
               {/* Stats */}
-              <div className="grid grid-cols-3 gap-6 pt-8 border-t border-gray-200">
+              <div className="grid grid-cols-3 gap-3 sm:gap-6 pt-6 sm:pt-8 border-t border-gray-200">
                 <div>
-                  <div className="text-3xl font-bold text-gray-900">500+</div>
-                  <div className="text-sm text-gray-600">Team Members</div>
+                  <div className="text-2xl sm:text-3xl font-bold text-gray-900">
+                    500+
+                  </div>
+                  <div className="text-xs sm:text-sm text-gray-600">
+                    Team Members
+                  </div>
                 </div>
                 <div>
-                  <div className="text-3xl font-bold text-gray-900">50K+</div>
-                  <div className="text-sm text-gray-600">Clients Served</div>
+                  <div className="text-2xl sm:text-3xl font-bold text-gray-900">
+                    50K+
+                  </div>
+                  <div className="text-xs sm:text-sm text-gray-600">
+                    Clients Served
+                  </div>
                 </div>
                 <div>
-                  <div className="text-3xl font-bold text-gray-900">99%</div>
-                  <div className="text-sm text-gray-600">Satisfaction</div>
+                  <div className="text-2xl sm:text-3xl font-bold text-gray-900">
+                    99%
+                  </div>
+                  <div className="text-xs sm:text-sm text-gray-600">
+                    Satisfaction
+                  </div>
                 </div>
               </div>
             </div>
 
             {/* Right Content - Team Grid */}
-            <div className="relative animate-slide-in-right">
-              <div className="grid grid-cols-2 gap-6">
+            <div className="relative animate-slide-in-right mt-8 lg:mt-0">
+              <div className="grid grid-cols-2 gap-4 sm:gap-6">
                 {/* Card 1 */}
-                <div className="space-y-6">
-                  <div className="bg-white rounded-2xl shadow-lg overflow-hidden hover:shadow-2xl transition-all duration-300 hover:-translate-y-2">
+                <div className="space-y-4 sm:space-y-6">
+                  <div className="bg-white rounded-xl sm:rounded-2xl shadow-lg overflow-hidden hover:shadow-2xl transition-all duration-300 hover:-translate-y-2">
                     <img
                       src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=400"
                       alt="Team member"
-                      className="w-full h-64 object-cover"
+                      className="w-full h-48 sm:h-56 md:h-64 object-cover"
                     />
-                    <div className="p-4 bg-gradient-to-br from-red-50 to-white">
-                      <div className="w-12 h-1 bg-red-600 rounded-full"></div>
+                    <div className="p-3 sm:p-4 bg-gradient-to-br from-red-50 to-white">
+                      <div className="w-8 sm:w-12 h-1 bg-red-600 rounded-full"></div>
                     </div>
                   </div>
-                  <div className="bg-white rounded-2xl shadow-lg overflow-hidden hover:shadow-2xl transition-all duration-300 hover:-translate-y-2">
+                  <div className="bg-white rounded-xl sm:rounded-2xl shadow-lg overflow-hidden hover:shadow-2xl transition-all duration-300 hover:-translate-y-2">
                     <img
                       src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=400"
                       alt="Team member"
-                      className="w-full h-48 object-cover"
+                      className="w-full h-36 sm:h-40 md:h-48 object-cover"
                     />
-                    <div className="p-4 bg-gradient-to-br from-orange-50 to-white">
-                      <div className="w-12 h-1 bg-orange-600 rounded-full"></div>
+                    <div className="p-3 sm:p-4 bg-gradient-to-br from-orange-50 to-white">
+                      <div className="w-8 sm:w-12 h-1 bg-orange-600 rounded-full"></div>
                     </div>
                   </div>
                 </div>
 
                 {/* Card 2 */}
-                <div className="space-y-6 pt-12">
-                  <div className="bg-white rounded-2xl shadow-lg overflow-hidden hover:shadow-2xl transition-all duration-300 hover:-translate-y-2">
+                <div className="space-y-4 sm:space-y-6 pt-8 sm:pt-12">
+                  <div className="bg-white rounded-xl sm:rounded-2xl shadow-lg overflow-hidden hover:shadow-2xl transition-all duration-300 hover:-translate-y-2">
                     <img
                       src="https://images.unsplash.com/photo-1600880292203-757bb62b4baf?w=400"
                       alt="Team member"
-                      className="w-full h-48 object-cover"
+                      className="w-full h-36 sm:h-40 md:h-48 object-cover"
                     />
-                    <div className="p-4 bg-gradient-to-br from-purple-50 to-white">
-                      <div className="w-12 h-1 bg-purple-600 rounded-full"></div>
+                    <div className="p-3 sm:p-4 bg-gradient-to-br from-purple-50 to-white">
+                      <div className="w-8 sm:w-12 h-1 bg-purple-600 rounded-full"></div>
                     </div>
                   </div>
-                  <div className="bg-white rounded-2xl shadow-lg overflow-hidden hover:shadow-2xl transition-all duration-300 hover:-translate-y-2">
+                  <div className="bg-white rounded-xl sm:rounded-2xl shadow-lg overflow-hidden hover:shadow-2xl transition-all duration-300 hover:-translate-y-2">
                     <img
                       src="https://images.unsplash.com/photo-1556761175-5973dc0f32e7?w=400"
                       alt="Team member"
-                      className="w-full h-64 object-cover"
+                      className="w-full h-48 sm:h-56 md:h-64 object-cover"
                     />
-                    <div className="p-4 bg-gradient-to-br from-blue-50 to-white">
-                      <div className="w-12 h-1 bg-blue-600 rounded-full"></div>
+                    <div className="p-3 sm:p-4 bg-gradient-to-br from-blue-50 to-white">
+                      <div className="w-8 sm:w-12 h-1 bg-blue-600 rounded-full"></div>
                     </div>
                   </div>
                 </div>
               </div>
 
               {/* Floating Badge */}
-              <div className="absolute -top-6 -right-6 bg-white rounded-2xl shadow-2xl p-6 animate-float">
+              <div className="absolute -top-4 -right-4 sm:-top-6 sm:-right-6 bg-white rounded-xl sm:rounded-2xl shadow-2xl p-4 sm:p-6 animate-float">
                 <div className="text-center">
-                  <div className="text-4xl mb-2">⭐</div>
-                  <div className="text-2xl font-bold text-gray-900">4.9</div>
-                  <div className="text-sm text-gray-600">Rating</div>
+                  <div className="text-2xl sm:text-4xl mb-1 sm:mb-2">⭐</div>
+                  <div className="text-xl sm:text-2xl font-bold text-gray-900">
+                    4.9
+                  </div>
+                  <div className="text-xs sm:text-sm text-gray-600">Rating</div>
                 </div>
               </div>
             </div>

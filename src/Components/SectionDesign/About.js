@@ -262,7 +262,7 @@ export default function CubeAboutPage() {
                     <MapPin className="w-6 h-6 flex-shrink-0 mt-1" />
                     <div>
                       <p className="font-semibold mb-2">Address</p>
-                      <p className="text-red-100 leading-relaxed">
+                      <p className="text-red-500 font-bold leading-relaxed">
                         68, Roy Mallick Colony, Ghughudanga, Kolkata, West
                         Bengal 700074
                       </p>
@@ -272,14 +272,16 @@ export default function CubeAboutPage() {
                     <Phone className="w-6 h-6 flex-shrink-0 mt-1" />
                     <div>
                       <p className="font-semibold mb-2">Call / WhatsApp</p>
-                      <p className="text-red-100">+91 90469 65841</p>
+                      <p className="text-red-500 font-bold">+91 90469 65841</p>
                     </div>
                   </div>
                   <div className="flex items-start gap-4">
                     <Mail className="w-6 h-6 flex-shrink-0 mt-1" />
                     <div>
                       <p className="font-semibold mb-2">Email</p>
-                      <p className="text-red-100">hello@cubemultimedia.in</p>
+                      <p className="text-red-500 font-bold">
+                        hello@cubemultimedia.in
+                      </p>
                     </div>
                   </div>
                 </div>

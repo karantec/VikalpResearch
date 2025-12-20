@@ -66,6 +66,7 @@ const Navbar = () => {
       icon: "",
       items: [
         { name: "Marketing Consultancy", path: "/Marketing" },
+        { name: "About", path: "/about" },
         { name: "Sales Consultancy", path: "/SalesConsult" },
         { name: "AI Tools Integration", path: "/AITool" },
         { name: "Training & Workshops", path: "/Training" },

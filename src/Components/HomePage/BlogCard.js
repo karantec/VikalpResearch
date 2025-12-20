@@ -14,18 +14,7 @@ const RelatedBlogSection = () => {
       bgColor: "bg-yellow-50",
       titleColor: "text-gray-900",
     },
-    {
-      id: 2,
-      badge: "SEO & Growth",
-      title: "SEO vs Paid Ads: Which Digital Marketing Channel Works Best?",
-      description:
-        "Understand the key differences between SEO and paid advertising, and learn when to use each channel for maximum ROI.",
-      imageUrl:
-        "https://imgs.search.brave.com/FPZyx8SXx2UrNSb520tdHNpqWCy-EDJmXZVAaA4A58Q/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly93YWxs/cGFwZXJzLmNvbS9p/bWFnZXMvaGQvZGln/aXRhbC1tYXJrZXRp/bmctcGljdHVyZXMt/M2FpYWh5ajlndzR1/cDJpNS5qcGc",
-      buttonText: "Read Details",
-      bgColor: "bg-purple-900",
-      titleColor: "text-white",
-    },
+
     {
       id: 3,
       badge: "Social Media",
