@@ -121,9 +121,9 @@ const Navbar = () => {
           {/* Logo */}
           <Link to="/" className="flex items-center">
             <img
-              src="https://cubemultimedia.in/wp-content/uploads/2023/03/cube-web-logo-home-10.png"
+              src="https://res.cloudinary.com/de4ks8mkh/image/upload/v1766213679/cube_white_logo_k1lfbx.png"
               alt="Cube Multimedia Logo"
-              className="h-10 w-auto object-contain"
+              className="h-20 w-auto object-contain"
             />
           </Link>
 
@@ -149,32 +149,31 @@ const Navbar = () => {
                 </button>
 
                 <div className="absolute top-full left-1/2 transform -translate-x-1/2 pt-2 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200">
-  <div className="bg-white rounded-lg shadow-xl z-50 w-[400px]">
-    <div className="p-4">
-      <h4 className="text-sm font-medium text-gray-900 mb-3 flex items-center gap-2">
-        <span>{menu.icon}</span>
-        {menu.label}
-      </h4>
+                  <div className="bg-white rounded-lg shadow-xl z-50 w-[400px]">
+                    <div className="p-4">
+                      <h4 className="text-sm font-medium text-gray-900 mb-3 flex items-center gap-2">
+                        <span>{menu.icon}</span>
+                        {menu.label}
+                      </h4>
 
-      {/* Divider line */}
-      <div className="border-b border-gray-200 mb-3 w-[100px]"></div>
+                      {/* Divider line */}
+                      <div className="border-b border-gray-200 mb-3 w-[100px]"></div>
 
-      <div className="space-y-1 max-h-96 overflow-y-auto">
-        {menu.items.map((item, i) => (
-          <Link
-            key={i}
-            to={item.path}
-            onClick={handleLinkClick}
-            className="block text-sm text-gray-700 py-2 px-3 hover:text-red-700 hover:bg-gray-50 rounded transition-colors"
-          >
-            {item.name}
-          </Link>
-        ))}
-      </div>
-    </div>
-  </div>
-</div>
-
+                      <div className="space-y-1 max-h-96 overflow-y-auto">
+                        {menu.items.map((item, i) => (
+                          <Link
+                            key={i}
+                            to={item.path}
+                            onClick={handleLinkClick}
+                            className="block text-sm text-gray-700 py-2 px-3 hover:text-red-700 hover:bg-gray-50 rounded transition-colors"
+                          >
+                            {item.name}
+                          </Link>
+                        ))}
+                      </div>
+                    </div>
+                  </div>
+                </div>
               </div>
             ))}
 
